@@ -33,3 +33,5 @@ By default, `npm run build` will generate a Node app that you can run with `npm 
 
 - [lxsmnsyc/solid-tiptap](https://github.com/lxsmnsyc/solid-tiptap)
 - [@zag-js/solid](https://zagjs.com/components/solid/dialog)
+
+https://github.com/lucia-auth/examples/blob/main/solidstart/github-oauth/src/routes/login/github/index.ts
