@@ -4,9 +4,15 @@ workers_dev = true
 compatibility_date = "2023-12-01"
 compatibility_flags = [ "nodejs_compat" ]
 
+
 rules = [
   { type = "ESModule", globs = ["**/*.js", "**/*.mjs"]},
 ]
+
+[[d1_databases]]
+binding = "DB" # i.e. available in your Worker on env.DB
+database_name = "pile-chat"
+database_id = "e8329247-7a09-4ec3-bc20-5020c6c35a41"
 
 [site]
 bucket = ".output/public"
