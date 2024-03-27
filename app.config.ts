@@ -35,7 +35,7 @@ export default defineConfig({
     ],
   },
   server: {
-    preset: "cloudflare-pages",
+    preset: "cloudflare-module",
     rollupConfig: {
       external: ["__STATIC_CONTENT_MANIFEST", "node:async_hooks"],
     },
