@@ -5,10 +5,11 @@
     "dev": "vinxi dev",
     "build": "vinxi build",
     "start": "vinxi start",
-    "deploy": "wrangler deploy"
+    "deploy": "npx wrangler deploy"
   },
   "dependencies": {
     "@lucia-auth/adapter-sqlite": "^3.0.1",
+    "@shikijs/markdown-it": "^1.2.1",
     "@solid-primitives/event-listener": "^2.3.3",
     "@solid-primitives/media": "^2.2.8",
     "@solid-primitives/resize-observer": "^2.0.25",
