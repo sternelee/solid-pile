@@ -1,25 +1,39 @@
 // @refresh reload
-import { createSignal } from "solid-js";
+import { Suspense } from "solid-js";
+import { MetaProvider, Meta, Link } from "@solidjs/meta";
+import { Router } from "@solidjs/router";
+import PrefixTitle from "./components/PrefixTitle";
+import { useRegisterSW } from "virtual:pwa-register/solid";
+// @ts-ignore
+import { pwaInfo } from "virtual:pwa-info";
 import "uno.css";
 import "@unocss/reset/tailwind.css";
 import "./app.css";
 
 export default function App() {
-  const [count, setCount] = createSignal(0);
-
+  useRegisterSW({ immediate: true });
   return (
-    <main>
-      <h1>Hello world!</h1>
-      <button class="btn increment" onClick={() => setCount(count() + 1)}>
-        Clicks: {count()}
-      </button>
-      <p>
-        Visit{" "}
-        <a href="https://start.solidjs.com" target="_blank">
-          start.solidjs.com
-        </a>{" "}
-        to learn how to build SolidStart apps.
-      </p>
-    </main>
+    <Router
+      root={(props) => (
+        <MetaProvider>
+          <PrefixTitle />
+          <Meta charset="utf-8" />
+          <Link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+          <Meta name="viewport" content="width=device-width, initial-scale=1" />
+          <Link
+            rel="apple-touch-icon"
+            href="/apple-touch-icon.png"
+            sizes="192x192"
+          />
+          {pwaInfo?.webManifest?.href ? (
+            <Link rel="manifest" href={pwaInfo.webManifest.href} />
+          ) : (
+            ""
+          )}
+          <Meta name="theme-color" content="#f6f8fa" />
+          <Suspense>{props.children}</Suspense>
+        </MetaProvider>
+      )}
+    ></Router>
   );
 }
