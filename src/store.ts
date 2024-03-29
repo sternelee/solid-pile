@@ -5,7 +5,8 @@ import { batch, createEffect, createMemo, createRoot } from "solid-js"
 import { fetchAllSessions, getSession } from "./utils"
 import { Fzf } from "fzf"
 import type { Model, Option, SimpleModel } from "~/types"
-import { countTokensInWorker } from "~/wokers"
+// import { countTokensInWorker } from "~/wokers"
+import { countTokens } from "~/utils/tokens"
 import { throttle } from "@solid-primitives/scheduled"
 import Models from "~/openrouter.json"
 
@@ -123,9 +124,10 @@ function Store() {
   )
 
   const throttleCountInputContent = throttle((content: string) => {
-    countTokensInWorker(content).then(res => {
-      setStore("inputContentToken", res)
-    })
+    // countTokensInWorker(content).then(res => {
+    //   setStore("inputContentToken", res)
+    // })
+    setStore("inputContentToken", countTokens(content))
   }, 100)
 
   createEffect(() => {
@@ -134,9 +136,10 @@ function Store() {
   })
 
   const throttleCountContext = throttle((content: string) => {
-    countTokensInWorker(content).then(res => {
-      setStore("contextToken", res)
-    })
+    // countTokensInWorker(content).then(res => {
+    //   setStore("contextToken", res)
+    // })
+    setStore("contextToken", countTokens(content))
   }, 100)
 
   createEffect(() => {
@@ -145,9 +148,10 @@ function Store() {
   })
 
   const throttleCountCurrentAssistantMessage = throttle((content: string) => {
-    countTokensInWorker(content).then(res => {
-      setStore("currentMessageToken", res)
-    })
+    // countTokensInWorker(content).then(res => {
+    //   setStore("currentMessageToken", res)
+    // })
+    setStore("currentMessageToken", countTokens(content))
   }, 50)
 
   createEffect(() => {

@@ -1,7 +1,9 @@
 // @refresh reload
 import { Suspense } from "solid-js";
+import { SessionProvider } from "@solid-mediakit/auth/client";
 import { MetaProvider, Meta, Link } from "@solidjs/meta";
 import { Router } from "@solidjs/router";
+import { FileRoutes } from "@solidjs/start/router";
 import PrefixTitle from "./components/PrefixTitle";
 import { useRegisterSW } from "virtual:pwa-register/solid";
 // @ts-ignore
@@ -31,9 +33,13 @@ export default function App() {
             ""
           )}
           <Meta name="theme-color" content="#f6f8fa" />
-          <Suspense>{props.children}</Suspense>
+          <SessionProvider>
+            <Suspense>{props.children}</Suspense>
+          </SessionProvider>
         </MetaProvider>
       )}
-    ></Router>
+    >
+      <FileRoutes />
+    </Router>
   );
 }
