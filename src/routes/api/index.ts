@@ -3,7 +3,7 @@ import { createParser } from "eventsource-parser"
 import type { ChatMessage, Model } from "~/types"
 import { fetchWithTimeout } from "~/utils"
 import { defaultEnv } from "~/env"
-import type { APIEvent } from "solid-start/api"
+import type { APIEvent } from "@solidjs/start/server";
 
 export const config = {
   runtime: "edge",

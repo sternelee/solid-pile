@@ -16,7 +16,7 @@ import {
   blobToBase64
 } from "~/utils"
 import { Selector, Switch as SwitchButton } from "../Common"
-import { useNavigate } from "solid-start"
+import { useNavigate } from "@solidjs/router"
 import Models from "~/openrouter.json"
 
 export const [actionState, setActionState] = createStore({

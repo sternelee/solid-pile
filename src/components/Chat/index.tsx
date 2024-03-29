@@ -1,6 +1,6 @@
 import { createResizeObserver } from "@solid-primitives/resize-observer"
 import { batch, createEffect, createSignal, onMount } from "solid-js"
-import { useSearchParams } from "solid-start"
+import { useSearchParams } from "@solidjs/router"
 import { RootStore, loadSession } from "~/store"
 import { LocalStorageKey, type ChatMessage } from "~/types"
 import { setSession, isMobile } from "~/utils"

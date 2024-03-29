@@ -2,7 +2,7 @@ import logo from "/assets/logo.svg?raw"
 import ThemeToggle from "./ThemeToggle"
 import { RootStore, loadSession } from "~/store"
 import { Show, createMemo } from "solid-js"
-import { useNavigate } from "solid-start"
+import { useNavigate } from "@solidjs/router"
 
 function splitEmoji(text: string) {
   const [icon, title] = text

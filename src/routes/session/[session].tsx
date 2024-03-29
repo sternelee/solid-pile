@@ -1,6 +1,6 @@
 import Chat from "~/components/Chat"
 import Layout from "~/layout"
-import { useNavigate, useParams } from "solid-start"
+import { useNavigate, useParams } from "@solidjs/router"
 import { Show } from "solid-js"
 import { RootStore } from "~/store"
 import PrefixTitle from "~/components/PrefixTitle"
