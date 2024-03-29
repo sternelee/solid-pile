@@ -1,34 +1,76 @@
-import { usePrefersDark } from "@solid-primitives/media"
-import { createEffect } from "solid-js"
-import { LocalStorageKey } from "~/types"
+import { usePrefersDark } from "@solid-primitives/media";
+import { createEffect, createSignal } from "solid-js";
+import { LocalStorageKey } from "~/types";
 
 export default function ThemeToggle() {
-  const prefersDark = usePrefersDark()
+  const [isAppearanceTransition, setIsAppearanceTransition] =
+    createSignal(false);
+  const prefersDark = usePrefersDark();
   function toggle(flag: boolean) {
-    document.documentElement.classList.toggle("dark", flag)
+    document.documentElement.classList.toggle("dark", flag);
     document
       ?.querySelector('meta[name="theme-color"]')
-      ?.setAttribute("content", flag ? "#16161a" : "#f6f8fa")
+      ?.setAttribute("content", flag ? "#16161a" : "#f6f8fa");
   }
 
   createEffect(() => {
-    !localStorage.getItem(LocalStorageKey.THEME) && toggle(prefersDark())
-  })
+    setIsAppearanceTransition(
+      // @ts-expect-error: Transition API
+      document.startViewTransition &&
+        !window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    );
+    !localStorage.getItem(LocalStorageKey.THEME) && toggle(prefersDark());
+  });
 
-  function handleToggleTheme() {
-    const element = document.documentElement
-    element.classList.toggle("dark")
-    const isDark = element.classList.contains("dark")
+  function handleToggleTheme(event: MouseEvent) {
+    const element = document.documentElement;
+    element.classList.toggle("dark");
+    const isDark = element.classList.contains("dark");
     document
       ?.querySelector('meta[name="theme-color"]')
-      ?.setAttribute("content", isDark ? "#16161a" : "#f6f8fa")
-    localStorage.setItem(LocalStorageKey.THEME, isDark ? "dark" : "light")
+      ?.setAttribute("content", !isDark ? "#16161a" : "#f6f8fa");
+    localStorage.setItem(LocalStorageKey.THEME, !isDark ? "dark" : "light");
+
+    if (!isAppearanceTransition() || !event) {
+      toggle(isDark);
+    } else {
+      const x = event.clientX;
+      const y = event.clientY;
+      const endRadius = Math.hypot(
+        Math.max(x, innerWidth - x),
+        Math.max(y, innerHeight - y)
+      );
+      const transition = document
+        // @ts-expect-error: Transition API
+        .startViewTransition(async () => {
+          toggle(isDark);
+        });
+
+      transition.ready.then(() => {
+        const clipPath = [
+          `circle(0px at ${x}px ${y}px)`,
+          `circle(${endRadius}px at ${x}px ${y}px)`,
+        ];
+        document.documentElement.animate(
+          {
+            clipPath: isDark ? [...clipPath].reverse() : clipPath,
+          },
+          {
+            duration: 300,
+            easing: "ease-in",
+            pseudoElement: isDark
+              ? "::view-transition-old(root)"
+              : "::view-transition-new(root)",
+          }
+        );
+      });
+    }
   }
 
   return (
     <button
       id="theme-toggle"
-      class="flex items-center justify-center w-10 h-10 rounded-md border transition-colors border-0 hover:animate-rubber-band"
+      class="flex items-center justify-center w-10 h-10 rounded-md transition-colors border-0 hover:animate-rubber-band"
       onClick={handleToggleTheme}
     >
       <svg width="20px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -44,5 +86,5 @@ export default function ThemeToggle() {
         ></path>
       </svg>
     </button>
-  )
+  );
 }

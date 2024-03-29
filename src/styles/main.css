@@ -25,6 +25,7 @@ body::-webkit-scrollbar {
   --c-bg: #f6f8fa;
   --c-scroll-thumb: #b9b9b9;
   --c-text-slate: rgb(148, 163, 184);
+  view-transition-name: revert !important;
 }
 
 html {
@@ -38,6 +39,28 @@ html {
 header,
 #message-container-img {
   background-color: var(--c-bg);
+}
+
+::view-transition-new(root),
+::view-transition-old(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+::view-transition-old(root) {
+  z-index: 1;
+}
+
+::view-transition-new(root) {
+  z-index: 2147483646;
+}
+
+.dark::view-transition-old(root) {
+  z-index: 2147483646;
+}
+
+.dark::view-transition-new(root) {
+  z-index: 1;
 }
 
 html.dark {
