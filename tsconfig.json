@@ -1,4 +1,8 @@
 {
+  "extends": "@tsconfig/node18/tsconfig.json",
+  "exclude": [
+    "packages"
+  ],
   "compilerOptions": {
     "target": "ESNext",
     "module": "ESNext",
@@ -11,10 +15,16 @@
     "allowJs": true,
     "strict": true,
     "noEmit": true,
-    "types": ["vinxi/client", "vite/client", "vite-plugin-pwa/solid"],
+    "types": [
+      "vinxi/client",
+      "vite/client",
+      "vite-plugin-pwa/solid"
+    ],
     "isolatedModules": true,
     "paths": {
-      "~/*": ["./src/*"]
+      "~/*": [
+        "./src/*"
+      ]
     }
   }
 }

@@ -5,6 +5,11 @@
     "dev": "vinxi dev",
     "build": "vinxi build",
     "start": "vinxi start",
+    "sst:dev": "sst dev",
+    "sst:build": "sst build",
+    "sst:deploy": "sst deploy",
+    "sst:remove": "sst remove",
+    "sst:console": "sst console",
     "deploy": "npx wrangler deploy"
   },
   "dependencies": {
@@ -58,8 +63,16 @@
     "vinxi": "^0.3.11",
     "vite-plugin-pwa": "^0.19.7",
     "workbox-window": "^7.0.0",
-    "wrangler": "^3.0.1"
+    "sst": "^2.41.4",
+    "aws-cdk-lib": "2.132.1",
+    "constructs": "10.3.0",
+    "@tsconfig/node18": "^18.2.4",
+    "wrangler": "^3.0.1",
+    "solid-start-sst": "latest"
   },
+  "workspaces": [
+    "packages/*"
+  ],
   "engines": {
     "node": ">=18"
   }

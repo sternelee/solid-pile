@@ -30,3 +30,6 @@ Thumbs.db
 .output
 .vinxi
 dev-dist
+
+# sst
+.sst
