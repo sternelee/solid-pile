@@ -76,6 +76,6 @@ export default defineConfig({
   },
   middleware: "src/middleware.ts",
   server: {
-    preset: "node",
+    preset: "vercel-edge",
   },
 });

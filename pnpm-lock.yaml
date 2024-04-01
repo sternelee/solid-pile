@@ -11,6 +11,15 @@ importers:
       '@auth/core':
         specifier: ^0.28.1
         version: 0.28.1
+      '@iconify-json/carbon':
+        specifier: ^1.1.31
+        version: 1.1.31
+      '@iconify-json/ri':
+        specifier: ^1.1.20
+        version: 1.1.20
+      '@iconify-json/simple-icons':
+        specifier: ^1.1.97
+        version: 1.1.97
       '@lucia-auth/adapter-sqlite':
         specifier: ^3.0.1
         version: 3.0.1(lucia@3.1.1)
@@ -3725,6 +3734,24 @@ packages:
     transitivePeerDependencies:
       - bufferutil
       - utf-8-validate
+
+  /@iconify-json/carbon@1.1.31:
+    resolution: {integrity: sha512-CAvECFfiwGyZmlcuM2JLMRDEN3VsIEZv6lml7Xf+3giQ5oXloADm0b5wiVPFZmONKM5jXERmx+E7YSvAtFJIbw==}
+    dependencies:
+      '@iconify/types': 2.0.0
+    dev: false
+
+  /@iconify-json/ri@1.1.20:
+    resolution: {integrity: sha512-yScIGjLFBCJKWKskQTWRjNI2Awoq+VRDkRxEsCQvSfdz41n+xkRtFG2K6J1OVI90ClRHfjFC8VJ2+WzxxyFjTQ==}
+    dependencies:
+      '@iconify/types': 2.0.0
+    dev: false
+
+  /@iconify-json/simple-icons@1.1.97:
+    resolution: {integrity: sha512-/jTwrcAM2Gh8FtgEn8mHolaoY1iNbRgH3AE8OXu7JULi4Tdp31u7bmCSIaNDTLdBrXjcDpw0y98Dm20TbauBCg==}
+    dependencies:
+      '@iconify/types': 2.0.0
+    dev: false
 
   /@iconify/types@2.0.0:
     resolution: {integrity: sha512-+wluvCrRhXrhyOmRDJ3q8mux9JkKy5SJ/v8ol2tu4FVjyYvtEzkc/3pK15ET6RKg4b4w4BmTk1+gsCUhf21Ykg==}

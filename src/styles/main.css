@@ -21,13 +21,6 @@ body::-webkit-scrollbar {
   border-radius: 0.25em;
 }
 
-:root {
-  --c-bg: #f6f8fa;
-  --c-scroll-thumb: #b9b9b9;
-  --c-text-slate: rgb(148, 163, 184);
-  view-transition-name: revert !important;
-}
-
 html {
   font-family: "lucida grande", "lucida sans unicode", lucida, helvetica,
     "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
@@ -36,31 +29,8 @@ html {
   color: var(--c-fg);
 }
 
-header,
 #message-container-img {
   background-color: var(--c-bg);
-}
-
-::view-transition-new(root),
-::view-transition-old(root) {
-  animation: none;
-  mix-blend-mode: normal;
-}
-
-::view-transition-old(root) {
-  z-index: 1;
-}
-
-::view-transition-new(root) {
-  z-index: 2147483646;
-}
-
-.dark::view-transition-old(root) {
-  z-index: 2147483646;
-}
-
-.dark::view-transition-new(root) {
-  z-index: 1;
 }
 
 html.dark {
@@ -77,20 +47,26 @@ body {
   -webkit-tap-highlight-color: transparent;
 }
 
-/* html {
-  overflow-y: scroll;
+.flash-logo {
+  background: linear-gradient(
+    90deg,
+    hsl(10deg 100% 75%),
+    hsl(140deg 100% 75%) 50%,
+    hsl(240deg 100% 75%),
+    hsl(320deg 100% 75%),
+    hsl(140deg 100% 75%),
+    hsl(10deg 100% 75%)
+  );
+  -webkit-background-clip: text;
+  color: transparent;
+  background-size: 300% 200%;
+  animation: bg-move 2s both linear infinite;
+  /* animation-timeline: --section; */
+  background-position: 0 0;
 }
 
-:root {
-  overflow-y: auto;
-  overflow-x: hidden;
+@keyframes bg-move {
+  to {
+    background-position: 100% 200%;
+  }
 }
-
-:root body {
-  position: absolute;
-}
-
-body {
-  width: 100vw;
-  overflow: hidden;
-} */

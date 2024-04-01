@@ -5,12 +5,13 @@
     "dev": "vinxi dev",
     "build": "vinxi build",
     "start": "vinxi start",
+    "deploy": "wrangler pages deploy ./dist",
+    "serve": "wrangler pages dev ./dist --compatibility-flags=nodejs_als",
     "sst:dev": "sst dev",
     "sst:build": "sst build",
     "sst:deploy": "sst deploy",
     "sst:remove": "sst remove",
-    "sst:console": "sst console",
-    "deploy": "npx wrangler deploy"
+    "sst:console": "sst console"
   },
   "dependencies": {
     "@auth/core": "^0.28.1",
@@ -68,6 +69,9 @@
     "constructs": "10.3.0",
     "@tsconfig/node18": "^18.2.4",
     "wrangler": "^3.0.1",
+    "@iconify-json/carbon": "^1.1.31",
+    "@iconify-json/ri": "^1.1.20",
+    "@iconify-json/simple-icons": "^1.1.97",
     "solid-start-sst": "latest"
   },
   "workspaces": [
