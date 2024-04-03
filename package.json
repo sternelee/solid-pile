@@ -16,7 +16,6 @@
   "dependencies": {
     "@auth/core": "^0.28.1",
     "@lucia-auth/adapter-sqlite": "^3.0.1",
-    "@shikijs/markdown-it": "^1.2.1",
     "@shikijs/rehype": "^1.2.1",
     "@solid-mediakit/auth": "^2.0.7",
     "@solid-primitives/event-listener": "^2.3.3",
@@ -30,7 +29,6 @@
     "@tanstack/solid-virtual": "^3.2.0",
     "@tiptap/core": "^2.2.4",
     "@tiptap/pm": "^2.2.4",
-    "@types/markdown-it": "^13.0.7",
     "@unocss/reset": "^0.58.7",
     "@unscatty/unocss-preset-daisy": "^1.0.0",
     "@zag-js/dialog": "^0.40.0",
@@ -46,10 +44,6 @@
     "jose": "^5.2.3",
     "katex": "^0.16.10",
     "lucia": "^3.1.1",
-    "markdown-it": "^14.1.0",
-    "markdown-it-highlightjs": "^4.0.1",
-    "markdown-it-katex": "^2.0.3",
-    "markdown-it-kbd": "^2.2.2",
     "oslo": "^1.1.3",
     "remark-gfm": "^4.0.0",
     "remark-rehype": "^11.1.0",
@@ -64,19 +58,12 @@
     "vinxi": "^0.3.11",
     "vite-plugin-pwa": "^0.19.7",
     "workbox-window": "^7.0.0",
-    "sst": "^2.41.4",
-    "aws-cdk-lib": "2.132.1",
     "constructs": "10.3.0",
     "@tsconfig/node18": "^18.2.4",
-    "wrangler": "^3.0.1",
     "@iconify-json/carbon": "^1.1.31",
     "@iconify-json/ri": "^1.1.20",
-    "@iconify-json/simple-icons": "^1.1.97",
-    "solid-start-sst": "latest"
+    "@iconify-json/simple-icons": "^1.1.97"
   },
-  "workspaces": [
-    "packages/*"
-  ],
   "engines": {
     "node": ">=18"
   }

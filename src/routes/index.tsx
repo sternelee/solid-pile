@@ -1,13 +1,12 @@
 import { createSession, signIn } from "@solid-mediakit/auth/client";
-import Chat from "~/components/Chat";
 import Layout from "~/layout";
 
 export default function Index() {
   const session = createSession();
-  console.log(session());
+  console.log('session: ',session());
   return (
     <Layout>
-      <Chat />
+      <h1>Hell</h1>
     </Layout>
   );
 }
