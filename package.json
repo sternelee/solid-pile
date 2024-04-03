@@ -15,6 +15,9 @@
   },
   "dependencies": {
     "@auth/core": "^0.28.1",
+    "@iconify-json/carbon": "^1.1.31",
+    "@iconify-json/ri": "^1.1.20",
+    "@iconify-json/simple-icons": "^1.1.97",
     "@lucia-auth/adapter-sqlite": "^3.0.1",
     "@shikijs/rehype": "^1.2.1",
     "@solid-mediakit/auth": "^2.0.7",
@@ -29,12 +32,15 @@
     "@tanstack/solid-virtual": "^3.2.0",
     "@tiptap/core": "^2.2.4",
     "@tiptap/pm": "^2.2.4",
+    "@tsconfig/node18": "^18.2.4",
+    "@types/luxon": "^3.4.2",
     "@unocss/reset": "^0.58.7",
     "@unscatty/unocss-preset-daisy": "^1.0.0",
     "@zag-js/dialog": "^0.40.0",
     "@zag-js/solid": "^0.40.0",
     "arctic": "^1.2.1",
     "array-keyed-map": "^2.1.3",
+    "constructs": "10.3.0",
     "daisyui": "^4.9.0",
     "drizzle-orm": "^0.30.4",
     "eventsource-parser": "^1.1.2",
@@ -44,6 +50,7 @@
     "jose": "^5.2.3",
     "katex": "^0.16.10",
     "lucia": "^3.1.1",
+    "luxon": "^3.4.4",
     "oslo": "^1.1.3",
     "remark-gfm": "^4.0.0",
     "remark-rehype": "^11.1.0",
@@ -57,12 +64,7 @@
     "unocss": "^0.58.7",
     "vinxi": "^0.3.11",
     "vite-plugin-pwa": "^0.19.7",
-    "workbox-window": "^7.0.0",
-    "constructs": "10.3.0",
-    "@tsconfig/node18": "^18.2.4",
-    "@iconify-json/carbon": "^1.1.31",
-    "@iconify-json/ri": "^1.1.20",
-    "@iconify-json/simple-icons": "^1.1.97"
+    "workbox-window": "^7.0.0"
   },
   "engines": {
     "node": ">=18"
