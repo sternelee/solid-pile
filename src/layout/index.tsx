@@ -1,4 +1,5 @@
 import type { JSXElement } from "solid-js"
+import styles from './PileLayout.module.scss';
 
 export default function ({ children }: { children: JSXElement }) {
   return (
