@@ -4,7 +4,7 @@ import { DateTime } from "luxon";
 import { Motion } from "solid-motionone";
 import { store, setStore } from "~/store";
 import { visibleIndex, closestDate } from "~/store/timeline";
-import Sidebar from "~/components/sidebar";
+import Sidebar from "~/components/Sidebar";
 import styles from "./PileLayout.module.scss";
 
 export default function Index() {
@@ -65,9 +65,7 @@ export default function Index() {
               <Chat />
               <Reflections />
               <Settings />
-              <Link to="/" class={`${styles.iconHolder}`}>
-                <HomeIcon class={styles.homeIcon} />
-              </Link>
+              <HomeIcon class={styles.homeIcon} />
             </div>
           </div>
           {children}
