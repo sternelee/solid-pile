@@ -1,14 +1,6 @@
-import { countTokens } from "~/utils/tokens"
+import { createWorker } from "@solid-primitives/workers";
+import { countTokens } from "~/utils/tokens";
 
-const sw = self as unknown as ServiceWorkerGlobalScope & typeof globalThis
+const [worker] = createWorker(countTokens);
 
-sw.addEventListener("message", event => {
-  if (event.data.type === "token" && event.data.payload) {
-    const tokens = countTokens(event.data.payload)
-    sw.postMessage({
-      type: "token-return",
-      payload: tokens,
-      id: event.data.id
-    })
-  }
-})
+export default worker.countTokens;

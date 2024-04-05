@@ -4,15 +4,9 @@ import { RootStore } from "~/store";
 import type { ChatMessage } from "~/types";
 import { copyToClipboard } from "~/utils";
 import MessageAction from "./MessageAction";
-import openai from "/assets/openai.svg?raw";
-// import vercel from "/assets/vercel.svg?raw"
 import type { FakeRoleUnion } from "./SettingAction";
-// import { renderMarkdownInWorker } from "~/wokers"
-import { SolidMarkdown } from "solid-markdown";
-import remarkGfm from "remark-gfm";
-// import remarkRehype from "remark-rehype";
-// import rehypeShiki from "@shikijs/rehype";
-// import { throttle } from "@solid-primitives/scheduled";
+import { md } from "~/markdown-it"
+import { throttle } from "@solid-primitives/scheduled";
 
 interface Props {
   message: ChatMessage;
@@ -48,7 +42,7 @@ export default function MessageItem(props: Props) {
             !(
               i === props.index ||
               (i === props.index! + 1 && _.role !== "user")
-            )
+            ),
         );
       }
       return messages.filter((_, i) => i !== props.index);
@@ -65,12 +59,12 @@ export default function MessageItem(props: Props) {
             !(
               i === props.index ||
               (i === props.index! + 1 && _.role !== "user")
-            )
+            ),
         );
       } else {
         question = messages[props.index! - 1].content;
         return messages.filter(
-          (_, i) => !(i === props.index || i === props.index! - 1)
+          (_, i) => !(i === props.index || i === props.index! - 1),
         );
       }
     });
@@ -86,32 +80,33 @@ export default function MessageItem(props: Props) {
           i === props.index ||
           (i === props.index! + 1 && k.role === "assistant"),
         "type",
-        (type) => (type === "locked" ? undefined : "locked")
+        (type) => (type === "locked" ? undefined : "locked"),
       );
     } else {
       setStore("messageList", [props.index - 1, props.index], "type", (type) =>
-        type === "locked" ? undefined : "locked"
+        type === "locked" ? undefined : "locked",
       );
     }
   }
 
-  // const throttleRender = throttle((content: string) => {
-  //   renderMarkdownInWorker(content).then(html => {
-  //     setRenderedMarkdown(html)
-  //   })
-  // }, 50)
+  const throttleRender = throttle((content: string) => {
+    setRenderedMarkdown(md.render(content))
+    // renderMarkdownInWorker(content).then(html => {
+    //   setRenderedMarkdown(html)
+    // })
+  }, 50)
 
   createEffect(() => {
-    // if (props.message.type === "temporary") {
-    //   throttleRender(props.message.content);
-    // } else {
-    //   renderMarkdownInWorker(props.message.content).then((html) => {
-    //     setRenderedMarkdown(html);
-    //   });
-    // }
-    setRenderedMarkdown(props.message.content);
+    if (props.message.type === "temporary") {
+      throttleRender(props.message.content);
+    } else {
+    setRenderedMarkdown(md.render(props.message.content))
+      // renderMarkdownInWorker(props.message.content).then((html) => {
+      //   setRenderedMarkdown(html);
+      // });
+    }
+    // setRenderedMarkdown(props.message.content);
   });
-
   return (
     <Show when={renderedMarkdown()}>
       <div
@@ -136,14 +131,11 @@ export default function MessageItem(props: Props) {
             <div class="i-carbon:locked text-white" />
           </Show>
         </div>
-        <SolidMarkdown
-          remarkPlugins={[remarkGfm]}
-          class="message prose prose-slate break-all text-left dark:prose-invert dark:text-slate break-words overflow-hidden"
-          children={renderedMarkdown().replace(
-            /\s*OpenRouter\s*/g,
-            `<a href="https://openrouter.ai/" style="border-bottom:0;margin-left: 6px">${openai}</a>`
-          )}
-        ></SolidMarkdown>
+          <div
+            class="message prose prose-slate break-all dark:prose-invert dark:text-slate break-words overflow-hidden"
+            style="max-width:100%"
+            innerHTML={renderedMarkdown()}
+          />
         <Show when={!props.hiddenAction}>
           <MessageAction
             del={del}

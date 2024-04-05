@@ -33,12 +33,10 @@ body {
 }
 
 :root {
-  --c-bg: #f6f8fa;
   --c-scroll-thumb: #b9b9b9;
   --c-text-slate: rgb(148, 163, 184);
   view-transition-name: revert !important;
 }
-
 
 ::view-transition-new(root),
 ::view-transition-old(root) {
@@ -60,4 +58,28 @@ body {
 
 .dark::view-transition-new(root) {
   z-index: 1;
+}
+
+.flash-logo {
+  background: linear-gradient(
+    90deg,
+    hsl(10deg 100% 75%),
+    hsl(140deg 100% 75%) 50%,
+    hsl(240deg 100% 75%),
+    hsl(320deg 100% 75%),
+    hsl(140deg 100% 75%),
+    hsl(10deg 100% 75%)
+  );
+  -webkit-background-clip: text;
+  color: transparent;
+  background-size: 300% 200%;
+  animation: bg-move 2s both linear infinite;
+  /* animation-timeline: --section; */
+  background-position: 0 0;
+}
+
+@keyframes bg-move {
+  to {
+    background-position: 100% 200%;
+  }
 }

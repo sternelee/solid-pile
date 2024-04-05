@@ -84,9 +84,9 @@ export function randomKey(keys: string[]) {
   return keys.length ? keys[Math.floor(Math.random() * keys.length)] : ""
 }
 
-export const scrollToBottom = throttle(() => {
+export const scrollToBottom = throttle((top: number = document.body.scrollHeight) => {
   window.scrollTo({
-    top: document.body.scrollHeight,
+    top,
     behavior: "smooth"
   })
 }, 250)

@@ -1,14 +1,6 @@
-import { md } from "~/markdown-it"
+import { createWorker } from "@solid-primitives/workers";
+import { md } from "~/markdown-it";
 
-const sw = self as unknown as ServiceWorkerGlobalScope & typeof globalThis
+const [worker] = createWorker(md.render);
 
-sw.addEventListener("message", event => {
-  if (event.data.type === "markdown" && event.data.payload) {
-    const renderd = md.render(event.data.payload)
-    sw.postMessage({
-      type: "markdown-return",
-      payload: renderd,
-      id: event.data.id
-    })
-  }
-})
+export default worker;

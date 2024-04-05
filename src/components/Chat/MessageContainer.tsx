@@ -1,61 +1,76 @@
-import { type Accessor, For, Show, createEffect, createMemo } from "solid-js"
-import { RootStore, defaultMessage } from "~/store"
-import { scrollToBottom } from "~/utils"
-import MessageItem from "./MessageItem"
-import { defaultInputBoxHeight } from "./InputBox"
-import { TransitionGroup } from "solid-transition-group"
-import "~/styles/transition.css"
+import {
+  type Accessor,
+  For,
+  Show,
+  createEffect,
+  createMemo,
+  createComputed,
+} from "solid-js";
+import { RootStore, defaultMessage } from "~/store";
+import { scrollToBottom } from "~/utils";
+import MessageItem from "./MessageItem";
+import { defaultInputBoxHeight } from "./InputBox";
+import { ProviderMap } from "~/providers";
+import { TransitionGroup } from "solid-transition-group";
+import "~/styles/transition.css";
 
 export default function ({
   sendMessage,
-  inputBoxHeight
+  inputBoxHeight,
 }: {
-  sendMessage(value?: string): void
-  inputBoxHeight: Accessor<number>
+  sendMessage(value?: string): void;
+  inputBoxHeight: Accessor<number>;
 }) {
-  const { store } = RootStore
+  const { store } = RootStore;
   // 防止重新设置高度时页面跳动
   const paddingBottom = createMemo(
-    k =>
+    (k) =>
       inputBoxHeight() === defaultInputBoxHeight - 1 ? k : inputBoxHeight(),
-    defaultInputBoxHeight
-  )
+    defaultInputBoxHeight,
+  );
 
   createEffect((prev: number | undefined) => {
     if (prev !== undefined && store.messageList.length > prev) {
-      scrollToBottom()
+      scrollToBottom();
     }
-    return store.messageList.length
-  })
+    return store.messageList.length;
+  });
 
-  createEffect(prev => {
-    if (store.currentAssistantMessage) scrollToBottom()
-  })
+  createEffect((prev) => {
+    if (store.currentAssistantMessage) scrollToBottom();
+  });
 
-  createEffect(prev => {
-    inputBoxHeight()
+  createEffect((prev) => {
+    inputBoxHeight();
     if (prev && paddingBottom() !== defaultInputBoxHeight) {
-      scrollToBottom()
+      scrollToBottom();
     }
-    return true
-  })
+    return true;
+  });
 
   const shownTokens = (token: number) => {
-    if (token > 1000) return (token / 1000).toFixed(1) + "k"
-    else return token
-  }
+    if (token > 1000) return (token / 1000).toFixed(1) + "k";
+    else return token;
+  };
+
+  const defaultMessage$ = {
+      ...defaultMessage,
+      content: `💡请自行填写 APIKey，点击👉 [去申请](${
+        ProviderMap[store.currentProvider].href
+      })\n ${defaultMessage.content}`,
+    };
 
   return (
     <div
       class="px-1em"
       id="message-container"
       style={{
-        "margin-bottom": `calc(6em + ${paddingBottom() + "px"})`
+        "margin-bottom": `calc(6em + ${paddingBottom() + "px"})`,
       }}
     >
       <div id="message-container-img" class="px-1em">
         <Show when={!store.messageList.length}>
-          <MessageItem hiddenAction={true} message={defaultMessage} />
+          <MessageItem hiddenAction={true} message={defaultMessage$} />
         </Show>
         <TransitionGroup name="transition-group">
           <For each={store.messageList}>
@@ -80,24 +95,24 @@ export default function ({
             fallback={
               <span class="mx-1 text-slate/40">
                 {`有效上下文 Tokens : ${shownTokens(
-                  store.contextToken
+                  store.contextToken,
                 )}/$${store.contextToken$.toFixed(8)}`}
               </span>
             }
           >
             <span class="mx-1 text-slate/40">
               {`有效上下文+提问 Tokens : ${shownTokens(
-                store.contextToken + store.inputContentToken
+                store.contextToken + store.inputContentToken,
               )}(`}
               <span
                 classList={{
-                  "text-red-500": store.remainingToken < 0
+                  "text-red-500": store.remainingToken < 0,
                 }}
               >
                 {shownTokens(store.remainingToken)}
               </span>
               {`)/$${(store.contextToken$ + store.inputContentToken$).toFixed(
-                4
+                4,
               )}`}
             </span>
           </Show>
@@ -105,5 +120,5 @@ export default function ({
         </div>
       </Show>
     </div>
-  )
+  );
 }

@@ -1,53 +1,53 @@
 import { createStore } from "solid-js/store";
-import { defaultEnv } from "./env"
-import { type ChatMessage, LocalStorageKey } from "./types"
-import { batch, createEffect, createMemo, createRoot } from "solid-js"
-import { fetchAllSessions, getSession } from "./utils"
-import { Fzf } from "fzf"
-import type { Model, Option, SimpleModel } from "~/types"
-// import { countTokensInWorker } from "~/wokers"
-import { countTokens } from "~/utils/tokens"
-import { throttle } from "@solid-primitives/scheduled"
-import Models from "~/openrouter.json"
+import { defaultEnv } from "./env";
+import { type ChatMessage, LocalStorageKey } from "./types";
+import { batch, createEffect, createMemo, createRoot } from "solid-js";
+import { fetchAllSessions, getSession } from "./utils";
+import { Fzf } from "fzf";
+import type { Model, Option } from "~/types";
+// import { countTokensInWorker } from "~/wokers/tokens.worker"
+import { countTokens } from "~/utils/tokens";
+import { throttle } from "@solid-primitives/scheduled";
+import { ProviderMap } from "~/providers";
 
-let globalSettings = { ...defaultEnv.CLIENT_GLOBAL_SETTINGS }
-let _ = import.meta.env.CLIENT_GLOBAL_SETTINGS
+let GLOBAL_SETTINGS = { ...defaultEnv.CLIENT_GLOBAL_SETTINGS };
+let _ = import.meta.env.CLIENT_GLOBAL_SETTINGS;
 if (_) {
   try {
-    globalSettings = {
-      ...globalSettings,
-      ...JSON.parse(_)
-    }
+    GLOBAL_SETTINGS = {
+      ...GLOBAL_SETTINGS,
+      ...JSON.parse(_),
+    };
   } catch (e) {
-    console.error("Error parsing CLIENT_GLOBAL_SETTINGS:", e)
+    console.error("Error parsing CLIENT_GLOBAL_SETTINGS:", e);
   }
 }
 
-let sessionSettings = { ...defaultEnv.CLIENT_SESSION_SETTINGS }
-_ = import.meta.env.CLIENT_SESSION_SETTINGS
+let sessionSettings = { ...defaultEnv.CLIENT_SESSION_SETTINGS };
+_ = import.meta.env.CLIENT_SESSION_SETTINGS;
 if (_) {
   try {
     sessionSettings = {
       ...sessionSettings,
-      ...JSON.parse(_)
-    }
+      ...JSON.parse(_),
+    };
   } catch (e) {
-    console.error("Error parsing CLIENT_SESSION_SETTINGS:", e)
+    console.error("Error parsing CLIENT_SESSION_SETTINGS:", e);
   }
 }
 
-let maxInputTokens = defaultEnv.CLIENT_MAX_INPUT_TOKENS
-_ = import.meta.env.CLIENT_MAX_INPUT_TOKENS
+let maxInputTokens = defaultEnv.CLIENT_MAX_INPUT_TOKENS;
+_ = import.meta.env.CLIENT_MAX_INPUT_TOKENS;
 if (_) {
   try {
     if (Number.isNaN(+_)) {
       maxInputTokens = {
         ...maxInputTokens,
-        ...JSON.parse(_)
-      }
+        ...JSON.parse(_),
+      };
     }
   } catch (e) {
-    console.error("Error parsing CLIENT_MAX_INPUT_TOKENS:", e)
+    console.error("Error parsing CLIENT_MAX_INPUT_TOKENS:", e);
   }
 }
 
@@ -55,28 +55,33 @@ export const defaultMessage: ChatMessage = {
   role: "assistant",
   content:
     import.meta.env.CLIENT_DEFAULT_MESSAGE || defaultEnv.CLIENT_DEFAULT_MESSAGE,
-  type: "default"
-}
+  provide: "openai",
+  model: "gpt-3.5-turbo",
+  type: "default",
+};
 
-const ModelCostMap = {} satisfies {
-  [key in Model]: {
-    input: number
-    output: number
-  }
-}
+const ModelCostMap: {
+  [key: string]: {
+    input: number;
+    output: number;
+  };
+} = {};
 
-Models.data.forEach(v => {
-  // @ts-ignore
-  ModelCostMap[v.id + `${v.pricing.prompt === 0 ? "(free)" : ""}`] = {
-    input: Number(v.pricing.prompt),
-    output: Number(v.pricing.completion)
-  }
-})
+Object.values(ProviderMap)
+  .map((v) => v.models)
+  .forEach((v) => {
+    v.forEach((m) => {
+      ModelCostMap[m.value] = {
+        input: m.input,
+        output: m.output,
+      };
+    });
+  });
 
 function Store() {
   const [store, setStore] = createStore({
     sessionId: "index",
-    globalSettings,
+    GLOBAL_SETTINGS,
     sessionSettings,
     inputContent: "",
     inputImage: "",
@@ -88,24 +93,27 @@ function Store() {
     loading: false,
     inputRef: null as HTMLTextAreaElement | null,
     get validContext() {
-      return validContext()
+      return validContext();
     },
     get contextToken$() {
-      return contextToken$()
+      return contextToken$();
     },
     get currentMessageToken$() {
-      return currentMessageToken$()
+      return currentMessageToken$();
     },
     get inputContentToken$() {
-      return inputContentToken$()
+      return inputContentToken$();
     },
     get remainingToken() {
-      return remainingToken()
+      return remainingToken();
     },
     get currentModel() {
-      return currentModel()
-    }
-  })
+      return currentModel();
+    },
+    get currentProvider() {
+      return currentProvider();
+    },
+  });
 
   const validContext = createMemo(() =>
     store.sessionSettings.continuousDialogue
@@ -116,163 +124,167 @@ function Store() {
               _[i - 1]?.role === "user") ||
             (k.role === "user" &&
               _[i + 1]?.role !== "error" &&
-              _[i + 1]?.type !== "temporary")
+              _[i + 1]?.type !== "temporary"),
         )
       : store.messageList.filter(
-          k => k.role === "system" || k.type === "locked"
-        )
-  )
+          (k) => k.role === "system" || k.type === "locked",
+        ),
+  );
 
   const throttleCountInputContent = throttle((content: string) => {
     // countTokensInWorker(content).then(res => {
     //   setStore("inputContentToken", res)
     // })
-    setStore("inputContentToken", countTokens(content))
-  }, 100)
+    setStore("inputContentToken", countTokens(content));
+  }, 100);
 
   createEffect(() => {
-    store.inputContent
-    throttleCountInputContent(store.inputContent)
-  })
+    store.inputContent;
+    throttleCountInputContent(store.inputContent);
+  });
 
   const throttleCountContext = throttle((content: string) => {
     // countTokensInWorker(content).then(res => {
     //   setStore("contextToken", res)
     // })
-    setStore("contextToken", countTokens(content))
-  }, 100)
+    setStore("contextToken", countTokens(content));
+  }, 100);
 
   createEffect(() => {
-    store.validContext
-    throttleCountContext(store.validContext.map(k => k.content).join("\n"))
-  })
+    store.validContext;
+    throttleCountContext(store.validContext.map((k) => k.content).join("\n"));
+  });
 
   const throttleCountCurrentAssistantMessage = throttle((content: string) => {
     // countTokensInWorker(content).then(res => {
     //   setStore("currentMessageToken", res)
     // })
-    setStore("currentMessageToken", countTokens(content))
-  }, 50)
+    setStore("currentMessageToken", countTokens(content));
+  }, 50);
 
   createEffect(() => {
-    throttleCountCurrentAssistantMessage(store.currentAssistantMessage)
-  })
+    throttleCountCurrentAssistantMessage(store.currentAssistantMessage);
+  });
 
   const remainingToken = createMemo(
     () =>
-      (store.globalSettings.APIKey
+      (store.GLOBAL_SETTINGS.APIKeys
         ? maxInputTokens[store.sessionSettings.model]
         : defaultEnv.CLIENT_MAX_INPUT_TOKENS[store.sessionSettings.model]) -
       store.contextToken -
-      store.inputContentToken
-  )
+      store.inputContentToken,
+  );
 
   const currentModel = createMemo(() => {
-    return store.sessionSettings.model
-  })
+    return store.sessionSettings.model;
+  });
+
+  const currentProvider = createMemo(() => {
+    return store.sessionSettings.provider;
+  });
 
   const inputContentToken$ = createMemo(() =>
-    countTokensDollar(store.inputContentToken, store.currentModel, "input")
-  )
+    countTokensDollar(store.inputContentToken, store.currentModel, "input"),
+  );
   const contextToken$ = createMemo(() =>
-    countTokensDollar(store.contextToken, store.currentModel, "input")
-  )
+    countTokensDollar(store.contextToken, store.currentModel, "input"),
+  );
   const currentMessageToken$ = createMemo(() =>
-    countTokensDollar(store.currentMessageToken, store.currentModel, "output")
-  )
+    countTokensDollar(store.currentMessageToken, store.currentModel, "output"),
+  );
 
-  return { store, setStore }
+  return { store, setStore };
 }
 
-export const RootStore = createRoot(Store)
+export const RootStore = createRoot(Store);
 
 export const FZFData = {
   promptOptions: [] as Option[],
   fzfPrompts: undefined as Fzf<Option[]> | undefined,
   sessionOptions: [] as Option[],
-  fzfSessions: undefined as Fzf<Option[]> | undefined
-}
+  fzfSessions: undefined as Fzf<Option[]> | undefined,
+};
 
 export function loadSession(id: string) {
-  const { store, setStore } = RootStore
+  const { store, setStore } = RootStore;
   // 只触发一次更新
   batch(() => {
-    setStore("sessionId", id)
+    setStore("sessionId", id);
     try {
-      const globalSettings = localStorage.getItem(
-        LocalStorageKey.GLOBALSETTINGS
-      )
-      const session = getSession(id)
-      if (globalSettings) {
-        const parsed = JSON.parse(globalSettings)
-        setStore("globalSettings", t => ({
+      const GLOBAL_SETTINGS = localStorage.getItem(
+        LocalStorageKey.GLOBAL_SETTINGS,
+      );
+      const session = getSession(id);
+      if (GLOBAL_SETTINGS) {
+        const parsed = JSON.parse(GLOBAL_SETTINGS);
+        setStore("GLOBAL_SETTINGS", (t) => ({
           ...t,
-          ...parsed
-        }))
+          ...parsed,
+        }));
       }
       if (session) {
-        const { settings, messages } = session
+        const { settings, messages } = session;
         if (settings) {
-          setStore("sessionSettings", t => ({
+          setStore("sessionSettings", (t) => ({
             ...t,
-            ...settings
-          }))
+            ...settings,
+          }));
         }
         if (messages) {
           if (store.sessionSettings.saveSession) {
-            setStore("messageList", messages)
+            setStore("messageList", messages);
           } else {
             setStore(
               "messageList",
-              messages.filter(m => m.type === "locked")
-            )
+              messages.filter((m) => m.type === "locked"),
+            );
           }
         }
       }
     } catch {
-      console.log("Localstorage parse error")
+      console.log("Localstorage parse error");
     }
-  })
+  });
   setTimeout(() => {
-    const seesions = fetchAllSessions()
+    const seesions = fetchAllSessions();
     FZFData.sessionOptions = seesions
       .sort((m, n) => n.lastVisit - m.lastVisit)
-      .filter(k => k.id !== store.sessionId && k.id !== "index")
-      .map(k => ({
+      .filter((k) => k.id !== store.sessionId && k.id !== "index")
+      .map((k) => ({
         title: k.settings.title,
-        desc: k.messages.map(k => k.content).join("\n"),
+        desc: k.messages.map((k) => k.content).join("\n"),
         extra: {
-          id: k.id
-        }
-      }))
+          id: k.id,
+        },
+      }));
     if (id !== "index") {
       FZFData.sessionOptions.unshift({
         title: "回到主对话",
         desc:
           "其实点击顶部 Logo 也可以直接回到主对话。" +
             seesions
-              .find(k => k.id === "index")
-              ?.messages.map(k => k.content)
+              .find((k) => k.id === "index")
+              ?.messages.map((k) => k.content)
               .join("\n") ?? "",
         extra: {
-          id: "index"
-        }
-      })
+          id: "index",
+        },
+      });
     }
     FZFData.fzfSessions = new Fzf(FZFData.sessionOptions, {
-      selector: k => `${k.title}\n${k.desc}`
-    })
-  }, 500)
+      selector: (k) => `${k.title}\n${k.desc}`,
+    });
+  }, 500);
 }
 
 function countTokensDollar(
   tokens: number,
   model: Model,
-  io: "input" | "output"
+  io: "input" | "output",
 ) {
-  const tk = tokens / 1000
+  const tk = tokens / 1000;
   // @ts-ignore
-  return ModelCostMap[model][io] * tk
+  return ModelCostMap[model][io] * tk;
 }
 
 export type Channel = {
