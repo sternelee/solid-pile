@@ -15,7 +15,7 @@ export function loadTiktoken() {
   return _tiktokenEncoder;
 }
 
-export async function countTokens(text: string) {
+export function countTokens(text: string) {
   const tokenizer = loadTiktoken();
   return tokenizer?.encode(text).length;
 }
