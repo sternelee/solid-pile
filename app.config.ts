@@ -7,7 +7,7 @@ import {
   transformerDirectives,
   transformerVariantGroup,
 } from "unocss";
-import { presetDaisy } from "@unscatty/unocss-preset-daisy";
+// import { presetDaisy } from "@unscatty/unocss-preset-daisy";
 import { VitePWA } from "vite-plugin-pwa";
 import wasm from "vite-plugin-wasm";
 
@@ -20,7 +20,7 @@ export default defineConfig({
         transformers: [transformerDirectives(), transformerVariantGroup()],
         presets: [
           presetUno(),
-          presetDaisy(),
+          // presetDaisy(),
           presetTypography({
             cssExtend: {
               ":not(pre) > code::before,:not(pre) > code::after": {
