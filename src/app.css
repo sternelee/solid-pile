@@ -32,6 +32,10 @@ body {
   line-height: inherit;
 }
 
+#root, header {
+  background: var(--c-bg);
+}
+
 :root {
   --c-scroll-thumb: #b9b9b9;
   --c-text-slate: rgb(148, 163, 184);

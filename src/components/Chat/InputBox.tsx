@@ -168,6 +168,7 @@ export default function ({
     <div
       class="pb-2em px-2em fixed bottom-0 z-100"
       style={{
+        background: 'var(--c-bg)',
         width: width() === "init" ? "100%" : width(),
       }}
     >
@@ -222,7 +223,7 @@ export default function ({
               spellcheck={false}
               value={store.inputContent}
               // autofocus
-              onClick={scrollToBottom}
+              onClick={() => scrollToBottom()}
               onKeyDown={(e) => {
                 if (e.isComposing) return;
                 if (candidateOptions().length) {
