@@ -9,10 +9,12 @@ import {
 } from "unocss";
 import { presetDaisy } from "@unscatty/unocss-preset-daisy";
 import { VitePWA } from "vite-plugin-pwa";
+import wasm from "vite-plugin-wasm";
 
 export default defineConfig({
   vite: {
     plugins: [
+      wasm(),
       unocss({
         mergeSelectors: false,
         transformers: [transformerDirectives(), transformerVariantGroup()],

@@ -1,26 +1,21 @@
-import GPT3Tokenizer from "./tokenizer";
+import { Tiktoken } from "@dqbd/tiktoken/lite";
+import model from "@dqbd/tiktoken/encoders/cl100k_base.json";
 
-export default class GPT3NodeTokenizer extends GPT3Tokenizer {
-  private textEncoder: TextEncoder;
-  private textDecoder: TextDecoder;
+let _tiktokenEncoder: Tiktoken | null = null;
 
-  constructor(options: { type: "gpt3" | "codex" }) {
-    super(options);
-
-    this.textEncoder = new TextEncoder();
-    this.textDecoder = new TextDecoder();
+export function loadTiktoken() {
+  if (_tiktokenEncoder) {
+    return _tiktokenEncoder;
   }
-
-  encodeUtf8(text: string): Uint8Array {
-    return this.textEncoder.encode(text);
-  }
-
-  decodeUtf8(bytes: Uint8Array): string {
-    return this.textDecoder.decode(bytes);
-  }
+  _tiktokenEncoder = new Tiktoken(
+    model.bpe_ranks,
+    model.special_tokens,
+    model.pat_str
+  );
+  return _tiktokenEncoder;
 }
 
-export function countTokens(text: string) {
-  const tokenizer = new GPT3NodeTokenizer({ type: "gpt3" });
-  return tokenizer.encode(text).bpe.length;
+export async function countTokens(text: string) {
+  const tokenizer = loadTiktoken();
+  return tokenizer?.encode(text).length;
 }

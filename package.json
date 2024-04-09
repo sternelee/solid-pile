@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "@auth/core": "^0.28.1",
+    "@dqbd/tiktoken": "^1.0.13",
     "@iconify-json/carbon": "^1.1.31",
     "@iconify-json/ri": "^1.1.20",
     "@iconify-json/simple-icons": "^1.1.97",
@@ -73,6 +74,7 @@
     "unocss": "^0.58.7",
     "vinxi": "^0.3.11",
     "vite-plugin-pwa": "^0.19.7",
+    "vite-plugin-wasm": "^3.3.0",
     "workbox-window": "^7.0.0",
     "wrangler": "^3.0.1"
   },
