@@ -78,6 +78,6 @@ export default defineConfig({
   },
   middleware: "src/middleware.ts",
   server: {
-    preset: "vercel",
+    preset: "cloudflare-pages",
   },
 });
