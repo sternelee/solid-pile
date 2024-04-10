@@ -18,7 +18,6 @@ export default function App() {
     <Router
       root={(props) => (
         <MetaProvider>
-          <PrefixTitle />
           <Meta charset="utf-8" />
           <Link rel="icon" type="image/svg+xml" href="/favicon.svg" />
           <Meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -33,6 +32,7 @@ export default function App() {
             ""
           )}
           <Meta name="theme-color" content="#f6f8fa" />
+          <PrefixTitle>Lee</PrefixTitle>
           <Suspense>{props.children}</Suspense>
         </MetaProvider>
       )}
