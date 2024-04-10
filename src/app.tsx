@@ -1,7 +1,6 @@
 // @refresh reload
 import { Suspense } from "solid-js";
 import { isServer } from "solid-js/web";
-import { SessionProvider } from "@solid-mediakit/auth/client";
 import { MetaProvider, Meta, Link } from "@solidjs/meta";
 import { Router } from "@solidjs/router";
 import { FileRoutes } from "@solidjs/start/router";
@@ -34,9 +33,7 @@ export default function App() {
             ""
           )}
           <Meta name="theme-color" content="#f6f8fa" />
-          <SessionProvider>
-            <Suspense>{props.children}</Suspense>
-          </SessionProvider>
+          <Suspense>{props.children}</Suspense>
         </MetaProvider>
       )}
     >

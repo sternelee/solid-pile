@@ -1,12 +1,11 @@
-import { Show, createEffect, createSignal } from "solid-js";
+import { Show } from "solid-js";
 import { useCopyCode } from "~/hooks";
 import { RootStore } from "~/store";
 import type { ChatMessage } from "~/types";
 import { copyToClipboard } from "~/utils";
 import MessageAction from "./MessageAction";
 import type { FakeRoleUnion } from "./SettingAction";
-import { md } from "~/markdown-it"
-import { throttle } from "@solid-primitives/scheduled";
+import { SolidMarkdown } from "solid-markdown";
 
 interface Props {
   message: ChatMessage;
@@ -18,7 +17,6 @@ interface Props {
 export default function MessageItem(props: Props) {
   useCopyCode();
   const { store, setStore } = RootStore;
-  const [renderedMarkdown, setRenderedMarkdown] = createSignal("");
   const roleClass = {
     error: "bg-gradient-to-r from-red-400 to-red-700",
     user: "bg-gradient-to-r from-red-300 to-blue-700 ",
@@ -89,26 +87,8 @@ export default function MessageItem(props: Props) {
     }
   }
 
-  const throttleRender = throttle((content: string) => {
-    setRenderedMarkdown(md.render(content))
-    // renderMarkdownInWorker(content).then(html => {
-    //   setRenderedMarkdown(html)
-    // })
-  }, 50)
-
-  createEffect(() => {
-    if (props.message.type === "temporary") {
-      throttleRender(props.message.content);
-    } else {
-    setRenderedMarkdown(md.render(props.message.content))
-      // renderMarkdownInWorker(props.message.content).then((html) => {
-      //   setRenderedMarkdown(html);
-      // });
-    }
-    // setRenderedMarkdown(props.message.content);
-  });
   return (
-    <Show when={renderedMarkdown()}>
+    <Show when={props.message.content}>
       <div
         class="group flex gap-3 px-4 mx--4 rounded-lg transition-colors sm:hover:bg-slate/6 dark:sm:hover:bg-slate/5 relative message-item"
         style={{
@@ -131,11 +111,10 @@ export default function MessageItem(props: Props) {
             <div class="i-carbon:locked text-white" />
           </Show>
         </div>
-          <div
-            class="message prose prose-slate break-all dark:prose-invert dark:text-slate break-words overflow-hidden"
-            style="max-width:100%"
-            innerHTML={renderedMarkdown()}
-          />
+        <SolidMarkdown
+          class="message prose prose-slate break-all max-w-full dark:prose-invert dark:text-slate break-words overflow-hidden"
+          children={props.message.content}
+        />
         <Show when={!props.hiddenAction}>
           <MessageAction
             del={del}

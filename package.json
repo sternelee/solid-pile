@@ -2,16 +2,11 @@
   "name": "solid-pile",
   "type": "module",
   "scripts": {
-    "dev": "vinxi dev",
+    "dev": "PORT=5678 vinxi dev",
     "build": "vinxi build",
     "start": "vinxi start",
     "deploy": "wrangler pages deploy ./dist",
-    "serve": "wrangler pages dev ./dist --compatibility-flags=nodejs_als",
-    "sst:dev": "sst dev",
-    "sst:build": "sst build",
-    "sst:deploy": "sst deploy",
-    "sst:remove": "sst remove",
-    "sst:console": "sst console"
+    "serve": "wrangler pages dev ./dist --compatibility-flags=nodejs_als"
   },
   "dependencies": {
     "@auth/core": "^0.28.1",
@@ -67,10 +62,8 @@
     "solid-js": "^1.8.16",
     "solid-markdown": "^2.0.1",
     "solid-motionone": "^1.0.0",
-    "solid-start-sst": "latest",
     "solid-tiptap": "^0.7.0",
     "solid-transition-group": "^0.2.3",
-    "sst": "^3.0.1",
     "unocss": "^0.58.7",
     "vinxi": "^0.3.11",
     "vite-plugin-pwa": "^0.19.7",

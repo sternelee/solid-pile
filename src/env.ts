@@ -1,5 +1,4 @@
 import { APIKeys, type IProvider } from "~/providers";
-import type { SimpleModel } from "./types";
 import Models from "~/openrouter.json";
 
 // eslint-disable-next-line @typescript-eslint/naming-convention
