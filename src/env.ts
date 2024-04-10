@@ -19,12 +19,12 @@ export const defaultEnv = {
   },
   CLIENT_SESSION_SETTINGS: {
     title: "",
-    provider: "openai" as IProvider,
+    provider: "openrouter" as IProvider,
     saveSession: true,
     // 0-2
     APITemperature: 0.6,
     continuousDialogue: false,
-    model: "openrouter/auto" as string,
+    model: "openai/gpt-3.5-turbo" as string,
   },
   CLIENT_DEFAULT_MESSAGE: `
 - 点击每条消息前的头像，可以锁定对话，作为角色设定。[查看更多使用技巧](https://github.com/sternelee/qwik-chat#使用技巧)。
