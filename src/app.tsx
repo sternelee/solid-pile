@@ -1,12 +1,12 @@
 // @refresh reload
 import { Suspense } from "solid-js";
-import { isServer } from "solid-js/web";
+// import { isServer } from "solid-js/web";
 import { SessionProvider } from "@solid-mediakit/auth/client";
 import { MetaProvider, Meta, Link } from "@solidjs/meta";
 import { Router } from "@solidjs/router";
 import { FileRoutes } from "@solidjs/start/router";
 import PrefixTitle from "./components/PrefixTitle";
-import { useRegisterSW } from "virtual:pwa-register/solid";
+// import { useRegisterSW } from "virtual:pwa-register/solid";
 // @ts-ignore
 import { pwaInfo } from "virtual:pwa-info";
 import "uno.css";
@@ -14,7 +14,7 @@ import "@unocss/reset/tailwind.css";
 import "./app.css";
 
 export default function App() {
-  !isServer && useRegisterSW({ immediate: true });
+  // !isServer && useRegisterSW({ immediate: true });
   return (
     <Router
       root={(props) => (
