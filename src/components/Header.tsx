@@ -1,6 +1,6 @@
 import ThemeToggle from "./ThemeToggle";
 import { RootStore, loadSession } from "~/store";
-import { Show, createMemo } from "solid-js";
+import { createMemo } from "solid-js";
 import { useNavigate } from "@solidjs/router";
 import { ProviderMap } from "~/providers";
 import { scrollToBottom } from "~/utils";
@@ -22,11 +22,11 @@ function splitEmoji(text: string) {
   };
 }
 
-function scrollTo(selector: string, yOffset = 0) {
-  const el = document.querySelector(selector) as HTMLElement;
-  const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
-  window.scrollTo({ top: y, behavior: "smooth" });
-}
+// function scrollTo(selector: string, yOffset = 0) {
+//   const el = document.querySelector(selector) as HTMLElement;
+//   const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
+//   window.scrollTo({ top: y, behavior: "smooth" });
+// }
 
 export default function Header() {
   const { store } = RootStore;

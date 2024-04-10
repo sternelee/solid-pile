@@ -4,7 +4,6 @@ import {
   Show,
   createEffect,
   createMemo,
-  createComputed,
 } from "solid-js";
 import { RootStore, defaultMessage } from "~/store";
 import { scrollToBottom } from "~/utils";
@@ -36,7 +35,7 @@ export default function ({
     return store.messageList.length;
   });
 
-  createEffect((prev) => {
+  createEffect(() => {
     if (store.currentAssistantMessage) scrollToBottom();
   });
 

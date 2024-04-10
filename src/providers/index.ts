@@ -4,7 +4,7 @@ export const APIKeys = {
   openai: "",
   openrouter: "",
   google: "",
-  // chatglm: "",
+  zhipu: "",
   // baidu: "",
   // qwen: "",
   groq: "",
@@ -135,33 +135,6 @@ export const ProviderMap = {
         label: "Gemini-Pro-Vision",
         input: 0,
         output: 0,
-      },
-    ],
-    placeholder: "API Key",
-  },
-  chatglm: {
-    icon: "i-carbon-navaid-ndb",
-    name: "智谱AI",
-    href: "https://open.bigmodel.cn/usercenter/apikeys",
-    defaultModel: "glm-3-turbo",
-    models: [
-      {
-        label: "GLM-3-Turbo",
-        value: "glm-3-turbo",
-        input: 0.005,
-        output: 0.005,
-      },
-      {
-        label: "GLM-4",
-        value: "glm-4",
-        input: 0.1,
-        output: 0.1,
-      },
-      {
-        label: "GLM-4-V",
-        value: "glm-4v",
-        input: 0.1,
-        output: 0.1,
       },
     ],
     placeholder: "API Key",
@@ -348,10 +321,16 @@ export const ProviderMap = {
   },
   moonshot: {
     icon: "i-simple-icons-icomoon",
-    name: "MoonShot",
+    name: "月之暗面AI",
     href: "https://platform.moonshot.cn/console/api-keys",
-    defaultModel: "moonshot-v1-8k",
+    defaultModel: "moonshot-v1",
     models: [
+      {
+        value: "moonshot-v1",
+        label: "moonshot-kimi",
+        input: 0.012,
+        output: 0.012,
+      },
       {
         value: "moonshot-v1-8k",
         label: "moonshot-v1-8k",
@@ -399,5 +378,31 @@ export const ProviderMap = {
       },
     ],
     placeholder: "API Key",
+  },
+  zhipu: {
+    icon: "i-carbon-navaid-ndb",
+    name: "智谱AI",
+    href: "https://open.bigmodel.cn/usercenter/apikeys",
+    defaultModel: "glm-3-turbo",
+    models: [
+      {
+        label: "GLM-3-Turbo",
+        value: "glm-3-turbo",
+        input: 0.005,
+        output: 0.005,
+      },
+      {
+        label: "GLM-4",
+        value: "glm-4",
+        input: 0.1,
+        output: 0.1,
+      },
+      {
+        label: "GLM-4-V",
+        value: "glm-4v",
+        input: 0.1,
+        output: 0.1,
+      },
+    ],
   },
 };
