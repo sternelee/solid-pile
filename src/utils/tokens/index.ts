@@ -15,9 +15,7 @@ export function loadTiktoken() {
   return _tiktokenEncoder;
 }
 
-// const encoder = new TextEncoder()
 export function countTokens(text: string) {
   const tokenizer = loadTiktoken();
   return tokenizer?.encode(text).length;
-  // return encoder.encode(text).length;
 }

@@ -64,8 +64,10 @@ export async function POST({ request }: APIEvent) {
       model: Model;
       provider: IProvider;
     } = await request.json();
+
+    const { messages, temperature, password, model } = body;
     let key = body.key || "";
-    const { messages, temperature, password, model, provider } = body;
+    let provider = body.provider;
 
     if (password && passwordSet === password) {
       // 没有传key时才校验管理密码
@@ -107,16 +109,22 @@ export async function POST({ request }: APIEvent) {
 
     const encoder = new TextEncoder();
     const decoder = new TextDecoder();
+    const headers: { [key: string]: string } = {
+      "Content-Type": "application/json",
+      "HTTP-Referer": "https://chat.leeapp.cn/",
+      "x-portkey-provider": provider,
+      Authorization: `Bearer ${key}`,
+    };
+
+    if (provider === "cloudflare") {
+      provider = "workers-ai" as IProvider;
+      headers["x-portkey-workers-ai-account-id"] = process.env.CF_ID || "";
+    }
 
     const rawRes = await fetchWithTimeout(
       "https://ai-gateway.leechat.app/v1/chat/completions",
       {
-        headers: {
-          "Content-Type": "application/json",
-          "HTTP-Referer": "https://chat.leeapp.cn/",
-          "x-portkey-provider": provider,
-          Authorization: `Bearer ${key}`,
-        },
+        headers,
         timeout,
         method: "POST",
         body: JSON.stringify({
