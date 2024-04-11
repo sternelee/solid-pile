@@ -458,7 +458,7 @@ async function exportJpg() {
       "#message-container-img",
     ) as HTMLElement;
     async function downloadIMG() {
-      const url = await toJpeg(messageContainer);
+      const url = await toJpeg(messageContainer, { skipFonts: true });
       const a = document.createElement("a");
       a.href = url;
       a.download = `ChatGPT-${dateFormat(new Date(), "HH-MM-SS")}.jpg`;
@@ -466,7 +466,7 @@ async function exportJpg() {
     }
     if (!isMobile() && navigator.clipboard) {
       try {
-        const blob = await toBlob(messageContainer);
+        const blob = await toBlob(messageContainer, { skipFonts: true });
         blob &&
           (await navigator.clipboard.write([
             new ClipboardItem({

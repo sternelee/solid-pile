@@ -3,7 +3,6 @@ import { createParser } from "eventsource-parser";
 import type { APIEvent } from "@solidjs/start/server";
 import { SignJWT } from "jose";
 import type { ChatMessage, Model } from "~/types";
-import { fetchWithTimeout } from "~/utils";
 import { defaultEnv } from "~/env";
 import { IProvider } from "~/providers";
 
@@ -37,20 +36,6 @@ export const config = {
     "syd1",
   ],
 };
-
-export const localKey = process.env.OPENAI_API_KEY || "";
-
-export const baseURL =
-  process.env.NO_GFW !== "false"
-    ? defaultEnv.OPENAI_API_BASE_URL
-    : (
-        process.env.OPENAI_API_BASE_URL || defaultEnv.OPENAI_API_BASE_URL
-      ).replace(/^https?:\/\//, "");
-
-// + 作用是将字符串转换为数字
-const timeout = isNaN(+process.env.TIMEOUT!)
-  ? defaultEnv.TIMEOUT
-  : +process.env.TIMEOUT!;
 
 const passwordSet = process.env.PASSWORD || defaultEnv.PASSWORD;
 
@@ -121,12 +106,13 @@ export async function POST({ request }: APIEvent) {
       headers["x-portkey-workers-ai-account-id"] = process.env.CF_ID || "";
     }
 
-    const rawRes = await fetchWithTimeout(
+    const abortController = new AbortController();
+    const rawRes = await fetch(
       "https://ai-gateway.leechat.app/v1/chat/completions",
       {
         headers,
-        timeout,
         method: "POST",
+        signal: abortController.signal,
         body: JSON.stringify({
           model,
           messages: messages.map((k) => ({ role: k.role, content: k.content })),
@@ -144,6 +130,9 @@ export async function POST({ request }: APIEvent) {
         { status: 500 },
       );
     });
+    if (request.signal.aborted) {
+      abortController.abort();
+    }
 
     if (!rawRes.ok) {
       return new Response(rawRes.body, {
