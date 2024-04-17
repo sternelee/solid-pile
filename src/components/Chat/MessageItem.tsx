@@ -18,7 +18,9 @@ interface Props {
 export default function MessageItem(props: Props) {
   useCopyCode();
   const { store, setStore } = RootStore;
-  const [renderedMarkdown, setRenderedMarkdown] = createSignal("");
+  const [renderedMarkdown, setRenderedMarkdown] = createSignal(
+    md.render(props.message.content || ""),
+  );
   const roleClass = {
     error: "bg-gradient-to-r from-red-400 to-red-700",
     user: "bg-gradient-to-r from-red-300 to-blue-700 ",

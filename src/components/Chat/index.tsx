@@ -15,7 +15,7 @@ export default function () {
   let controller: AbortController | undefined = undefined;
   const [containerWidth, setContainerWidth] = createSignal("init");
   const [inputBoxHeight, setInputBoxHeight] = createSignal(
-    defaultInputBoxHeight,
+    defaultInputBoxHeight
   );
   const [searchParams] = useSearchParams();
   const q = searchParams[SearchParamKey];
@@ -46,7 +46,7 @@ export default function () {
   createEffect(() => {
     localStorage.setItem(
       LocalStorageKey.GLOBAL_SETTINGS,
-      JSON.stringify(store.GLOBAL_SETTINGS),
+      JSON.stringify(store.GLOBAL_SETTINGS)
     );
   });
 
@@ -57,7 +57,7 @@ export default function () {
           "messageList",
           (k) => k.type === "temporary",
           "type",
-          "default",
+          "default"
         );
         setStore("currentAssistantMessage", "");
         setStore("currentMessageToken", 0);
@@ -153,7 +153,7 @@ export default function () {
           throw new Error(
             store.sessionSettings.continuousDialogue
               ? "本次对话过长，请清除之前部分对话或者缩短当前提问。"
-              : "当前提问太长了，请缩短。",
+              : "当前提问太长了，请缩短。"
           );
         }
         setStore("loading", true);
@@ -170,7 +170,7 @@ export default function () {
                   role: "user",
                   content,
                 },
-              ],
+              ]
         );
       } catch (error: any) {
         setStore("loading", false);
@@ -232,7 +232,7 @@ export default function () {
                 "messageList",
                 (k) => k.type === "temporary",
                 "content",
-                (k) => k + char,
+                (k) => k + char
               );
             } else {
               setStore("messageList", (k) => [

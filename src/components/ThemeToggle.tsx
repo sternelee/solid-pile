@@ -17,7 +17,7 @@ export default function ThemeToggle() {
     setIsAppearanceTransition(
       // @ts-expect-error: Transition API
       document.startViewTransition &&
-        !window.matchMedia("(prefers-reduced-motion: reduce)").matches
+        !window.matchMedia("(prefers-reduced-motion: reduce)").matches,
     );
     !localStorage.getItem(LocalStorageKey.THEME) && toggle(prefersDark());
   });
@@ -38,7 +38,7 @@ export default function ThemeToggle() {
       const y = event.clientY;
       const endRadius = Math.hypot(
         Math.max(x, innerWidth - x),
-        Math.max(y, innerHeight - y)
+        Math.max(y, innerHeight - y),
       );
       const transition = document
         // @ts-expect-error: Transition API
@@ -61,7 +61,7 @@ export default function ThemeToggle() {
             pseudoElement: isDark
               ? "::view-transition-old(root)"
               : "::view-transition-new(root)",
-          }
+          },
         );
       });
     }

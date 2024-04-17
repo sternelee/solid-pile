@@ -324,14 +324,8 @@ export const ProviderMap = {
     icon: "i-simple-icons-icomoon",
     name: "月之暗面AI",
     href: "https://platform.moonshot.cn/console/api-keys",
-    defaultModel: "moonshot-v1",
+    defaultModel: "moonshot-v1-8k",
     models: [
-      {
-        value: "moonshot-v1",
-        label: "moonshot-kimi",
-        input: 0.012,
-        output: 0.012,
-      },
       {
         value: "moonshot-v1-8k",
         label: "moonshot-v1-8k",
