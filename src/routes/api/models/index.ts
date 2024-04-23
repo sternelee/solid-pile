@@ -2,10 +2,14 @@ import type { APIEvent } from "@solidjs/start/server";
 
 export async function GET({ params }: APIEvent) {
   const provider = params.provider;
-  if (provider === 'openai') {
-
+  let url = ''
+  if (provider === 'openrouter') {
+    url = 'https://openrouter.ai/api/v1/models'
   }
-  const res = await fetch(`https://api.openai.com/v1/models`).then((res) =>
+  if (provider === 'openai') {
+    url = 'https://api.openai.com/v1/models'
+  }
+  const res = await fetch(url).then((res) =>
     res.json(),
   );
   console.log(res);

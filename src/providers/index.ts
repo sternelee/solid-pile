@@ -8,13 +8,13 @@ export const APIKeys = {
   // qwen: "",
   groq: "",
   moonshot: "",
-  mistral: "",
+  mistral_ai: "",
   claude: "",
   zhipu: "",
   // minimaxi: "",
-  togetherai: "",
+  'together-ai': "",
   lingyi: "",
-  cloudflare: "",
+  'workers-ai': "",
 };
 
 export const PROVIDER_LIST = Object.keys(APIKeys);
@@ -200,7 +200,7 @@ export const ProviderMap = {
     ],
     placeholder: "API Key",
   },
-  mistral: {
+  mistral_ai: {
     icon: "i-simple-icons-metasploit",
     name: "Mistral",
     href: "https://console.mistral.ai/api-keys/",
@@ -227,7 +227,7 @@ export const ProviderMap = {
     ],
     placeholder: "API Key",
   },
-  togetherai: {
+  'together-ai': {
     icon: "i-simple-icons-gotomeeting",
     name: "TogetherAI",
     href: "https://api.together.xyz/settings/api-keys",
@@ -400,7 +400,7 @@ export const ProviderMap = {
       },
     ],
   },
-  cloudflare: {
+  'workers-ai': {
     icon: "i-simple-icons:cloudflare",
     name: "cloudflare AI",
     href: "https://dash.cloudflare.com/profile/api-tokens",

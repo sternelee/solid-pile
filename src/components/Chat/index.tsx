@@ -24,10 +24,10 @@ export default function () {
     createResizeObserver(containerRef, ({ width }, el) => {
       if (el === containerRef) setContainerWidth(`${width}px`);
     });
-    window.setTimeout(() => {
-      document.querySelector("#root")?.classList.remove("before");
-    }, 100);
-    document.querySelector("#root")?.classList.add("after");
+    // window.setTimeout(() => {
+    //   document.querySelector("#root")?.classList.remove("before");
+    // }, 100);
+    // document.querySelector("#root")?.classList.add("after");
     loadSession(store.sessionId);
     if (q) sendMessage(q);
   });
@@ -208,7 +208,7 @@ export default function () {
     });
     if (!response.ok) {
       const res = await response.json();
-      throw new Error(res.error.message);
+      throw new Error(res.message);
     }
     const data = response.body;
     if (!data) {

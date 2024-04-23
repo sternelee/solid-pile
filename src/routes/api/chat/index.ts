@@ -56,7 +56,7 @@ export async function POST({ request }: APIEvent) {
 
     if (password && passwordSet === password) {
       // 没有传key时才校验管理密码
-      key = process.env[body.provider.toUpperCase() + "_API"] || "";
+      key = (process.env[body.provider.toUpperCase() + "_API"] || "").replaceAll('-', '_');
     }
 
     if (!messages?.length) {
@@ -101,7 +101,7 @@ export async function POST({ request }: APIEvent) {
       Authorization: `Bearer ${key}`,
     };
 
-    if (provider === "cloudflare") {
+    if (provider === "workers-ai") {
       provider = "workers-ai" as IProvider;
       headers["x-portkey-workers-ai-account-id"] = process.env.CF_ID || "";
     }
