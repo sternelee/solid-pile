@@ -7,50 +7,42 @@ import {
   transformerDirectives,
   transformerVariantGroup,
 } from "unocss";
-import { presetDaisy } from "@unscatty/unocss-preset-daisy";
+// import { presetDaisy } from "@unscatty/unocss-preset-daisy";
 import { VitePWA } from "vite-plugin-pwa";
-import wasm from "vite-plugin-wasm";
 
 export default defineConfig({
   vite: {
-    build: {
-      target: "esnext",
-      rollupOptions: {
-        external: ["../../../src/utils/tokens/tiktoken_bg.wasm", "fs"],
-      },
-    },
     plugins: [
-      wasm(),
       unocss({
         mergeSelectors: false,
         transformers: [transformerDirectives(), transformerVariantGroup()],
         presets: [
           presetUno(),
-          presetDaisy({
-            themes: [
-              "light",
-              "dark",
-              "cupcake",
-              "synthwave",
-              "retro",
-              "cyberpunk",
-              "valentine",
-              "halloween",
-              "garden",
-              "forest",
-              "aqua",
-              "black",
-              "luxury",
-              "dracula",
-              "cmyk",
-              "autumn",
-              "business",
-              "acid",
-              "night",
-              "coffee",
-              "winter",
-            ],
-          }),
+          // presetDaisy({
+          //   themes: [
+          //     "light",
+          //     "dark",
+          //     "cupcake",
+          //     "synthwave",
+          //     "retro",
+          //     "cyberpunk",
+          //     "valentine",
+          //     "halloween",
+          //     "garden",
+          //     "forest",
+          //     "aqua",
+          //     "black",
+          //     "luxury",
+          //     "dracula",
+          //     "cmyk",
+          //     "autumn",
+          //     "business",
+          //     "acid",
+          //     "night",
+          //     "coffee",
+          //     "winter",
+          //   ],
+          // }),
           presetTypography({
             cssExtend: {
               ":not(pre) > code::before,:not(pre) > code::after": {

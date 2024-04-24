@@ -8,10 +8,9 @@ export const APIKeys = {
   // qwen: "",
   groq: "",
   moonshot: "",
-  mistral_ai: "",
+  'mistral-ai': "",
   claude: "",
   zhipu: "",
-  // minimaxi: "",
   'together-ai': "",
   lingyi: "",
   'workers-ai': "",
@@ -200,7 +199,7 @@ export const ProviderMap = {
     ],
     placeholder: "API Key",
   },
-  mistral_ai: {
+  'mistral-ai': {
     icon: "i-simple-icons-metasploit",
     name: "Mistral",
     href: "https://console.mistral.ai/api-keys/",
