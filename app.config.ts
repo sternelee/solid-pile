@@ -77,6 +77,6 @@ export default defineConfig({
     ],
   },
   server: {
-    preset: "vercel",
+    preset: "vercel-edge",
   },
 });
