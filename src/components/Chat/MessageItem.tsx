@@ -5,7 +5,7 @@ import type { ChatMessage } from "~/types";
 import { copyToClipboard } from "~/utils";
 import MessageAction from "./MessageAction";
 import type { FakeRoleUnion } from "./SettingAction";
-import { md } from "~/markdown-it"
+import { md } from "~/markdown-it";
 import { throttle } from "@solid-primitives/scheduled";
 
 interface Props {
@@ -18,7 +18,9 @@ interface Props {
 export default function MessageItem(props: Props) {
   useCopyCode();
   const { store, setStore } = RootStore;
-  const [renderedMarkdown, setRenderedMarkdown] = createSignal("");
+  const [renderedMarkdown, setRenderedMarkdown] = createSignal(
+    md.render(props.message.content || ""),
+  );
   const roleClass = {
     error: "bg-gradient-to-r from-red-400 to-red-700",
     user: "bg-gradient-to-r from-red-300 to-blue-700 ",
@@ -90,17 +92,17 @@ export default function MessageItem(props: Props) {
   }
 
   const throttleRender = throttle((content: string) => {
-    setRenderedMarkdown(md.render(content))
+    setRenderedMarkdown(md.render(content));
     // renderMarkdownInWorker(content).then(html => {
     //   setRenderedMarkdown(html)
     // })
-  }, 50)
+  }, 50);
 
   createEffect(() => {
     if (props.message.type === "temporary") {
       throttleRender(props.message.content);
     } else {
-    setRenderedMarkdown(md.render(props.message.content))
+      setRenderedMarkdown(md.render(props.message.content));
       // renderMarkdownInWorker(props.message.content).then((html) => {
       //   setRenderedMarkdown(html);
       // });
@@ -131,11 +133,10 @@ export default function MessageItem(props: Props) {
             <div class="i-carbon:locked text-white" />
           </Show>
         </div>
-          <div
-            class="message prose prose-slate break-all dark:prose-invert dark:text-slate break-words overflow-hidden"
-            style="max-width:100%"
-            innerHTML={renderedMarkdown()}
-          />
+        <div
+          class="message prose prose-slate break-all max-w-full dark:prose-invert dark:text-slate break-words overflow-hidden"
+          innerHTML={renderedMarkdown()}
+        />
         <Show when={!props.hiddenAction}>
           <MessageAction
             del={del}

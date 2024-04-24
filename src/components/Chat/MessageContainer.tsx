@@ -1,11 +1,4 @@
-import {
-  type Accessor,
-  For,
-  Show,
-  createEffect,
-  createMemo,
-  createComputed,
-} from "solid-js";
+import { type Accessor, For, Show, createEffect, createMemo } from "solid-js";
 import { RootStore, defaultMessage } from "~/store";
 import { scrollToBottom } from "~/utils";
 import MessageItem from "./MessageItem";
@@ -26,7 +19,7 @@ export default function ({
   const paddingBottom = createMemo(
     (k) =>
       inputBoxHeight() === defaultInputBoxHeight - 1 ? k : inputBoxHeight(),
-    defaultInputBoxHeight,
+    defaultInputBoxHeight
   );
 
   createEffect((prev: number | undefined) => {
@@ -36,7 +29,7 @@ export default function ({
     return store.messageList.length;
   });
 
-  createEffect((prev) => {
+  createEffect(() => {
     if (store.currentAssistantMessage) scrollToBottom();
   });
 
@@ -54,11 +47,11 @@ export default function ({
   };
 
   const defaultMessage$ = {
-      ...defaultMessage,
-      content: `💡请自行填写 APIKey，点击👉 [去申请](${
-        ProviderMap[store.currentProvider].href
-      })\n ${defaultMessage.content}`,
-    };
+    ...defaultMessage,
+    content: `💡请自行填写 APIKey，点击👉 [去申请](${
+      ProviderMap[store.currentProvider].href
+    })\n ${defaultMessage.content}`,
+  };
 
   return (
     <div
@@ -95,14 +88,14 @@ export default function ({
             fallback={
               <span class="mx-1 text-slate/40">
                 {`有效上下文 Tokens : ${shownTokens(
-                  store.contextToken,
+                  store.contextToken
                 )}/$${store.contextToken$.toFixed(8)}`}
               </span>
             }
           >
             <span class="mx-1 text-slate/40">
               {`有效上下文+提问 Tokens : ${shownTokens(
-                store.contextToken + store.inputContentToken,
+                store.contextToken + store.inputContentToken
               )}(`}
               <span
                 classList={{
@@ -112,7 +105,7 @@ export default function ({
                 {shownTokens(store.remainingToken)}
               </span>
               {`)/$${(store.contextToken$ + store.inputContentToken$).toFixed(
-                4,
+                4
               )}`}
             </span>
           </Show>

@@ -246,8 +246,8 @@ export function loadSession(id: string) {
     }
   });
   setTimeout(() => {
-    const seesions = fetchAllSessions();
-    FZFData.sessionOptions = seesions
+    const sessions = fetchAllSessions();
+    FZFData.sessionOptions = sessions
       .sort((m, n) => n.lastVisit - m.lastVisit)
       .filter((k) => k.id !== store.sessionId && k.id !== "index")
       .map((k) => ({
@@ -262,10 +262,10 @@ export function loadSession(id: string) {
         title: "回到主对话",
         desc:
           "其实点击顶部 Logo 也可以直接回到主对话。" +
-            seesions
+            sessions
               .find((k) => k.id === "index")
               ?.messages.map((k) => k.content)
-              .join("\n") ?? "",
+              .join("\n") || "",
         extra: {
           id: "index",
         },

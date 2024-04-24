@@ -6,7 +6,7 @@ import "highlight.js/styles/atom-one-dark.css";
 
 export default function ({ children }: { children: JSXElement }) {
   return (
-    <div id="root" class="py-2em before">
+    <div id="root" class="py-2em after">
       <Header />
       {children}
     </div>

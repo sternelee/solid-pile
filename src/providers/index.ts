@@ -4,16 +4,17 @@ export const APIKeys = {
   openai: "",
   openrouter: "",
   google: "",
-  // chatglm: "",
   // baidu: "",
   // qwen: "",
   groq: "",
   moonshot: "",
-  mistral: "",
+  mistral_ai: "",
   claude: "",
+  zhipu: "",
   // minimaxi: "",
-  togetherai: "",
+  'together-ai': "",
   lingyi: "",
+  'workers-ai': "",
 };
 
 export const PROVIDER_LIST = Object.keys(APIKeys);
@@ -139,33 +140,6 @@ export const ProviderMap = {
     ],
     placeholder: "API Key",
   },
-  chatglm: {
-    icon: "i-carbon-navaid-ndb",
-    name: "智谱AI",
-    href: "https://open.bigmodel.cn/usercenter/apikeys",
-    defaultModel: "glm-3-turbo",
-    models: [
-      {
-        label: "GLM-3-Turbo",
-        value: "glm-3-turbo",
-        input: 0.005,
-        output: 0.005,
-      },
-      {
-        label: "GLM-4",
-        value: "glm-4",
-        input: 0.1,
-        output: 0.1,
-      },
-      {
-        label: "GLM-4-V",
-        value: "glm-4v",
-        input: 0.1,
-        output: 0.1,
-      },
-    ],
-    placeholder: "API Key",
-  },
   claude: {
     icon: "i-simple-icons-anilist",
     name: "Claude",
@@ -226,7 +200,7 @@ export const ProviderMap = {
     ],
     placeholder: "API Key",
   },
-  mistral: {
+  mistral_ai: {
     icon: "i-simple-icons-metasploit",
     name: "Mistral",
     href: "https://console.mistral.ai/api-keys/",
@@ -253,7 +227,7 @@ export const ProviderMap = {
     ],
     placeholder: "API Key",
   },
-  togetherai: {
+  'together-ai': {
     icon: "i-simple-icons-gotomeeting",
     name: "TogetherAI",
     href: "https://api.together.xyz/settings/api-keys",
@@ -348,7 +322,7 @@ export const ProviderMap = {
   },
   moonshot: {
     icon: "i-simple-icons-icomoon",
-    name: "MoonShot",
+    name: "月之暗面AI",
     href: "https://platform.moonshot.cn/console/api-keys",
     defaultModel: "moonshot-v1-8k",
     models: [
@@ -399,5 +373,63 @@ export const ProviderMap = {
       },
     ],
     placeholder: "API Key",
+  },
+  zhipu: {
+    icon: "i-carbon-navaid-ndb",
+    name: "智谱AI",
+    href: "https://open.bigmodel.cn/usercenter/apikeys",
+    defaultModel: "glm-3-turbo",
+    models: [
+      {
+        label: "GLM-3-Turbo",
+        value: "glm-3-turbo",
+        input: 0.005,
+        output: 0.005,
+      },
+      {
+        label: "GLM-4",
+        value: "glm-4",
+        input: 0.1,
+        output: 0.1,
+      },
+      {
+        label: "GLM-4-V",
+        value: "glm-4v",
+        input: 0.1,
+        output: 0.1,
+      },
+    ],
+  },
+  'workers-ai': {
+    icon: "i-simple-icons:cloudflare",
+    name: "cloudflare AI",
+    href: "https://dash.cloudflare.com/profile/api-tokens",
+    defaultModel: "llama-2-7b-chat-int8",
+    models: [
+      {
+        label: "llama-2-7b-chat-int8",
+        value: "llama-2-7b-chat-int8",
+        input: 0,
+        output: 0,
+      },
+      {
+        label: "llama-2-7b-chat-fp16",
+        value: "llama-2-7b-chat-fp16",
+        input: 0,
+        output: 0,
+      },
+      {
+        label: "falcon-7b-instruct",
+        value: "falcon-7b-instruct",
+        input: 0,
+        output: 0,
+      },
+      {
+        label: "neural-chat-7b-v3-1-awq",
+        value: "neural-chat-7b-v3-1-awq",
+        input: 0,
+        output: 0,
+      },
+    ],
   },
 };

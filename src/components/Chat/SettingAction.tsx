@@ -50,7 +50,7 @@ export default function SettingAction() {
   const [uploadPicture, setUploadPicture] = createSignal<HTMLInputElement>();
   function clearSession() {
     setStore("messageList", (messages) =>
-      messages.filter((k) => k.type === "locked"),
+      messages.filter((k) => k.type === "locked")
     );
   }
 
@@ -74,12 +74,12 @@ export default function SettingAction() {
                   setStore(
                     "sessionSettings",
                     "provider",
-                    (e.target as HTMLSelectElement).value as IProvider,
+                    (e.target as HTMLSelectElement).value as IProvider
                   );
                   setStore(
                     "sessionSettings",
                     "model",
-                    ProviderMap[store.sessionSettings.provider].defaultModel,
+                    ProviderMap[store.sessionSettings.provider].defaultModel
                   );
                 }}
                 options={PROVIDER_LIST.map((v) => ({
@@ -103,7 +103,7 @@ export default function SettingAction() {
                       "GLOBAL_SETTINGS",
                       "APIKeys",
                       store.sessionSettings.provider,
-                      (e.target as HTMLInputElement).value,
+                      (e.target as HTMLInputElement).value
                     );
                   }}
                 />
@@ -117,7 +117,7 @@ export default function SettingAction() {
                   setStore(
                     "sessionSettings",
                     "model",
-                    (e.target as HTMLSelectElement).value as string,
+                    (e.target as HTMLSelectElement).value as string
                   );
                 }}
                 options={ProviderMap[store.sessionSettings.provider].models}
@@ -132,7 +132,7 @@ export default function SettingAction() {
                   setStore(
                     "GLOBAL_SETTINGS",
                     "password",
-                    (e.target as HTMLInputElement).value,
+                    (e.target as HTMLInputElement).value
                   );
                 }}
               />
@@ -144,7 +144,7 @@ export default function SettingAction() {
                   setStore(
                     "GLOBAL_SETTINGS",
                     "enterToSend",
-                    (e.target as HTMLInputElement).checked,
+                    (e.target as HTMLInputElement).checked
                   );
                 }}
               />
@@ -167,7 +167,7 @@ export default function SettingAction() {
                     setStore(
                       "sessionSettings",
                       "title",
-                      (e.target as HTMLInputElement).value,
+                      (e.target as HTMLInputElement).value
                     );
                   }}
                 />
@@ -185,7 +185,7 @@ export default function SettingAction() {
                     setStore(
                       "sessionSettings",
                       "APITemperature",
-                      Number((e.target as HTMLInputElement).value) / 50,
+                      Number((e.target as HTMLInputElement).value) / 50
                     );
                   }}
                 />
@@ -201,7 +201,7 @@ export default function SettingAction() {
                   setStore(
                     "sessionSettings",
                     "saveSession",
-                    (e.target as HTMLInputElement).checked,
+                    (e.target as HTMLInputElement).checked
                   );
                 }}
               />
@@ -216,7 +216,7 @@ export default function SettingAction() {
                   setStore(
                     "sessionSettings",
                     "continuousDialogue",
-                    (e.target as HTMLInputElement).checked,
+                    (e.target as HTMLInputElement).checked
                   );
                 }}
               />
@@ -230,7 +230,7 @@ export default function SettingAction() {
           <ActionItem
             onClick={() => {
               setActionState("showSetting", (k) =>
-                k !== "global" ? "global" : "none",
+                k !== "global" ? "global" : "none"
               );
             }}
             icon="i-carbon:settings"
@@ -239,7 +239,7 @@ export default function SettingAction() {
           <ActionItem
             onClick={() => {
               setActionState("showSetting", (k) =>
-                k !== "session" ? "session" : "none",
+                k !== "session" ? "session" : "none"
               );
             }}
             icon="i-carbon:settings-services"
@@ -325,7 +325,7 @@ export default function SettingAction() {
                     setActionState("clearSessionConfirm", true);
                     setTimeout(
                       () => setActionState("clearSessionConfirm", false),
-                      3000,
+                      3000
                     );
                   }
                 }}
@@ -380,7 +380,7 @@ export default function SettingAction() {
                 <ActionItem
                   onClick={async () => {
                     await copyToClipboard(
-                      window.location.origin + window.location.pathname,
+                      window.location.origin + window.location.pathname
                     );
                     setActionState("success", "link");
                     setTimeout(() => setActionState("success", false), 1000);
@@ -403,7 +403,7 @@ export default function SettingAction() {
                       setActionState("deleteSessionConfirm", true);
                       setTimeout(
                         () => setActionState("deleteSessionConfirm", false),
-                        3000,
+                        3000
                       );
                     }
                   }}
@@ -455,10 +455,10 @@ function ActionItem(props: { onClick: any; icon: string; label?: string }) {
 async function exportJpg() {
   try {
     const messageContainer = document.querySelector(
-      "#message-container-img",
+      "#message-container-img"
     ) as HTMLElement;
     async function downloadIMG() {
-      const url = await toJpeg(messageContainer);
+      const url = await toJpeg(messageContainer, { skipFonts: true });
       const a = document.createElement("a");
       a.href = url;
       a.download = `ChatGPT-${dateFormat(new Date(), "HH-MM-SS")}.jpg`;
@@ -466,7 +466,7 @@ async function exportJpg() {
     }
     if (!isMobile() && navigator.clipboard) {
       try {
-        const blob = await toBlob(messageContainer);
+        const blob = await toBlob(messageContainer, { skipFonts: true });
         blob &&
           (await navigator.clipboard.write([
             new ClipboardItem({
@@ -501,14 +501,14 @@ async function exportMD(messages: ChatMessage[]) {
       .map((k) => {
         return `> ${k[0].content}\n\n${k[1].content}`;
       })
-      .join("\n\n---\n\n"),
+      .join("\n\n---\n\n")
   );
 }
 
 async function exportData() {
   const a = document.createElement("a");
   a.href = URL.createObjectURL(
-    new Blob([JSON.stringify(localStorage)], { type: "application/json" }),
+    new Blob([JSON.stringify(localStorage)], { type: "application/json" })
   );
   a.download = `ChatGPT-${dateFormat(new Date(), "HH-MM-SS")}.json`;
   a.click();
