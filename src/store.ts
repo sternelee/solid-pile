@@ -5,7 +5,6 @@ import { batch, createEffect, createMemo, createRoot } from "solid-js";
 import { fetchAllSessions, getSession } from "./utils";
 import { Fzf } from "fzf";
 import type { Model, Option } from "~/types";
-// import { countTokensInWorker } from "~/wokers/tokens.worker"
 import { countTokens } from "~/utils/tokens";
 import { throttle } from "@solid-primitives/scheduled";
 import { ProviderMap } from "~/providers";
@@ -124,17 +123,14 @@ function Store() {
               _[i - 1]?.role === "user") ||
             (k.role === "user" &&
               _[i + 1]?.role !== "error" &&
-              _[i + 1]?.type !== "temporary"),
+              _[i + 1]?.type !== "temporary")
         )
       : store.messageList.filter(
-          (k) => k.role === "system" || k.type === "locked",
-        ),
+          (k) => k.role === "system" || k.type === "locked"
+        )
   );
 
   const throttleCountInputContent = throttle((content: string) => {
-    // countTokensInWorker(content).then(res => {
-    //   setStore("inputContentToken", res)
-    // })
     setStore("inputContentToken", countTokens(content));
   }, 100);
 
@@ -144,9 +140,6 @@ function Store() {
   });
 
   const throttleCountContext = throttle((content: string) => {
-    // countTokensInWorker(content).then(res => {
-    //   setStore("contextToken", res)
-    // })
     setStore("contextToken", countTokens(content));
   }, 100);
 
@@ -156,9 +149,6 @@ function Store() {
   });
 
   const throttleCountCurrentAssistantMessage = throttle((content: string) => {
-    // countTokensInWorker(content).then(res => {
-    //   setStore("currentMessageToken", res)
-    // })
     setStore("currentMessageToken", countTokens(content));
   }, 50);
 
@@ -172,7 +162,7 @@ function Store() {
         ? maxInputTokens[store.sessionSettings.model]
         : defaultEnv.CLIENT_MAX_INPUT_TOKENS[store.sessionSettings.model]) -
       store.contextToken -
-      store.inputContentToken,
+      store.inputContentToken
   );
 
   const currentModel = createMemo(() => {
@@ -184,13 +174,13 @@ function Store() {
   });
 
   const inputContentToken$ = createMemo(() =>
-    countTokensDollar(store.inputContentToken, store.currentModel, "input"),
+    countTokensDollar(store.inputContentToken, store.currentModel, "input")
   );
   const contextToken$ = createMemo(() =>
-    countTokensDollar(store.contextToken, store.currentModel, "input"),
+    countTokensDollar(store.contextToken, store.currentModel, "input")
   );
   const currentMessageToken$ = createMemo(() =>
-    countTokensDollar(store.currentMessageToken, store.currentModel, "output"),
+    countTokensDollar(store.currentMessageToken, store.currentModel, "output")
   );
 
   return { store, setStore };
@@ -212,7 +202,7 @@ export function loadSession(id: string) {
     setStore("sessionId", id);
     try {
       const GLOBAL_SETTINGS = localStorage.getItem(
-        LocalStorageKey.GLOBAL_SETTINGS,
+        LocalStorageKey.GLOBAL_SETTINGS
       );
       const session = getSession(id);
       if (GLOBAL_SETTINGS) {
@@ -236,7 +226,7 @@ export function loadSession(id: string) {
           } else {
             setStore(
               "messageList",
-              messages.filter((m) => m.type === "locked"),
+              messages.filter((m) => m.type === "locked")
             );
           }
         }
@@ -280,7 +270,7 @@ export function loadSession(id: string) {
 function countTokensDollar(
   tokens: number,
   model: Model,
-  io: "input" | "output",
+  io: "input" | "output"
 ) {
   const tk = tokens / 1000;
   // @ts-ignore

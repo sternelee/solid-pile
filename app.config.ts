@@ -9,18 +9,40 @@ import {
 } from "unocss";
 // import { presetDaisy } from "@unscatty/unocss-preset-daisy";
 import { VitePWA } from "vite-plugin-pwa";
-import wasm from "vite-plugin-wasm";
 
 export default defineConfig({
   vite: {
     plugins: [
-      wasm(),
       unocss({
         mergeSelectors: false,
         transformers: [transformerDirectives(), transformerVariantGroup()],
         presets: [
           presetUno(),
-          // presetDaisy(),
+          // presetDaisy({
+          //   themes: [
+          //     "light",
+          //     "dark",
+          //     "cupcake",
+          //     "synthwave",
+          //     "retro",
+          //     "cyberpunk",
+          //     "valentine",
+          //     "halloween",
+          //     "garden",
+          //     "forest",
+          //     "aqua",
+          //     "black",
+          //     "luxury",
+          //     "dracula",
+          //     "cmyk",
+          //     "autumn",
+          //     "business",
+          //     "acid",
+          //     "night",
+          //     "coffee",
+          //     "winter",
+          //   ],
+          // }),
           presetTypography({
             cssExtend: {
               ":not(pre) > code::before,:not(pre) > code::after": {
@@ -38,7 +60,7 @@ export default defineConfig({
       VitePWA({
         base: "/",
         scope: "/",
-        includeAssets: ["favicon.svg", "apple-touch-icon.png"],
+        includeAssets: ["icon.ico", "icon.png"],
         registerType: "autoUpdate",
         manifest: {
           name: "LeeChat",
@@ -48,22 +70,22 @@ export default defineConfig({
           theme_color: "#f6f8fa",
           icons: [
             {
-              src: "192.png",
+              src: "icon.png",
               sizes: "192x192",
               type: "image/png",
             },
             {
-              src: "256.png",
+              src: "icon.png",
               sizes: "256x256",
               type: "image/png",
             },
             {
-              src: "512.png",
+              src: "icon.png",
               sizes: "512x512",
               type: "image/png",
             },
             {
-              src: "apple-touch-icon.png",
+              src: "icon.png",
               sizes: "192x192",
               type: "image/png",
             },
@@ -77,6 +99,6 @@ export default defineConfig({
     ],
   },
   server: {
-    preset: "vercel-edge",
+    preset: "cloudflare-pages",
   },
 });

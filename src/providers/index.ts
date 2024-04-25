@@ -8,13 +8,12 @@ export const APIKeys = {
   // qwen: "",
   groq: "",
   moonshot: "",
-  mistral_ai: "",
+  "mistral-ai": "",
   claude: "",
   zhipu: "",
-  // minimaxi: "",
-  'together-ai': "",
+  "together-ai": "",
   lingyi: "",
-  'workers-ai': "",
+  "workers-ai": "",
 };
 
 export const PROVIDER_LIST = Object.keys(APIKeys);
@@ -177,17 +176,29 @@ export const ProviderMap = {
     icon: "i-simple-icons-akaunting",
     name: "Groq",
     href: "https://console.groq.com/keys",
-    defaultModel: "mixtral-8x7b-32768",
+    defaultModel: "llama3-8b-8192",
     models: [
       {
-        value: "mixtral-8x7b-32768",
-        label: "Mixtral-8x7b",
+        value: "llama3-8b-8192",
+        label: "LLaMA3 8b",
+        input: 0,
+        output: 0,
+      },
+      {
+        value: "llama3-70b-8192",
+        label: "LLaMA3 70b",
         input: 0,
         output: 0,
       },
       {
         value: "llama2-70b-4096",
         label: "LLaMA2-70b",
+        input: 0,
+        output: 0,
+      },
+      {
+        value: "mixtral-8x7b-32768",
+        label: "Mixtral-8x7b",
         input: 0,
         output: 0,
       },
@@ -200,7 +211,7 @@ export const ProviderMap = {
     ],
     placeholder: "API Key",
   },
-  mistral_ai: {
+  "mistral-ai": {
     icon: "i-simple-icons-metasploit",
     name: "Mistral",
     href: "https://console.mistral.ai/api-keys/",
@@ -227,7 +238,7 @@ export const ProviderMap = {
     ],
     placeholder: "API Key",
   },
-  'together-ai': {
+  "together-ai": {
     icon: "i-simple-icons-gotomeeting",
     name: "TogetherAI",
     href: "https://api.together.xyz/settings/api-keys",
@@ -400,7 +411,7 @@ export const ProviderMap = {
       },
     ],
   },
-  'workers-ai': {
+  "workers-ai": {
     icon: "i-simple-icons:cloudflare",
     name: "cloudflare AI",
     href: "https://dash.cloudflare.com/profile/api-tokens",

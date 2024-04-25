@@ -19,7 +19,7 @@ export default function MessageItem(props: Props) {
   useCopyCode();
   const { store, setStore } = RootStore;
   const [renderedMarkdown, setRenderedMarkdown] = createSignal(
-    md.render(props.message.content || ""),
+    md.render(props.message.content || "")
   );
   const roleClass = {
     error: "bg-gradient-to-r from-red-400 to-red-700",
@@ -44,7 +44,7 @@ export default function MessageItem(props: Props) {
             !(
               i === props.index ||
               (i === props.index! + 1 && _.role !== "user")
-            ),
+            )
         );
       }
       return messages.filter((_, i) => i !== props.index);
@@ -61,12 +61,12 @@ export default function MessageItem(props: Props) {
             !(
               i === props.index ||
               (i === props.index! + 1 && _.role !== "user")
-            ),
+            )
         );
       } else {
         question = messages[props.index! - 1].content;
         return messages.filter(
-          (_, i) => !(i === props.index || i === props.index! - 1),
+          (_, i) => !(i === props.index || i === props.index! - 1)
         );
       }
     });
@@ -82,20 +82,17 @@ export default function MessageItem(props: Props) {
           i === props.index ||
           (i === props.index! + 1 && k.role === "assistant"),
         "type",
-        (type) => (type === "locked" ? undefined : "locked"),
+        (type) => (type === "locked" ? undefined : "locked")
       );
     } else {
       setStore("messageList", [props.index - 1, props.index], "type", (type) =>
-        type === "locked" ? undefined : "locked",
+        type === "locked" ? undefined : "locked"
       );
     }
   }
 
   const throttleRender = throttle((content: string) => {
     setRenderedMarkdown(md.render(content));
-    // renderMarkdownInWorker(content).then(html => {
-    //   setRenderedMarkdown(html)
-    // })
   }, 50);
 
   createEffect(() => {
@@ -103,11 +100,7 @@ export default function MessageItem(props: Props) {
       throttleRender(props.message.content);
     } else {
       setRenderedMarkdown(md.render(props.message.content));
-      // renderMarkdownInWorker(props.message.content).then((html) => {
-      //   setRenderedMarkdown(html);
-      // });
     }
-    // setRenderedMarkdown(props.message.content);
   });
   return (
     <Show when={renderedMarkdown()}>

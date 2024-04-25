@@ -17,7 +17,7 @@ function splitEmoji(text: string) {
       title,
     };
   return {
-    icon: undefined,
+    icon: '',
     title: icon,
   };
 }
