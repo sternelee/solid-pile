@@ -63,8 +63,11 @@ export default function SettingAction() {
         setActionState("showSetting", "none");
       }}
     >
-      <Switch>
-        <Match when={actionState.showSetting === "global"}>
+      <dialog
+        id="show-setting-global"
+        class="modal modal-bottom sm:modal-middle"
+      >
+        <div class="modal-box">
           <div class="<sm:max-h-10em max-h-14em overflow-y-auto">
             <SettingItem icon="i-carbon:machine-learning-model" label="AI 服务">
               <Selector
@@ -151,8 +154,28 @@ export default function SettingAction() {
             </SettingItem>
           </div>
           <hr class="my-1 bg-slate-5 bg-op-15 border-none h-1px"></hr>
-        </Match>
-        <Match when={actionState.showSetting === "session"}>
+          <div class="flex">
+            <ActionItem
+              label="导出"
+              onClick={exportData}
+              icon="i-carbon:export"
+            />
+            <ActionItem
+              label="导入"
+              onClick={importData}
+              icon="i-carbon:download"
+            />
+          </div>
+        </div>
+        <form method="dialog" class="modal-backdrop">
+          <button>close</button>
+        </form>
+      </dialog>
+      <dialog
+        id="show-setting-session"
+        class="modal modal-bottom sm:modal-middle"
+      >
+        <div class="modal-box">
           <div class="<sm:max-h-10em max-h-14em overflow-y-auto">
             <Show when={store.sessionId !== "index"}>
               <SettingItem
@@ -223,8 +246,73 @@ export default function SettingAction() {
             </SettingItem>
           </div>
           <hr class="my-1 bg-slate-5 bg-op-15 border-none h-1px"></hr>
-        </Match>
-      </Switch>
+          <div class="flex justify-end">
+            <ActionItem
+              onClick={() => {
+                let sessionID: string;
+                do {
+                  sessionID = generateId();
+                } while (getSession(sessionID));
+                setSession(sessionID, {
+                  id: sessionID,
+                  lastVisit: Date.now(),
+                  settings: {
+                    ...defaultEnv.CLIENT_SESSION_SETTINGS,
+                    title: "新的对话",
+                  },
+                  messages: [],
+                });
+                navigator(`/session/${sessionID}`);
+                loadSession(sessionID);
+              }}
+              icon="i-carbon:add-alt"
+              label="新的对话"
+            />
+            <Show when={store.sessionId !== "index"}>
+              <ActionItem
+                onClick={async () => {
+                  await copyToClipboard(
+                    window.location.origin + window.location.pathname
+                  );
+                  setActionState("success", "link");
+                  setTimeout(() => setActionState("success", false), 1000);
+                }}
+                icon={
+                  actionState.success === "link"
+                    ? "i-carbon:status-resolved dark:text-yellow text-yellow-6"
+                    : "i-carbon:link"
+                }
+                label="复制链接"
+              />
+              <ActionItem
+                onClick={() => {
+                  if (actionState.deleteSessionConfirm) {
+                    setActionState("deleteSessionConfirm", false);
+                    delSession(store.sessionId);
+                    navigator("/", { replace: true });
+                    loadSession("index");
+                  } else {
+                    setActionState("deleteSessionConfirm", true);
+                    setTimeout(
+                      () => setActionState("deleteSessionConfirm", false),
+                      3000
+                    );
+                  }
+                }}
+                icon={
+                  actionState.deleteSessionConfirm
+                    ? "i-carbon:checkmark animate-bounce text-red-6 dark:text-red"
+                    : "i-carbon:trash-can"
+                }
+                label={actionState.deleteSessionConfirm ? "确定" : "删除对话"}
+              />
+            </Show>
+          </div>
+        </div>
+        <form method="dialog" class="modal-backdrop">
+          <button>close</button>
+        </form>
+      </dialog>
       <div class="flex items-center justify-between">
         <div class="flex">
           <ActionItem
@@ -232,6 +320,11 @@ export default function SettingAction() {
               setActionState("showSetting", (k) =>
                 k !== "global" ? "global" : "none"
               );
+              (
+                document.getElementById(
+                  "show-setting-global"
+                ) as HTMLDialogElement
+              ).showModal();
             }}
             icon="i-carbon:settings"
             label="全局设置"
@@ -241,6 +334,11 @@ export default function SettingAction() {
               setActionState("showSetting", (k) =>
                 k !== "session" ? "session" : "none"
               );
+              (
+                document.getElementById(
+                  "show-setting-session"
+                ) as HTMLDialogElement
+              ).showModal();
             }}
             icon="i-carbon:settings-services"
             label="对话设置"
@@ -339,84 +437,7 @@ export default function SettingAction() {
             </div>
           }
         >
-          <Match when={actionState.showSetting === "global"}>
-            <div class="flex">
-              <ActionItem
-                label="导出"
-                onClick={exportData}
-                icon="i-carbon:export"
-              />
-              <ActionItem
-                label="导入"
-                onClick={importData}
-                icon="i-carbon:download"
-              />
-            </div>
-          </Match>
-          <Match when={actionState.showSetting === "session"}>
-            <div class="flex">
-              <ActionItem
-                onClick={() => {
-                  let sessionID: string;
-                  do {
-                    sessionID = generateId();
-                  } while (getSession(sessionID));
-                  setSession(sessionID, {
-                    id: sessionID,
-                    lastVisit: Date.now(),
-                    settings: {
-                      ...defaultEnv.CLIENT_SESSION_SETTINGS,
-                      title: "新的对话",
-                    },
-                    messages: [],
-                  });
-                  navigator(`/session/${sessionID}`);
-                  loadSession(sessionID);
-                }}
-                icon="i-carbon:add-alt"
-                label="新的对话"
-              />
-              <Show when={store.sessionId !== "index"}>
-                <ActionItem
-                  onClick={async () => {
-                    await copyToClipboard(
-                      window.location.origin + window.location.pathname
-                    );
-                    setActionState("success", "link");
-                    setTimeout(() => setActionState("success", false), 1000);
-                  }}
-                  icon={
-                    actionState.success === "link"
-                      ? "i-carbon:status-resolved dark:text-yellow text-yellow-6"
-                      : "i-carbon:link"
-                  }
-                  label="复制链接"
-                />
-                <ActionItem
-                  onClick={() => {
-                    if (actionState.deleteSessionConfirm) {
-                      setActionState("deleteSessionConfirm", false);
-                      delSession(store.sessionId);
-                      navigator("/", { replace: true });
-                      loadSession("index");
-                    } else {
-                      setActionState("deleteSessionConfirm", true);
-                      setTimeout(
-                        () => setActionState("deleteSessionConfirm", false),
-                        3000
-                      );
-                    }
-                  }}
-                  icon={
-                    actionState.deleteSessionConfirm
-                      ? "i-carbon:checkmark animate-bounce text-red-6 dark:text-red"
-                      : "i-carbon:trash-can"
-                  }
-                  label={actionState.deleteSessionConfirm ? "确定" : "删除对话"}
-                />
-              </Show>
-            </div>
-          </Match>
+          <Match when={actionState.showSetting === "session"}></Match>
         </Switch>
       </div>
     </div>

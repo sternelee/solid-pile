@@ -41,7 +41,7 @@ export default function ({
   onMount(() => {
     import("~/utils/parse").then(({ parsePrompts }) => {
       FZFData.promptOptions = parsePrompts().map(
-        (k) => ({ title: k.desc, desc: k.detail }) as Option,
+        (k) => ({ title: k.desc, desc: k.detail } as Option)
       );
       FZFData.fzfPrompts = new Fzf(FZFData.promptOptions, {
         selector: (k) => `${k.title}\n${k.desc}`,
@@ -78,7 +78,7 @@ export default function ({
       setHeight(
         scrollHeight > window.innerHeight / 2
           ? window.innerHeight / 2
-          : scrollHeight,
+          : scrollHeight
       );
   }
 
@@ -122,7 +122,7 @@ export default function ({
 
     const sessionQuery = value.replace(
       /^\s{2,}(.*)\s*$|^\/{2,}(.*)\s*$/,
-      "$1$2",
+      "$1$2"
     );
     const promptQuery = value.replace(/^\s(.*)\s*$|^\/(.*)\s*$/, "$1$2");
     if (sessionQuery !== value) {
@@ -130,14 +130,14 @@ export default function ({
         FZFData.fzfSessions!.find(sessionQuery).map((k) => ({
           ...k.item,
           positions: k.positions,
-        })),
+        }))
       );
     } else if (promptQuery !== value) {
       setCandidateOptions(
         FZFData.fzfPrompts!.find(promptQuery).map((k) => ({
           ...k.item,
           positions: k.positions,
-        })),
+        }))
       );
     }
   }, 100);
@@ -169,6 +169,7 @@ export default function ({
       class="pb-2em px-2em fixed bottom-0 z-100"
       style={{
         width: width() === "init" ? "100%" : width(),
+        background: 'hsl(var(--b1) / var(--un-bg-opacity, 1))'
       }}
     >
       <div
