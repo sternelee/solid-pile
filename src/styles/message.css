@@ -1,14 +1,15 @@
 .message pre {
-  font-size: 0.8rem;
-  padding: 0.4rem 1rem;
-  border-radius: var(--rounded-box, 1rem);
-  --tw-bg-opacity: 1;
-  background-color: var(--fallback-n, oklch(var(--n) / var(--tw-bg-opacity)));
+  position: relative;
+  min-width: 18rem;
+  overflow: hidden;
+  overflow-x: auto;
+  --un-bg-opacity: 1;
+  background-color: hsl(var(--n) / var(--un-bg-opacity));
   padding-top: 1.25rem;
   padding-bottom: 1.25rem;
-  --tw-text-opacity: 1;
-  color: var(--fallback-nc, oklch(var(--nc) / var(--tw-text-opacity)));
-  direction: ltr;
+  --un-text-opacity: 1;
+  color: hsl(var(--nc) / var(--un-text-opacity));
+  border-radius: var(--rounded-box, 1rem);
 }
 
 .message pre::before {
