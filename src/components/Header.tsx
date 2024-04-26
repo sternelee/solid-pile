@@ -1,7 +1,8 @@
-import ThemeToggle from "./ThemeToggle";
-import { RootStore, loadSession } from "~/store";
 import { createMemo } from "solid-js";
 import { useNavigate } from "@solidjs/router";
+import { RootStore, loadSession } from "~/store";
+import ThemeToggle from "./ThemeToggle";
+import AuthLogin from "./AuthLogin";
 import { ProviderMap } from "~/providers";
 import { scrollToBottom } from "~/utils";
 
@@ -76,6 +77,7 @@ export default function Header() {
           )}
         </div>
         <ThemeToggle />
+        <AuthLogin />
       </header>
     </>
   );
