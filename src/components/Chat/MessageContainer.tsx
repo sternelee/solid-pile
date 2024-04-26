@@ -61,7 +61,7 @@ export default function ({
         "margin-bottom": `calc(6em + ${paddingBottom() + "px"})`,
       }}
     >
-      <div id="message-container-img" class="px-1em">
+      <div id="message-container-img">
         <Show when={!store.messageList.length}>
           <MessageItem hiddenAction={true} message={defaultMessage$} />
         </Show>

@@ -7,7 +7,7 @@ import {
   transformerDirectives,
   transformerVariantGroup,
 } from "unocss";
-// import { presetDaisy } from "@unscatty/unocss-preset-daisy";
+import { presetDaisy } from "@unscatty/unocss-preset-daisy";
 import { VitePWA } from "vite-plugin-pwa";
 
 export default defineConfig({
@@ -18,31 +18,31 @@ export default defineConfig({
         transformers: [transformerDirectives(), transformerVariantGroup()],
         presets: [
           presetUno(),
-          // presetDaisy({
-          //   themes: [
-          //     "light",
-          //     "dark",
-          //     "cupcake",
-          //     "synthwave",
-          //     "retro",
-          //     "cyberpunk",
-          //     "valentine",
-          //     "halloween",
-          //     "garden",
-          //     "forest",
-          //     "aqua",
-          //     "black",
-          //     "luxury",
-          //     "dracula",
-          //     "cmyk",
-          //     "autumn",
-          //     "business",
-          //     "acid",
-          //     "night",
-          //     "coffee",
-          //     "winter",
-          //   ],
-          // }),
+          presetDaisy({
+            themes: [
+              "light",
+              "dark",
+              "cupcake",
+              "synthwave",
+              "retro",
+              "cyberpunk",
+              "valentine",
+              "halloween",
+              "garden",
+              "forest",
+              "aqua",
+              "black",
+              "luxury",
+              "dracula",
+              "cmyk",
+              "autumn",
+              "business",
+              "acid",
+              "night",
+              "coffee",
+              "winter",
+            ],
+          }),
           presetTypography({
             cssExtend: {
               ":not(pre) > code::before,:not(pre) > code::after": {

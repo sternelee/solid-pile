@@ -168,7 +168,6 @@ export default function ({
     <div
       class="pb-2em px-2em fixed bottom-0 z-100"
       style={{
-        background: 'var(--c-bg)',
         width: width() === "init" ? "100%" : width(),
       }}
     >

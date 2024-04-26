@@ -105,7 +105,7 @@ export default function MessageItem(props: Props) {
   return (
     <Show when={renderedMarkdown()}>
       <div
-        class="group flex gap-3 px-4 mx--4 rounded-lg transition-colors sm:hover:bg-slate/6 dark:sm:hover:bg-slate/5 relative message-item"
+        class="group flex gap-3 px-4 mx--4 rounded-lg transition-colors mt-4 sm:hover:bg-slate/6 dark:sm:hover:bg-slate/5 relative message-item"
         style={{
           transition: "all 0.3s",
         }}
@@ -114,7 +114,7 @@ export default function MessageItem(props: Props) {
         }}
       >
         <div
-          class={`shadow-slate-5 shadow-sm dark:shadow-none shrink-0 w-7 h-7 mt-4 rounded-full op-80 flex items-center justify-center cursor-pointer ${
+          class={`shadow-slate-5 shadow-sm dark:shadow-none shrink-0 w-7 h-7 rounded-full op-80 flex items-center justify-center cursor-pointer ${
             roleClass[props.message.role]
           }`}
           classList={{
