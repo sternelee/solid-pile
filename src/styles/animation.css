@@ -20,6 +20,7 @@
 .after #theme-toggle,
 .after #logo,
 .after #message-container {
+  background: hsl(var(--b1) / var(--un-bg-opacity, 1));
   transition-property: transform, opacity;
   transition-duration: 1s;
   transition-timing-function: ease-in-out;
