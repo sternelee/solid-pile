@@ -1,5 +1,5 @@
 import { toBlob, toJpeg } from "html-to-image";
-import { Match, Show, Switch, type JSXElement, createSignal } from "solid-js";
+import { Show, Switch, type JSXElement, createSignal } from "solid-js";
 import { createStore } from "solid-js/store";
 import { useNavigate } from "@solidjs/router";
 import { defaultEnv } from "~/env";
@@ -367,78 +367,72 @@ export default function SettingAction() {
             </>
           )}
         </div>
-        <Switch
-          fallback={
-            <div class="flex">
-              <ActionItem
-                onClick={() => {
-                  setActionState("fakeRole", (k) => {
-                    const _ = [
-                      "normal",
-                      "user",
-                      "system",
-                      "assistant",
-                    ] as FakeRoleUnion[];
-                    return _[(_.indexOf(k) + 1) % _.length];
-                  });
-                }}
-                icon={roleIcons[actionState.fakeRole]}
-                label={
-                  {
-                    system: "系统角色",
-                    assistant: "智能AI",
-                    user: "普通用户",
-                    normal: "伪装角色",
-                  }[actionState.fakeRole]
-                }
-              />
-              <ActionItem
-                onClick={async () => {
-                  setActionState("genImg", "loading");
-                  await exportJpg();
-                  setTimeout(() => setActionState("genImg", "normal"), 1000);
-                }}
-                icon={imgIcons[actionState.genImg]}
-                label="导出图片"
-              />
-              <ActionItem
-                label="导出MD"
-                onClick={async () => {
-                  await exportMD(store.messageList);
-                  setActionState("success", "markdown");
-                  setTimeout(() => setActionState("success", false), 1000);
-                }}
-                icon={
-                  actionState.success === "markdown"
-                    ? "i-carbon:status-resolved dark:text-yellow text-yellow-6"
-                    : "i-ri:markdown-line"
-                }
-              />
-              <ActionItem
-                onClick={() => {
-                  if (actionState.clearSessionConfirm) {
-                    clearSession();
-                    setActionState("clearSessionConfirm", false);
-                  } else {
-                    setActionState("clearSessionConfirm", true);
-                    setTimeout(
-                      () => setActionState("clearSessionConfirm", false),
-                      3000
-                    );
-                  }
-                }}
-                icon={
-                  actionState.clearSessionConfirm
-                    ? "i-carbon:checkmark animate-bounce text-red-6 dark:text-red"
-                    : "i-carbon:clean"
-                }
-                label={actionState.clearSessionConfirm ? "确定" : "清空对话"}
-              />
-            </div>
-          }
-        >
-          <Match when={actionState.showSetting === "session"}></Match>
-        </Switch>
+        <div class="flex">
+          <ActionItem
+            onClick={() => {
+              setActionState("fakeRole", (k) => {
+                const _ = [
+                  "normal",
+                  "user",
+                  "system",
+                  "assistant",
+                ] as FakeRoleUnion[];
+                return _[(_.indexOf(k) + 1) % _.length];
+              });
+            }}
+            icon={roleIcons[actionState.fakeRole]}
+            label={
+              {
+                system: "系统角色",
+                assistant: "智能AI",
+                user: "普通用户",
+                normal: "伪装角色",
+              }[actionState.fakeRole]
+            }
+          />
+          <ActionItem
+            onClick={async () => {
+              setActionState("genImg", "loading");
+              await exportJpg();
+              setTimeout(() => setActionState("genImg", "normal"), 1000);
+            }}
+            icon={imgIcons[actionState.genImg]}
+            label="导出图片"
+          />
+          <ActionItem
+            label="导出MD"
+            onClick={async () => {
+              await exportMD(store.messageList);
+              setActionState("success", "markdown");
+              setTimeout(() => setActionState("success", false), 1000);
+            }}
+            icon={
+              actionState.success === "markdown"
+                ? "i-carbon:status-resolved dark:text-yellow text-yellow-6"
+                : "i-ri:markdown-line"
+            }
+          />
+          <ActionItem
+            onClick={() => {
+              if (actionState.clearSessionConfirm) {
+                clearSession();
+                setActionState("clearSessionConfirm", false);
+              } else {
+                setActionState("clearSessionConfirm", true);
+                setTimeout(
+                  () => setActionState("clearSessionConfirm", false),
+                  3000
+                );
+              }
+            }}
+            icon={
+              actionState.clearSessionConfirm
+                ? "i-carbon:checkmark animate-bounce text-red-6 dark:text-red"
+                : "i-carbon:clean"
+            }
+            label={actionState.clearSessionConfirm ? "确定" : "清空对话"}
+          />
+        </div>
       </div>
     </div>
   );
