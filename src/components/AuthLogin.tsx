@@ -1,7 +1,7 @@
 import { Show, type VoidComponent } from "solid-js";
 import { createSession, signIn, signOut } from "@solid-mediakit/auth/client";
 
-const Login: VoidComponent = () => {
+const AuthLogin: VoidComponent = () => {
   const session = createSession();
   return (
     <div class="dropdown dropdown-end">
@@ -35,21 +35,21 @@ const Login: VoidComponent = () => {
                   class="flex items-center"
                   onClick={() => signIn("github")}
                 >
-                  <i class="inline-block i-carbon:logo-github text-2xl dark:gray" />
+                  <i class="inline-block i-carbon:logo-github text-2xl" />
                   <span class="ml-2">Github</span>
                 </button>
                 <button
                   class="flex items-center"
                   onClick={() => signIn("google")}
                 >
-                  <i class="inline-block i-carbon:logo-google text-2xl dark:gray" />
+                  <i class="inline-block i-carbon:logo-google text-2xl" />
                   <span class="ml-2">Google</span>
                 </button>
               </>
             }
           >
             <button class="flex items-center" onClick={() => signOut()}>
-              <i class="inline-block i-carbon:logout text-2xl dark:gray" />
+              <i class="inline-block i-carbon:logout text-2xl" />
               <span class="ml-2">Logout</span>
             </button>
           </Show>
@@ -59,4 +59,4 @@ const Login: VoidComponent = () => {
   );
 };
 
-export default Login;
+export default AuthLogin;

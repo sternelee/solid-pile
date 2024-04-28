@@ -1,4 +1,4 @@
-import { Show, createEffect, createSignal } from "solid-js";
+import { Show, createSignal, createEffect } from "solid-js";
 import { useCopyCode } from "~/hooks";
 import { RootStore } from "~/store";
 import type { ChatMessage } from "~/types";
@@ -16,17 +16,20 @@ interface Props {
 }
 
 export default function MessageItem(props: Props) {
-  useCopyCode();
-  const { store, setStore } = RootStore;
   const [renderedMarkdown, setRenderedMarkdown] = createSignal(
-    md.render(props.message.content || "")
+    md
+      .render(props.message.content || "")
+      .replaceAll("<kbd>", '<kbd class="kbd">')
   );
+  const { store, setStore } = RootStore;
   const roleClass = {
     error: "bg-gradient-to-r from-red-400 to-red-700",
     user: "bg-gradient-to-r from-red-300 to-blue-700 ",
     assistant: "bg-gradient-to-r from-yellow-300 to-red-700 ",
     system: "bg-gradient-to-r from-yellow-100 to-red-800 ",
   };
+
+  useCopyCode();
 
   function copy() {
     copyToClipboard(props.message.content);
@@ -92,54 +95,59 @@ export default function MessageItem(props: Props) {
   }
 
   const throttleRender = throttle((content: string) => {
-    setRenderedMarkdown(md.render(content));
-  }, 50);
+    setRenderedMarkdown(
+      md.render(content).replaceAll("<kbd>", '<kbd class="kbd">')
+    );
+  }, 100);
 
   createEffect(() => {
     if (props.message.type === "temporary") {
       throttleRender(props.message.content);
     } else {
-      setRenderedMarkdown(md.render(props.message.content));
+      setRenderedMarkdown(
+        md
+          .render(props.message.content)
+          .replaceAll("<kbd>", '<kbd class="kbd">')
+      );
     }
   });
+
   return (
-    <Show when={renderedMarkdown()}>
+    <div
+      class="group flex gap-3 px-4 mx--4 rounded-lg transition-colors mt-4 sm:hover:bg-slate/6 dark:sm:hover:bg-slate/5 relative message-item"
+      style={{
+        transition: "all 0.3s",
+      }}
+      classList={{
+        temporary: props.message.type === "temporary",
+      }}
+    >
       <div
-        class="group flex gap-3 px-4 mx--4 rounded-lg transition-colors mt-4 sm:hover:bg-slate/6 dark:sm:hover:bg-slate/5 relative message-item"
-        style={{
-          transition: "all 0.3s",
-        }}
+        class={`shadow-slate-5 shadow-sm dark:shadow-none shrink-0 w-7 h-7 rounded-full op-80 flex items-center justify-center cursor-pointer ${
+          roleClass[props.message.role]
+        }`}
         classList={{
-          temporary: props.message.type === "temporary",
+          "animate-spin": props.message.type === "temporary",
         }}
+        onClick={lockMessage}
       >
-        <div
-          class={`shadow-slate-5 shadow-sm dark:shadow-none shrink-0 w-7 h-7 rounded-full op-80 flex items-center justify-center cursor-pointer ${
-            roleClass[props.message.role]
-          }`}
-          classList={{
-            "animate-spin": props.message.type === "temporary",
-          }}
-          onClick={lockMessage}
-        >
-          <Show when={props.message.type === "locked"}>
-            <div class="i-carbon:locked text-white" />
-          </Show>
-        </div>
-        <div
-          class="message prose prose-slate break-all max-w-full dark:prose-invert dark:text-slate break-words overflow-hidden"
-          innerHTML={renderedMarkdown()}
-        />
-        <Show when={!props.hiddenAction}>
-          <MessageAction
-            del={del}
-            copy={copy}
-            edit={edit}
-            reAnswer={reAnswer}
-            role={props.message.role}
-          />
+        <Show when={props.message.type === "locked"}>
+          <div class="i-carbon:locked text-white" />
         </Show>
       </div>
-    </Show>
+      <div
+        class="message prose prose-slate break-all max-w-full dark:prose-invert dark:text-slate break-words overflow-hidden"
+        innerHTML={renderedMarkdown()}
+      />
+      <Show when={!props.hiddenAction}>
+        <MessageAction
+          del={del}
+          copy={copy}
+          edit={edit}
+          reAnswer={reAnswer}
+          role={props.message.role}
+        />
+      </Show>
+    </div>
   );
 }

@@ -58,7 +58,7 @@ export default function SettingAction() {
   clickOutside;
   return (
     <div
-      class="text-sm text-slate-7 dark:text-slate my-2"
+      class="text-sm my-2"
       use:clickOutside={() => {
         setActionState("showSetting", "none");
       }}

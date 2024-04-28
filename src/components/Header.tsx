@@ -2,7 +2,6 @@ import { createMemo } from "solid-js";
 import { useNavigate } from "@solidjs/router";
 import { RootStore, loadSession } from "~/store";
 import ThemeToggle from "./ThemeToggle";
-import AuthLogin from "./AuthLogin";
 import { ProviderMap } from "~/providers";
 import { scrollToBottom } from "~/utils";
 
@@ -36,7 +35,7 @@ export default function Header() {
   return (
     <>
       <header class="px-4 py-2 sticky top-0 z-99 flex justify-between items-center">
-        <div class="flex-1 flex items-center dark:prose-invert dark:text-slate">
+        <div class="flex-1 flex items-center">
           {store.sessionSettings.title && (
             <>
               <a
@@ -48,7 +47,7 @@ export default function Header() {
                 ]}`}
               ></a>
               <span
-                class="font-extrabold text-slate-7 cursor-pointer dark:text-slate"
+                class="font-extrabold cursor-pointer"
                 onClick={() => {
                   navigate("/", { replace: true });
                   loadSession("index");
@@ -77,7 +76,6 @@ export default function Header() {
           )}
         </div>
         <ThemeToggle />
-        <AuthLogin />
       </header>
     </>
   );

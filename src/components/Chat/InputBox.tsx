@@ -261,7 +261,7 @@ export default function ({
               style={{
                 height: height() + "px",
               }}
-              class="self-end p-3 pr-2.2em resize-none w-full text-slate-7 dark:text-slate bg-slate bg-op-15 focus:(bg-op-20 ring-0 outline-none) placeholder:(text-slate-800 dark:text-slate-400 op-40)"
+              class="textarea textarea-bordered self-end p-3 pr-2.2em resize-none w-full"
               classList={{
                 "rounded-t": candidateOptions().length === 0,
                 "rounded-b": true,
@@ -276,7 +276,7 @@ export default function ({
                 }}
               >
                 <button
-                  class="i-carbon:add-filled rotate-45 text-slate-7 dark:text-slate text-op-20! hover:text-op-60!"
+                  class="i-carbon:add-filled rotate-45 text-op-20! hover:text-op-60!"
                   onClick={() => {
                     setStore("inputContent", "");
                     store.inputRef?.focus();
@@ -288,7 +288,7 @@ export default function ({
               <button
                 title="发送"
                 onClick={() => sendMessage(undefined, actionState.fakeRole)}
-                class="i-carbon:send-filled text-1.5em text-slate-7 dark:text-slate text-op-80! hover:text-op-100!"
+                class="i-carbon:send-filled text-1.5em text-op-80! hover:text-op-100!"
               />
             </div>
           </div>

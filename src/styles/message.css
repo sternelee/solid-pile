@@ -1,44 +1,16 @@
 .message pre {
-  position: relative;
-  min-width: 18rem;
-  overflow: hidden;
-  overflow-x: auto;
-  --un-bg-opacity: 1;
-  background-color: hsl(var(--n) / var(--un-bg-opacity));
-  padding-top: 1.25rem;
-  padding-bottom: 1.25rem;
-  --un-text-opacity: 1;
-  color: hsl(var(--nc) / var(--un-text-opacity));
-  border-radius: var(--rounded-box, 1rem);
-}
-
-.message pre::before {
-  content: "";
-  margin-bottom: 1rem;
-  display: block;
-  height: 0.75rem;
-  width: 0.75rem;
-  border-radius: 9999px;
-  opacity: 0.3;
-  box-shadow: 1.4em 0, 2.8em 0, 4.2em 0;
-}
-
-.message pre .lang {
-  color: #939090;
-}
-
-pre code.hljs {
-  display: block;
-  overflow-x: auto;
-  padding: 1em;
-}
-
-.dark .message pre .lang {
-  opacity: 0.5;
-}
-
-.message .hljs {
-  background-color: transparent;
+  width: 100%;
+  max-width: 100%;
+  font-size: 14px;
+  padding-right: 2.5rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  border-top-right-radius: var(--rounded-box, 1rem);
+  border-top-left-radius: var(--rounded-box, 1rem);
+  border-bottom-right-radius: var(--rounded-box, 1rem);
+  border-bottom-left-radius: var(--rounded-box, 1rem);
+  margin: 0;
+  min-height: 6rem;
 }
 
 .message table {

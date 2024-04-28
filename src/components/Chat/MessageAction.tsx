@@ -16,7 +16,7 @@ export default function MessageAction({
 }) {
   const [copied, setCopied] = createSignal(false)
   return (
-    <div class="flex absolute items-center justify-between <sm:top--4 <sm:right-0 top-2 right-2 text-sm text-slate-7 dark:text-slate group-hover:opacity-100 group-focus:opacity-100 opacity-0 dark:bg-#292B32 bg-#E7EBF0 rounded">
+    <div class="flex absolute items-center justify-between <sm:top--4 <sm:right-0 top-2 right-2 text-sm group-hover:opacity-100 group-focus:opacity-100 opacity-0 dark:bg-#292B32 bg-#E7EBF0 rounded">
       <Show when={role === "assistant"}>
         <ActionItem
           label="复制"

@@ -75,10 +75,6 @@ export default function ThemeToggle() {
   function toggle(t: string) {
     setTheme(t);
     document.documentElement.setAttribute("data-theme", t);
-    // document.documentElement.classList.toggle("dark", flag);
-    // document
-    //   ?.querySelector('meta[name="theme-color"]')
-    //   ?.setAttribute("content", flag ? "#16161a" : "#f6f8fa");
   }
 
   createEffect(() => {
@@ -87,18 +83,13 @@ export default function ThemeToggle() {
       document.startViewTransition &&
         !window.matchMedia("(prefers-reduced-motion: reduce)").matches
     );
-    !localStorage.getItem(LocalStorageKey.THEME) &&
-      toggle(prefersDark() ? "dark" : "light");
+    const t =
+      localStorage.getItem(LocalStorageKey.THEME) ||
+      (prefersDark() ? "dark" : "light");
+    toggle(t);
   });
 
   function handleToggleTheme(t: string, event: MouseEvent) {
-    // const element = document.documentElement;
-    // element.classList.toggle("dark");
-    // const isDark = element.classList.contains("dark");
-    // document
-    //   ?.querySelector('meta[name="theme-color"]')
-    //   ?.setAttribute("content", !isDark ? "#16161a" : "#f6f8fa");
-    // localStorage.setItem(LocalStorageKey.THEME, !isDark ? "dark" : "light");
     localStorage.setItem(LocalStorageKey.THEME, t);
 
     if (!isAppearanceTransition() || !event) {
