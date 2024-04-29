@@ -18,8 +18,7 @@
     "types": [
       "vinxi/client",
       "vite/client",
-      "vite-plugin-pwa/solid",
-      "@cloudflare/workers-types"
+      "vite-plugin-pwa/solid"
     ],
     "isolatedModules": true,
     "paths": {
