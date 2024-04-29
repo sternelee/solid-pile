@@ -1,9 +1,7 @@
 name = "solid-pile"
-compatibility_date = "2024-04-24"
+compatibility_date = "2024-03-20"
 account_id = "61db6aeb7044d616b33a0def6490bc0a"
-zone_id = "9258b29d3b22bdba0666469e82d18225"
 main = "./.output/server/index.mjs"
-type = "javascript"
 route = "pile.leeapps.dev/*"
 compatibility_flags = [ "nodejs_compat" ]
 
