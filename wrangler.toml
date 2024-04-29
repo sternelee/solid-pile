@@ -10,6 +10,9 @@ compatibility_flags = [ "nodejs_compat" ]
 rules = [
   { type = "ESModule", globs = ["**/*.js", "**/*.mjs"]},
 ]
+kv_namespaces = [
+  { binding = "pile_chat", id = "24312817bb824c629bd6b6dca0a8d172" }
+]
 
 [site]
 bucket = ".output/public"
