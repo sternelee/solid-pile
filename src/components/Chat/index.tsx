@@ -207,7 +207,7 @@ export default function () {
       signal: controller?.signal,
     });
     if (!response.ok) {
-      const res = await response.json();
+      const res = await response.json() as any;
       throw new Error(res.error.message);
     }
     const data = response.body;

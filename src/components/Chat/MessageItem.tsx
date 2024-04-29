@@ -1,4 +1,5 @@
-import { Show, createSignal, createEffect } from "solid-js";
+import { Show, createSignal, createEffect, createMemo } from "solid-js";
+import { createSession } from "@solid-mediakit/auth/client";
 import { useCopyCode } from "~/hooks";
 import { RootStore } from "~/store";
 import type { ChatMessage } from "~/types";
@@ -16,6 +17,9 @@ interface Props {
 }
 
 export default function MessageItem(props: Props) {
+  const session = createSession();
+  const avatar = createMemo(() => session()?.user?.image);
+
   const [renderedMarkdown, setRenderedMarkdown] = createSignal(
     md
       .render(props.message.content || "")
@@ -122,19 +126,30 @@ export default function MessageItem(props: Props) {
         temporary: props.message.type === "temporary",
       }}
     >
-      <div
-        class={`shadow-slate-5 shadow-sm dark:shadow-none shrink-0 w-7 h-7 rounded-full op-80 flex items-center justify-center cursor-pointer ${
-          roleClass[props.message.role]
-        }`}
-        classList={{
-          "animate-spin": props.message.type === "temporary",
-        }}
-        onClick={lockMessage}
+      <Show
+        when={avatar() && props.message.role === "user"}
+        fallback={
+          <div
+            class={`shadow-slate-5 shadow-sm dark:shadow-none shrink-0 w-7 h-7 rounded-full op-80 flex items-center justify-center cursor-pointer ${
+              roleClass[props.message.role]
+            }`}
+            classList={{
+              "animate-spin": props.message.type === "temporary",
+            }}
+            onClick={lockMessage}
+          >
+            <Show when={props.message.type === "locked"}>
+              <div class="i-carbon:locked text-white" />
+            </Show>
+          </div>
+        }
       >
-        <Show when={props.message.type === "locked"}>
-          <div class="i-carbon:locked text-white" />
-        </Show>
-      </div>
+        <div class="avatar cursor-pointer" onClick={lockMessage}>
+          <div class="w-6 h-6 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+            <img src={avatar() || ""} width={24} height={24} />
+          </div>
+        </div>
+      </Show>
       <div
         class="message prose prose-slate break-all max-w-full dark:prose-invert dark:text-slate break-words overflow-hidden"
         innerHTML={renderedMarkdown()}
