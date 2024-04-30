@@ -4,11 +4,14 @@
   "scripts": {
     "dev": "PORT=5678 vinxi dev",
     "build": "vinxi build",
-    "start": "vinxi start"
+    "start": "vinxi start",
+    "serve": "wrangler pages dev ./dist --compatibility-flags=nodejs_als",
+    "deploy": "wrangler pages deploy ./dist"
   },
   "dependencies": {
     "@auth/core": "^0.29.0",
     "@babel/core": "7.24.4",
+    "@cloudflare/workers-types": "^4.20240423.0",
     "@iconify-json/carbon": "^1.1.31",
     "@iconify-json/ri": "^1.1.20",
     "@iconify-json/simple-icons": "^1.1.97",

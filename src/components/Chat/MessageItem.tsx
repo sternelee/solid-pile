@@ -16,6 +16,14 @@ interface Props {
   sendMessage?: (value?: string, fakeRole?: FakeRoleUnion) => void;
 }
 
+export const roleIcons: Record<string, string> = {
+  system: "i-ri:robot-2-fill ",
+  assistant: "i-ri:android-fill ",
+  normal: "i-ri:user-3-line",
+  user: "i-ri:user-3-fill",
+  error: "i-carbon:warning-alt",
+};
+
 export default function MessageItem(props: Props) {
   const session = createSession();
   const avatar = createMemo(() => session()?.user?.image);
@@ -138,7 +146,7 @@ export default function MessageItem(props: Props) {
             }}
             onClick={lockMessage}
           >
-            <Show when={props.message.type === "locked"}>
+            <Show when={props.message.type === "locked"} fallback={<div class={roleIcons[props.message.role]} />}>
               <div class="i-carbon:locked text-white" />
             </Show>
           </div>

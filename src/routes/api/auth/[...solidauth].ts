@@ -2,23 +2,23 @@ import { SolidAuth, type SolidAuthConfig } from '@solid-mediakit/auth'
 import GitHub from '@auth/core/providers/github'
 import Google from '@auth/core/providers/google'
 
-console.log('env:', process.env)
-console.log('map:', import.meta.env)
+console.log("env:", process.env)
+
+// 线上设置环境变量: export AUTH_URL="https://pile.leeapps.dev/api/auth"
 
 const authOpts: SolidAuthConfig = {
   providers: [
     GitHub({
-      clientId: import.meta.env.VITE_GITHUB_ID,
-      clientSecret: import.meta.env.VITE_GITHUB_SECRET,
+      clientId: process.env.GITHUB_ID,
+      clientSecret: process.env.GITHUB_SECRET,
     }),
     Google({
-      clientId: import.meta.env.VITE_GOOGLE_ID,
-      clientSecret: import.meta.env.VITE_GOOGLE_SECRET,
+      clientId: process.env.GOOGLE_ID,
+      clientSecret: process.env.GOOGLE_SECRET,
     })
   ],
   debug: false,
-  secret: import.meta.env.VITE_AUTH_SECRET,
-  trustHost: import.meta.env.VITE_AUTH_TRUST_HOST || false
+  secret: process.env.AUTH_SECRET
 }
 
 export const { GET, POST } = SolidAuth(authOpts)
