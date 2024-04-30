@@ -31,14 +31,6 @@
   border-bottom: 2px solid #64748b40;
 }
 
-.dark .message {
-  --c-text: rgba(255, 255, 255, 0.6);
-  --un-prose-invert-headings: var(--c-text);
-  --un-prose-invert-links: var(--c-text);
-  --un-prose-invert-code: var(--c-text);
-  --un-prose-invert-body: var(--c-text);
-}
-
 .message a {
   text-decoration: none;
   border-bottom: 1px dashed;
