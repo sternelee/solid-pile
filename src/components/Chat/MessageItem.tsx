@@ -146,7 +146,14 @@ export default function MessageItem(props: Props) {
             }}
             onClick={lockMessage}
           >
-            <Show when={props.message.type === "locked"} fallback={<div class={roleIcons[props.message.role]} />}>
+            <Show
+              when={props.message.type === "locked"}
+              fallback={
+                props.message.type === "temporary" ? null : (
+                  <div class={roleIcons[props.message.role]} />
+                )
+              }
+            >
               <div class="i-carbon:locked text-white" />
             </Show>
           </div>

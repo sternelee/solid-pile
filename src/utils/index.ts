@@ -99,7 +99,6 @@ export async function fetchWithTimeout(
 
   const controller = new AbortController()
   const id = setTimeout(() => controller.abort(), timeout)
-  console.log("请求:", input, init)
   const response = await fetch(input, {
     ...init,
     signal: controller.signal
