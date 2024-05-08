@@ -1,6 +1,6 @@
 export default {
   icon: "i-simple-icons-metasploit",
-  name: "Mistral",
+  name: "MistralAI",
   href: "https://console.mistral.ai/api-keys/",
   defaultModel: "mistral-medium-latest",
   models: [

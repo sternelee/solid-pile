@@ -1,6 +1,6 @@
 export default {
   icon: "i-simple-icons-goldenline",
-  name: "ZeroOne",
+  name: "零一万物",
   href: "https://platform.lingyiwanwu.com/apikeys",
   defaultModel: "yi-34b-chat-0205",
   models: [
