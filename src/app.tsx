@@ -18,7 +18,7 @@ export default function App() {
         <MetaProvider>
           <Meta name="theme-color" content="#f6f8fa" />
           {pwaInfo?.webManifest?.href ? (
-            <Link rel="manifest" href={pwaInfo.webManifest.href} />
+            <Link rel="manifest" href={"/_build/" + pwaInfo.webManifest.href} />
           ) : (
             ""
           )}

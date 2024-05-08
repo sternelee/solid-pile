@@ -9,6 +9,8 @@ import { IProvider } from "~/providers";
 const cache = new Map();
 
 const passwordSet = process.env.PASSWORD || defaultEnv.PASSWORD;
+const encoder = new TextEncoder();
+const decoder = new TextDecoder();
 
 export async function POST({ request }: APIEvent) {
   try {
@@ -27,7 +29,9 @@ export async function POST({ request }: APIEvent) {
 
     if (password && passwordSet === password) {
       // 没有传key时才校验管理密码
-      key = (process.env[body.provider.toUpperCase() + "_API"] || "").replaceAll('-', '_');
+      key = (
+        process.env[body.provider.toUpperCase() + "_API"] || ""
+      ).replaceAll("-", "_");
     }
 
     if (!messages?.length) {
@@ -63,11 +67,9 @@ export async function POST({ request }: APIEvent) {
       key = token;
     }
 
-    const encoder = new TextEncoder();
-    const decoder = new TextDecoder();
     const headers: { [key: string]: string } = {
       "Content-Type": "application/json",
-      "HTTP-Referer": "https://chat.leeapp.cn/",
+      "HTTP-Referer": "https://pile.leeapps.dev/",
       "x-portkey-provider": provider,
       Authorization: `Bearer ${key}`,
     };
@@ -90,20 +92,22 @@ export async function POST({ request }: APIEvent) {
           temperature,
           stream: true,
         }),
-      },
+      }
     ).catch((err: { message: any }) => {
+      console.log(JSON.stringify(err))
       return new Response(
         JSON.stringify({
           error: {
             message: err.message,
           },
         }),
-        { status: 500 },
+        { status: 500 }
       );
     });
     if (request.signal.aborted) {
       abortController.abort();
     }
+    console.log('rawRes:', rawRes.body)
 
     if (!rawRes.ok) {
       return new Response(rawRes.body, {
@@ -146,7 +150,7 @@ export async function POST({ request }: APIEvent) {
           message: err.message,
         },
       }),
-      { status: 400 },
+      { status: 400 }
     );
   }
 }

@@ -444,7 +444,7 @@ function SettingItem(props: {
   label: string;
 }) {
   return (
-    <div class="flex items-center p-1 justify-between hover:bg-slate hover:bg-op-10 rounded">
+    <div class="flex items-center p-1 justify-between rounded">
       <div class="flex items-center">
         <button class={props.icon} />
         <span class="ml-1">{props.label}</span>
@@ -457,7 +457,7 @@ function SettingItem(props: {
 function ActionItem(props: { onClick: any; icon: string; label?: string }) {
   return (
     <div
-      class="flex items-center cursor-pointer mx-1 p-2 hover:(dark:bg-#23252A bg-#ECF0F4) rounded text-1.2em"
+      class="btn btn-ghost flex items-center cursor-pointer mx-1 p-2 rounded text-1.2em"
       onClick={props.onClick}
       attr:tooltip={props.label}
       attr:position="top"

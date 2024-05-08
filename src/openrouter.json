@@ -23,31 +23,6 @@
       "per_request_limits": null
     },
     {
-      "id": "lynn/soliloquy-l3",
-      "name": "Lynn: Llama 3 Soliloquy 8B",
-      "description": "Soliloquy-L3 is a fast, highly capable roleplaying model designed for immersive, dynamic experiences. Trained on over 250 million tokens of roleplaying data, Soliloquy-L3 has a vast knowledge base, rich literary expression, and support for up to 24k context length. It outperforms existing ~13B models, delivering enhanced roleplaying capabilities.\n\nUsage of this model is subject to [Meta's Acceptable Use Policy](https://llama.meta.com/llama3/use-policy/).",
-      "pricing": {
-        "prompt": "0",
-        "completion": "0",
-        "image": "0",
-        "request": "0"
-      },
-      "context_length": 24576,
-      "architecture": {
-        "modality": "text",
-        "tokenizer": "Llama3",
-        "instruct_type": "llama3"
-      },
-      "top_provider": {
-        "max_completion_tokens": null,
-        "is_moderated": false
-      },
-      "per_request_limits": {
-        "prompt_tokens": "Infinity",
-        "completion_tokens": "Infinity"
-      }
-    },
-    {
       "id": "nousresearch/nous-capybara-7b:free",
       "name": "Nous: Capybara 7B (free)",
       "description": "The Capybara series is a collection of datasets and models made by fine-tuning on data created by Nous, mostly in-house.\n\nV1.9 uses unalignment techniques for more consistent and dynamic control. It also leverages a significantly better foundation model, [Mistral 7B](/models/mistralai/mistral-7b-instruct).\n\nNote: this is a free, rate-limited version of [this model](/models/nousresearch/nous-capybara-7b). Outputs may be cached. Read about rate limits [here](/docs#limits).",
@@ -223,6 +198,31 @@
       }
     },
     {
+      "id": "meta-llama/llama-3-8b-instruct:free",
+      "name": "Meta: Llama 3 8B Instruct (free)",
+      "description": "Meta's latest class of model (Llama 3) launched with a variety of sizes & flavors. This 8B instruct-tuned version was optimized for high quality dialogue usecases.\n\nIt has demonstrated strong performance compared to leading closed-source models in human evaluations.\n\nTo read more about the model release, [click here](https://ai.meta.com/blog/meta-llama-3/). Usage of this model is subject to [Meta's Acceptable Use Policy](https://llama.meta.com/llama3/use-policy/).\n\nNote: this is a free, rate-limited version of [this model](/models/meta-llama/llama-3-8b-instruct). Outputs may be cached. Read about rate limits [here](/docs#limits).",
+      "pricing": {
+        "prompt": "0",
+        "completion": "0",
+        "image": "0",
+        "request": "0"
+      },
+      "context_length": 8192,
+      "architecture": {
+        "modality": "text",
+        "tokenizer": "Llama3",
+        "instruct_type": "llama3"
+      },
+      "top_provider": {
+        "max_completion_tokens": null,
+        "is_moderated": false
+      },
+      "per_request_limits": {
+        "prompt_tokens": "Infinity",
+        "completion_tokens": "Infinity"
+      }
+    },
+    {
       "id": "koboldai/psyfighter-13b-2",
       "name": "Psyfighter v2 13B",
       "description": "The v2 of [Psyfighter](/models/jebcarter/psyfighter-13b) - a merged model created by the KoboldAI community members Jeb Carter and TwistedShadows, made possible thanks to the KoboldAI merge request service.\n\n  The intent was to add medical data to supplement the model's fictional ability with more details on anatomy and mental states. This model should not be used for medical advice or therapy because of its high likelihood of pulling in fictional data.\n\n  It's a merge between:\n\n  - [KoboldAI/LLaMA2-13B-Tiefighter](https://huggingface.co/KoboldAI/LLaMA2-13B-Tiefighter)\n  - [Doctor-Shotgun/cat-v1.0-13b\n](https://huggingface.co/Doctor-Shotgun/cat-v1.0-13b)\n  - [Doctor-Shotgun/llama-2-13b-chat-limarp-v2-merged](https://huggingface.co/Doctor-Shotgun/llama-2-13b-chat-limarp-v2-merged).\n\n  #merge",
@@ -243,8 +243,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "38915830",
-        "completion_tokens": "38915830"
+        "prompt_tokens": "38893673",
+        "completion_tokens": "38893673"
       }
     },
     {
@@ -268,8 +268,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "7783166",
-        "completion_tokens": "7783166"
+        "prompt_tokens": "7778734",
+        "completion_tokens": "7778734"
       }
     },
     {
@@ -293,33 +293,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "216199060",
-        "completion_tokens": "216199060"
-      }
-    },
-    {
-      "id": "meta-llama/llama-2-13b-chat",
-      "name": "Meta: Llama v2 13B Chat",
-      "description": "A 13 billion parameter language model from Meta, fine tuned for chat completions",
-      "pricing": {
-        "prompt": "0.0000001206",
-        "completion": "0.0000001206",
-        "image": "0",
-        "request": "0"
-      },
-      "context_length": 4096,
-      "architecture": {
-        "modality": "text",
-        "tokenizer": "Llama2",
-        "instruct_type": "llama2"
-      },
-      "top_provider": {
-        "max_completion_tokens": null,
-        "is_moderated": false
-      },
-      "per_request_limits": {
-        "prompt_tokens": "322685164",
-        "completion_tokens": "322685164"
+        "prompt_tokens": "216075963",
+        "completion_tokens": "216075963"
       }
     },
     {
@@ -343,8 +318,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "34591849",
-        "completion_tokens": "34591849"
+        "prompt_tokens": "34572154",
+        "completion_tokens": "34572154"
       }
     },
     {
@@ -368,8 +343,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "10377554",
-        "completion_tokens": "10377554"
+        "prompt_tokens": "10371646",
+        "completion_tokens": "10371646"
       }
     },
     {
@@ -393,8 +368,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "4151021",
-        "completion_tokens": "4151021"
+        "prompt_tokens": "4148658",
+        "completion_tokens": "4148658"
       }
     },
     {
@@ -418,8 +393,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "17295924",
-        "completion_tokens": "17295924"
+        "prompt_tokens": "17286077",
+        "completion_tokens": "17286077"
       }
     },
     {
@@ -443,8 +418,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "103775548",
-        "completion_tokens": "103775548"
+        "prompt_tokens": "103716462",
+        "completion_tokens": "103716462"
       }
     },
     {
@@ -468,8 +443,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "4323981",
-        "completion_tokens": "4323981"
+        "prompt_tokens": "4321519",
+        "completion_tokens": "4321519"
       }
     },
     {
@@ -493,8 +468,33 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "70764097",
-        "completion_tokens": "13772468"
+        "prompt_tokens": "70723806",
+        "completion_tokens": "13764626"
+      }
+    },
+    {
+      "id": "neversleep/llama-3-lumimaid-8b",
+      "name": "Llama 3 Lumimaid 8B",
+      "description": "The NeverSleep team is back, with a Llama 3 8B finetune trained on their curated roleplay data. Striking a balance between eRP and RP, Lumimaid was designed to be serious, yet uncensored when necessary.\n\nTo enhance it's overall intelligence and chat capability, roughly 40% of the training data was not roleplay. This provides a breadth of knowledge to access, while still keeping roleplay as the primary strength.\n\nUsage of this model is subject to [Meta's Acceptable Use Policy](https://llama.meta.com/llama3/use-policy/).",
+      "pricing": {
+        "prompt": "0.000000225",
+        "completion": "0.00000225",
+        "image": "0",
+        "request": "0"
+      },
+      "context_length": 24576,
+      "architecture": {
+        "modality": "text",
+        "tokenizer": "Llama3",
+        "instruct_type": "llama3"
+      },
+      "top_provider": {
+        "max_completion_tokens": 24576,
+        "is_moderated": false
+      },
+      "per_request_limits": {
+        "prompt_tokens": "172860770",
+        "completion_tokens": "17286077"
       }
     },
     {
@@ -518,8 +518,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "34591849",
-        "completion_tokens": "34591849"
+        "prompt_tokens": "34572154",
+        "completion_tokens": "34572154"
       }
     },
     {
@@ -543,8 +543,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "34591849",
-        "completion_tokens": "34591849"
+        "prompt_tokens": "34572154",
+        "completion_tokens": "34572154"
       }
     },
     {
@@ -552,8 +552,8 @@
       "name": "Meta: Llama 3 8B Instruct (extended)",
       "description": "Meta's latest class of model (Llama 3) launched with a variety of sizes & flavors. This 8B instruct-tuned version was optimized for high quality dialogue usecases.\n\nIt has demonstrated strong performance compared to leading closed-source models in human evaluations.\n\nTo read more about the model release, [click here](https://ai.meta.com/blog/meta-llama-3/). Usage of this model is subject to [Meta's Acceptable Use Policy](https://llama.meta.com/llama3/use-policy/).\n\nNote: this is an extended-context version of [this model](/models/meta-llama/llama-3-8b-instruct). It may have higher prices and different outputs.",
       "pricing": {
-        "prompt": "0.0000002750625",
-        "completion": "0.000002825625",
+        "prompt": "0.000000225",
+        "completion": "0.00000225",
         "image": "0",
         "request": "0"
       },
@@ -568,8 +568,33 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "141479957",
-        "completion_tokens": "13772468"
+        "prompt_tokens": "172860770",
+        "completion_tokens": "17286077"
+      }
+    },
+    {
+      "id": "neversleep/llama-3-lumimaid-8b:extended",
+      "name": "Llama 3 Lumimaid 8B (extended)",
+      "description": "The NeverSleep team is back, with a Llama 3 8B finetune trained on their curated roleplay data. Striking a balance between eRP and RP, Lumimaid was designed to be serious, yet uncensored when necessary.\n\nTo enhance it's overall intelligence and chat capability, roughly 40% of the training data was not roleplay. This provides a breadth of knowledge to access, while still keeping roleplay as the primary strength.\n\nUsage of this model is subject to [Meta's Acceptable Use Policy](https://llama.meta.com/llama3/use-policy/).\n\nNote: this is an extended-context version of [this model](/models/neversleep/llama-3-lumimaid-8b). It may have higher prices and different outputs.",
+      "pricing": {
+        "prompt": "0.000000225",
+        "completion": "0.00000225",
+        "image": "0",
+        "request": "0"
+      },
+      "context_length": 24576,
+      "architecture": {
+        "modality": "text",
+        "tokenizer": "Llama3",
+        "instruct_type": "llama3"
+      },
+      "top_provider": {
+        "max_completion_tokens": 24576,
+        "is_moderated": false
+      },
+      "per_request_limits": {
+        "prompt_tokens": "172860770",
+        "completion_tokens": "17286077"
       }
     },
     {
@@ -593,8 +618,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "11530616",
-        "completion_tokens": "11530616"
+        "prompt_tokens": "11524051",
+        "completion_tokens": "11524051"
       }
     },
     {
@@ -618,8 +643,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "216199060",
-        "completion_tokens": "216199060"
+        "prompt_tokens": "216075963",
+        "completion_tokens": "216075963"
       }
     },
     {
@@ -643,8 +668,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "54049765",
-        "completion_tokens": "54049765"
+        "prompt_tokens": "54018990",
+        "completion_tokens": "54018990"
       }
     },
     {
@@ -668,8 +693,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "48044235",
-        "completion_tokens": "48044235"
+        "prompt_tokens": "48016880",
+        "completion_tokens": "48016880"
       }
     },
     {
@@ -693,8 +718,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "54049765",
-        "completion_tokens": "54049765"
+        "prompt_tokens": "54018990",
+        "completion_tokens": "54018990"
       }
     },
     {
@@ -718,8 +743,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "216199060",
-        "completion_tokens": "216199060"
+        "prompt_tokens": "216075963",
+        "completion_tokens": "216075963"
       }
     },
     {
@@ -743,8 +768,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "144132706",
-        "completion_tokens": "144132706"
+        "prompt_tokens": "144050642",
+        "completion_tokens": "144050642"
       }
     },
     {
@@ -768,8 +793,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "216199060",
-        "completion_tokens": "216199060"
+        "prompt_tokens": "216075963",
+        "completion_tokens": "216075963"
       }
     },
     {
@@ -793,8 +818,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "54049765",
-        "completion_tokens": "54049765"
+        "prompt_tokens": "54018990",
+        "completion_tokens": "54018990"
       }
     },
     {
@@ -818,8 +843,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "54049765",
-        "completion_tokens": "54049765"
+        "prompt_tokens": "54018990",
+        "completion_tokens": "54018990"
       }
     },
     {
@@ -843,8 +868,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "308855800",
-        "completion_tokens": "308855800"
+        "prompt_tokens": "308679947",
+        "completion_tokens": "308679947"
       }
     },
     {
@@ -868,8 +893,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "216199060",
-        "completion_tokens": "216199060"
+        "prompt_tokens": "216075963",
+        "completion_tokens": "216075963"
       }
     },
     {
@@ -893,8 +918,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "216199060",
-        "completion_tokens": "216199060"
+        "prompt_tokens": "216075963",
+        "completion_tokens": "216075963"
       }
     },
     {
@@ -918,8 +943,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "72066353",
-        "completion_tokens": "72066353"
+        "prompt_tokens": "72025321",
+        "completion_tokens": "72025321"
       }
     },
     {
@@ -943,8 +968,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "54049765",
-        "completion_tokens": "54049765"
+        "prompt_tokens": "54018990",
+        "completion_tokens": "54018990"
       }
     },
     {
@@ -957,7 +982,7 @@
         "image": "0",
         "request": "0"
       },
-      "context_length": 32000,
+      "context_length": 32769,
       "architecture": {
         "modality": "text",
         "tokenizer": "Mistral",
@@ -968,8 +993,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "72066353",
-        "completion_tokens": "72066353"
+        "prompt_tokens": "72025321",
+        "completion_tokens": "72025321"
       }
     },
     {
@@ -993,8 +1018,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "216199060",
-        "completion_tokens": "216199060"
+        "prompt_tokens": "216075963",
+        "completion_tokens": "216075963"
       }
     },
     {
@@ -1018,8 +1043,33 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "48044235",
-        "completion_tokens": "48044235"
+        "prompt_tokens": "48016880",
+        "completion_tokens": "48016880"
+      }
+    },
+    {
+      "id": "snowflake/snowflake-arctic-instruct",
+      "name": "Snowflake: Arctic Instruct",
+      "description": "Arctic is a dense-MoE Hybrid transformer architecture pre-trained from scratch by the Snowflake AI Research Team. Arctic combines a 10B dense transformer model with a residual 128x3.66B MoE MLP resulting in 480B total and 17B active parameters chosen using a top-2 gating.\n\nTo read more about this model's release, [click here](https://www.snowflake.com/blog/arctic-open-efficient-foundation-language-models-snowflake/).",
+      "pricing": {
+        "prompt": "0.00000216",
+        "completion": "0.00000216",
+        "image": "0",
+        "request": "0"
+      },
+      "context_length": 4096,
+      "architecture": {
+        "modality": "text",
+        "tokenizer": "Llama2",
+        "instruct_type": "gpt"
+      },
+      "top_provider": {
+        "max_completion_tokens": null,
+        "is_moderated": false
+      },
+      "per_request_limits": {
+        "prompt_tokens": "18006330",
+        "completion_tokens": "18006330"
       }
     },
     {
@@ -1043,8 +1093,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "72066353",
-        "completion_tokens": "72066353"
+        "prompt_tokens": "72025321",
+        "completion_tokens": "72025321"
       }
     },
     {
@@ -1068,33 +1118,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "273093549",
-        "completion_tokens": "273093549"
-      }
-    },
-    {
-      "id": "huggingfaceh4/zephyr-7b-beta",
-      "name": "Hugging Face: Zephyr 7B",
-      "description": "Zephyr is a series of language models that are trained to act as helpful assistants. Zephyr-7B-β is the second model in the series, and is a fine-tuned version of [mistralai/Mistral-7B-v0.1](/models/mistralai/mistral-7b-instruct) that was trained on a mix of publicly available, synthetic datasets using Direct Preference Optimization (DPO).",
-      "pricing": {
-        "prompt": "0.0000001425",
-        "completion": "0.0000001425",
-        "image": "0",
-        "request": "0"
-      },
-      "context_length": 4096,
-      "architecture": {
-        "modality": "text",
-        "tokenizer": "Mistral",
-        "instruct_type": "zephyr"
-      },
-      "top_provider": {
-        "max_completion_tokens": null,
-        "is_moderated": false
-      },
-      "per_request_limits": {
-        "prompt_tokens": "273093549",
-        "completion_tokens": "273093549"
+        "prompt_tokens": "272938058",
+        "completion_tokens": "272938058"
       }
     },
     {
@@ -1118,8 +1143,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "77831661",
-        "completion_tokens": "25943887"
+        "prompt_tokens": "77787346",
+        "completion_tokens": "25929115"
       }
     },
     {
@@ -1143,8 +1168,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "77831661",
-        "completion_tokens": "25943887"
+        "prompt_tokens": "77787346",
+        "completion_tokens": "25929115"
       }
     },
     {
@@ -1168,8 +1193,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "38915830",
-        "completion_tokens": "19457915"
+        "prompt_tokens": "38893673",
+        "completion_tokens": "19446836"
       }
     },
     {
@@ -1193,8 +1218,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "38915830",
-        "completion_tokens": "19457915"
+        "prompt_tokens": "38893673",
+        "completion_tokens": "19446836"
       }
     },
     {
@@ -1218,8 +1243,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "38915830",
-        "completion_tokens": "19457915"
+        "prompt_tokens": "38893673",
+        "completion_tokens": "19446836"
       }
     },
     {
@@ -1243,8 +1268,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "12971943",
-        "completion_tokens": "9728957"
+        "prompt_tokens": "12964557",
+        "completion_tokens": "9723418"
       }
     },
     {
@@ -1268,8 +1293,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "3891583",
-        "completion_tokens": "1297194"
+        "prompt_tokens": "3889367",
+        "completion_tokens": "1296455"
       }
     },
     {
@@ -1293,8 +1318,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "3891583",
-        "completion_tokens": "1297194"
+        "prompt_tokens": "3889367",
+        "completion_tokens": "1296455"
       }
     },
     {
@@ -1318,8 +1343,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "3891583",
-        "completion_tokens": "1297194"
+        "prompt_tokens": "3889367",
+        "completion_tokens": "1296455"
       }
     },
     {
@@ -1343,8 +1368,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "1297194",
-        "completion_tokens": "648597"
+        "prompt_tokens": "1296455",
+        "completion_tokens": "648227"
       }
     },
     {
@@ -1368,8 +1393,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "1297194",
-        "completion_tokens": "648597"
+        "prompt_tokens": "1296455",
+        "completion_tokens": "648227"
       }
     },
     {
@@ -1393,8 +1418,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "648597",
-        "completion_tokens": "324298"
+        "prompt_tokens": "648227",
+        "completion_tokens": "324113"
       }
     },
     {
@@ -1418,8 +1443,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "648597",
-        "completion_tokens": "324298"
+        "prompt_tokens": "648227",
+        "completion_tokens": "324113"
       }
     },
     {
@@ -1443,8 +1468,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "3891583",
-        "completion_tokens": "1297194"
+        "prompt_tokens": "3889367",
+        "completion_tokens": "1296455"
       }
     },
     {
@@ -1468,8 +1493,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "25943887",
-        "completion_tokens": "19457915"
+        "prompt_tokens": "25929115",
+        "completion_tokens": "19446836"
       }
     },
     {
@@ -1493,8 +1518,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "155663323",
-        "completion_tokens": "77831661"
+        "prompt_tokens": "155574693",
+        "completion_tokens": "77787346"
       }
     },
     {
@@ -1518,8 +1543,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "155663323",
-        "completion_tokens": "77831661"
+        "prompt_tokens": "155574693",
+        "completion_tokens": "77787346"
       }
     },
     {
@@ -1543,8 +1568,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "155663323",
-        "completion_tokens": "77831661"
+        "prompt_tokens": "155574693",
+        "completion_tokens": "77787346"
       }
     },
     {
@@ -1568,8 +1593,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "155663323",
-        "completion_tokens": "77831661"
+        "prompt_tokens": "155574693",
+        "completion_tokens": "77787346"
       }
     },
     {
@@ -1593,8 +1618,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "311326646",
-        "completion_tokens": "103775548"
+        "prompt_tokens": "311149387",
+        "completion_tokens": "103716462"
       }
     },
     {
@@ -1618,8 +1643,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "311326646",
-        "completion_tokens": "103775548"
+        "prompt_tokens": "311149387",
+        "completion_tokens": "103716462"
       }
     },
     {
@@ -1643,8 +1668,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "15566332",
-        "completion_tokens": "5188777"
+        "prompt_tokens": "15557469",
+        "completion_tokens": "5185823"
       }
     },
     {
@@ -1668,8 +1693,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "38915830",
-        "completion_tokens": "38915830"
+        "prompt_tokens": "38893673",
+        "completion_tokens": "38893673"
       }
     },
     {
@@ -1693,8 +1718,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "194579154",
-        "completion_tokens": "194579154"
+        "prompt_tokens": "194468367",
+        "completion_tokens": "194468367"
       }
     },
     {
@@ -1718,8 +1743,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "194579154",
-        "completion_tokens": "194579154"
+        "prompt_tokens": "194468367",
+        "completion_tokens": "194468367"
       }
     },
     {
@@ -1743,8 +1768,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "38915830",
-        "completion_tokens": "38915830"
+        "prompt_tokens": "38893673",
+        "completion_tokens": "38893673"
       }
     },
     {
@@ -1768,8 +1793,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "194579154",
-        "completion_tokens": "194579154"
+        "prompt_tokens": "194468367",
+        "completion_tokens": "194468367"
       }
     },
     {
@@ -1793,8 +1818,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "64859718",
-        "completion_tokens": "64859718"
+        "prompt_tokens": "64822789",
+        "completion_tokens": "64822789"
       }
     },
     {
@@ -1818,8 +1843,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "194579154",
-        "completion_tokens": "194579154"
+        "prompt_tokens": "194468367",
+        "completion_tokens": "194468367"
       }
     },
     {
@@ -1843,14 +1868,14 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "64859718",
-        "completion_tokens": "64859718"
+        "prompt_tokens": "64822789",
+        "completion_tokens": "64822789"
       }
     },
     {
       "id": "fireworks/firellava-13b",
       "name": "FireLLaVA 13B",
-      "description": "The first commercially permissive OSS LLaVA model.\n\nThis vision-language model was trained entirely on OSS LLM generated instruction following data.",
+      "description": "A blazing fast vision-language model, FireLLaVA quickly understands both text and images. It achieves impressive chat skills in tests, and was designed to mimic multimodal GPT-4. \n\nThe first commercially permissive open source LLaVA model, trained entirely on open source LLM generated instruction following data.",
       "pricing": {
         "prompt": "0.0000002",
         "completion": "0.0000002",
@@ -1868,8 +1893,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "194579154",
-        "completion_tokens": "194579154"
+        "prompt_tokens": "194468367",
+        "completion_tokens": "194468367"
       }
     },
     {
@@ -1893,8 +1918,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "2594388",
-        "completion_tokens": "518877"
+        "prompt_tokens": "2592911",
+        "completion_tokens": "518582"
       }
     },
     {
@@ -1918,8 +1943,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "12971943",
-        "completion_tokens": "2594388"
+        "prompt_tokens": "12964557",
+        "completion_tokens": "2592911"
       }
     },
     {
@@ -1943,14 +1968,14 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "155663323",
-        "completion_tokens": "31132664"
+        "prompt_tokens": "155574693",
+        "completion_tokens": "31114938"
       }
     },
     {
       "id": "anthropic/claude-2",
       "name": "Anthropic: Claude v2",
-      "description": "Claude 2.1 delivers advancements in key capabilities for enterprises—including an industry-leading 200K token context window, significant reductions in rates of model hallucination, system prompts and a new beta feature: tool use.",
+      "description": "Claude 2 delivers advancements in key capabilities for enterprises—including an industry-leading 200K token context window, significant reductions in rates of model hallucination, system prompts and a new beta feature: tool use.",
       "pricing": {
         "prompt": "0.000008",
         "completion": "0.000024",
@@ -1968,33 +1993,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "4864478",
-        "completion_tokens": "1621492"
-      }
-    },
-    {
-      "id": "anthropic/claude-2.1",
-      "name": "Anthropic: Claude v2.1",
-      "description": "Claude 2.1 delivers advancements in key capabilities for enterprises—including an industry-leading 200K token context window, significant reductions in rates of model hallucination, system prompts and a new beta feature: tool use.",
-      "pricing": {
-        "prompt": "0.000008",
-        "completion": "0.000024",
-        "image": "0",
-        "request": "0"
-      },
-      "context_length": 200000,
-      "architecture": {
-        "modality": "text",
-        "tokenizer": "Claude",
-        "instruct_type": null
-      },
-      "top_provider": {
-        "max_completion_tokens": 4096,
-        "is_moderated": true
-      },
-      "per_request_limits": {
-        "prompt_tokens": "4864478",
-        "completion_tokens": "1621492"
+        "prompt_tokens": "4861709",
+        "completion_tokens": "1620569"
       }
     },
     {
@@ -2018,8 +2018,33 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "4864478",
-        "completion_tokens": "1621492"
+        "prompt_tokens": "4861709",
+        "completion_tokens": "1620569"
+      }
+    },
+    {
+      "id": "anthropic/claude-2.1",
+      "name": "Anthropic: Claude v2.1",
+      "description": "Claude 2 delivers advancements in key capabilities for enterprises—including an industry-leading 200K token context window, significant reductions in rates of model hallucination, system prompts and a new beta feature: tool use.",
+      "pricing": {
+        "prompt": "0.000008",
+        "completion": "0.000024",
+        "image": "0",
+        "request": "0"
+      },
+      "context_length": 200000,
+      "architecture": {
+        "modality": "text",
+        "tokenizer": "Claude",
+        "instruct_type": null
+      },
+      "top_provider": {
+        "max_completion_tokens": 4096,
+        "is_moderated": true
+      },
+      "per_request_limits": {
+        "prompt_tokens": "4861709",
+        "completion_tokens": "1620569"
       }
     },
     {
@@ -2043,33 +2068,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "48644788",
-        "completion_tokens": "16214929"
-      }
-    },
-    {
-      "id": "anthropic/claude-instant-1.2",
-      "name": "Anthropic: Claude Instant v1.2",
-      "description": "Anthropic's model for low-latency, high throughput text generation. Supports hundreds of pages of text.",
-      "pricing": {
-        "prompt": "0.0000008",
-        "completion": "0.0000024",
-        "image": "0",
-        "request": "0"
-      },
-      "context_length": 100000,
-      "architecture": {
-        "modality": "text",
-        "tokenizer": "Claude",
-        "instruct_type": null
-      },
-      "top_provider": {
-        "max_completion_tokens": 4096,
-        "is_moderated": true
-      },
-      "per_request_limits": {
-        "prompt_tokens": "48644788",
-        "completion_tokens": "16214929"
+        "prompt_tokens": "48617091",
+        "completion_tokens": "16205697"
       }
     },
     {
@@ -2093,8 +2093,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "2594388",
-        "completion_tokens": "518877"
+        "prompt_tokens": "2592911",
+        "completion_tokens": "518582"
       }
     },
     {
@@ -2118,8 +2118,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "12971943",
-        "completion_tokens": "2594388"
+        "prompt_tokens": "12964557",
+        "completion_tokens": "2592911"
       }
     },
     {
@@ -2143,14 +2143,14 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "155663323",
-        "completion_tokens": "31132664"
+        "prompt_tokens": "155574693",
+        "completion_tokens": "31114938"
       }
     },
     {
       "id": "anthropic/claude-2:beta",
       "name": "Anthropic: Claude v2 (self-moderated)",
-      "description": "This is a lower-latency version of [Claude v2](/models/anthropic/claude-2), made available in collaboration with Anthropic, that is self-moderated: response moderation happens on the model's side instead of OpenRouter's. It's in beta, and may change in the future.\n\nClaude 2.1 delivers advancements in key capabilities for enterprises—including an industry-leading 200K token context window, significant reductions in rates of model hallucination, system prompts and a new beta feature: tool use.",
+      "description": "This is a lower-latency version of [Claude v2](/models/anthropic/claude-2), made available in collaboration with Anthropic, that is self-moderated: response moderation happens on the model's side instead of OpenRouter's. It's in beta, and may change in the future.\n\nClaude 2 delivers advancements in key capabilities for enterprises—including an industry-leading 200K token context window, significant reductions in rates of model hallucination, system prompts and a new beta feature: tool use.",
       "pricing": {
         "prompt": "0.000008",
         "completion": "0.000024",
@@ -2168,33 +2168,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "4864478",
-        "completion_tokens": "1621492"
-      }
-    },
-    {
-      "id": "anthropic/claude-2.1:beta",
-      "name": "Anthropic: Claude v2.1 (self-moderated)",
-      "description": "This is a lower-latency version of [Claude v2.1](/models/anthropic/claude-2.1), made available in collaboration with Anthropic, that is self-moderated: response moderation happens on the model's side instead of OpenRouter's. It's in beta, and may change in the future.\n\nClaude 2.1 delivers advancements in key capabilities for enterprises—including an industry-leading 200K token context window, significant reductions in rates of model hallucination, system prompts and a new beta feature: tool use.",
-      "pricing": {
-        "prompt": "0.000008",
-        "completion": "0.000024",
-        "image": "0",
-        "request": "0"
-      },
-      "context_length": 200000,
-      "architecture": {
-        "modality": "text",
-        "tokenizer": "Claude",
-        "instruct_type": null
-      },
-      "top_provider": {
-        "max_completion_tokens": 4096,
-        "is_moderated": false
-      },
-      "per_request_limits": {
-        "prompt_tokens": "4864478",
-        "completion_tokens": "1621492"
+        "prompt_tokens": "4861709",
+        "completion_tokens": "1620569"
       }
     },
     {
@@ -2218,8 +2193,33 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "4864478",
-        "completion_tokens": "1621492"
+        "prompt_tokens": "4861709",
+        "completion_tokens": "1620569"
+      }
+    },
+    {
+      "id": "anthropic/claude-2.1:beta",
+      "name": "Anthropic: Claude v2.1 (self-moderated)",
+      "description": "This is a lower-latency version of [Claude v2.1](/models/anthropic/claude-2.1), made available in collaboration with Anthropic, that is self-moderated: response moderation happens on the model's side instead of OpenRouter's. It's in beta, and may change in the future.\n\nClaude 2 delivers advancements in key capabilities for enterprises—including an industry-leading 200K token context window, significant reductions in rates of model hallucination, system prompts and a new beta feature: tool use.",
+      "pricing": {
+        "prompt": "0.000008",
+        "completion": "0.000024",
+        "image": "0",
+        "request": "0"
+      },
+      "context_length": 200000,
+      "architecture": {
+        "modality": "text",
+        "tokenizer": "Claude",
+        "instruct_type": null
+      },
+      "top_provider": {
+        "max_completion_tokens": 4096,
+        "is_moderated": false
+      },
+      "per_request_limits": {
+        "prompt_tokens": "4861709",
+        "completion_tokens": "1620569"
       }
     },
     {
@@ -2243,17 +2243,17 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "48644788",
-        "completion_tokens": "16214929"
+        "prompt_tokens": "48617091",
+        "completion_tokens": "16205697"
       }
     },
     {
-      "id": "meta-llama/llama-2-70b-chat",
-      "name": "Meta: Llama v2 70B Chat",
-      "description": "The flagship, 70 billion parameter language model from Meta, fine tuned for chat completions. Llama 2 is an auto-regressive language model that uses an optimized transformer architecture. The tuned versions use supervised fine-tuning (SFT) and reinforcement learning with human feedback (RLHF) to align to human preferences for helpfulness and safety.",
+      "id": "meta-llama/llama-2-13b-chat",
+      "name": "Meta: Llama v2 13B Chat",
+      "description": "A 13 billion parameter language model from Meta, fine tuned for chat completions",
       "pricing": {
-        "prompt": "0.0000006",
-        "completion": "0.0000019",
+        "prompt": "0.00000013",
+        "completion": "0.00000013",
         "image": "0",
         "request": "0"
       },
@@ -2268,8 +2268,33 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "64859718",
-        "completion_tokens": "20482016"
+        "prompt_tokens": "299182103",
+        "completion_tokens": "299182103"
+      }
+    },
+    {
+      "id": "meta-llama/llama-2-70b-chat",
+      "name": "Meta: Llama v2 70B Chat",
+      "description": "The flagship, 70 billion parameter language model from Meta, fine tuned for chat completions. Llama 2 is an auto-regressive language model that uses an optimized transformer architecture. The tuned versions use supervised fine-tuning (SFT) and reinforcement learning with human feedback (RLHF) to align to human preferences for helpfulness and safety.",
+      "pricing": {
+        "prompt": "0.00000064",
+        "completion": "0.0000008",
+        "image": "0",
+        "request": "0"
+      },
+      "context_length": 4096,
+      "architecture": {
+        "modality": "text",
+        "tokenizer": "Llama2",
+        "instruct_type": "llama2"
+      },
+      "top_provider": {
+        "max_completion_tokens": null,
+        "is_moderated": false
+      },
+      "per_request_limits": {
+        "prompt_tokens": "60771364",
+        "completion_tokens": "48617091"
       }
     },
     {
@@ -2293,8 +2318,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "149676272",
-        "completion_tokens": "149676272"
+        "prompt_tokens": "149591051",
+        "completion_tokens": "149591051"
       }
     },
     {
@@ -2318,8 +2343,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "43239812",
-        "completion_tokens": "43239812"
+        "prompt_tokens": "43215192",
+        "completion_tokens": "43215192"
       }
     },
     {
@@ -2343,8 +2368,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "55594044",
-        "completion_tokens": "43239812"
+        "prompt_tokens": "55562390",
+        "completion_tokens": "43215192"
       }
     },
     {
@@ -2374,8 +2399,8 @@
       "name": "Chronos Hermes 13B v2",
       "description": "A 75/25 merge of [Chronos 13b v2](https://huggingface.co/elinas/chronos-13b-v2) and [Nous Hermes Llama2 13b](/models/nousresearch/nous-hermes-llama2-13b). This offers the imaginative writing style of Chronos while retaining coherency. Outputs are long and use exceptional prose. #merge",
       "pricing": {
-        "prompt": "0.00000018",
-        "completion": "0.00000018",
+        "prompt": "0.00000013",
+        "completion": "0.00000013",
         "image": "0",
         "request": "0"
       },
@@ -2390,8 +2415,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "216199060",
-        "completion_tokens": "216199060"
+        "prompt_tokens": "299182103",
+        "completion_tokens": "299182103"
       }
     },
     {
@@ -2415,8 +2440,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "389158308",
-        "completion_tokens": "155663323"
+        "prompt_tokens": "388936734",
+        "completion_tokens": "155574693"
       }
     },
     {
@@ -2440,17 +2465,39 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "228916651",
-        "completion_tokens": "228916651"
+        "prompt_tokens": "228786314",
+        "completion_tokens": "228786314"
       }
+    },
+    {
+      "id": "huggingfaceh4/zephyr-7b-beta",
+      "name": "Hugging Face: Zephyr 7B",
+      "description": "Zephyr is a series of language models that are trained to act as helpful assistants. Zephyr-7B-β is the second model in the series, and is a fine-tuned version of [mistralai/Mistral-7B-v0.1](/models/mistralai/mistral-7b-instruct) that was trained on a mix of publicly available, synthetic datasets using Direct Preference Optimization (DPO).",
+      "pricing": {
+        "prompt": "-1",
+        "completion": "-1",
+        "request": "-1",
+        "image": "-1"
+      },
+      "context_length": 4096,
+      "architecture": {
+        "modality": "text",
+        "tokenizer": "Mistral",
+        "instruct_type": "zephyr"
+      },
+      "top_provider": {
+        "max_completion_tokens": null,
+        "is_moderated": false
+      },
+      "per_request_limits": null
     },
     {
       "id": "openchat/openchat-7b",
       "name": "OpenChat 3.5",
       "description": "OpenChat is a library of open-source language models, fine-tuned with \"C-RLFT (Conditioned Reinforcement Learning Fine-Tuning)\" - a strategy inspired by offline reinforcement learning. It has been trained on mixed-quality data without preference labels.",
       "pricing": {
-        "prompt": "0.00000013",
-        "completion": "0.00000013",
+        "prompt": "0.0000001",
+        "completion": "0.0000001",
         "image": "0",
         "request": "0"
       },
@@ -2465,8 +2512,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "299352544",
-        "completion_tokens": "299352544"
+        "prompt_tokens": "388936734",
+        "completion_tokens": "388936734"
       }
     },
     {
@@ -2490,8 +2537,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "259438872",
-        "completion_tokens": "259438872"
+        "prompt_tokens": "259291156",
+        "completion_tokens": "259291156"
       }
     },
     {
@@ -2515,8 +2562,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "55594044",
-        "completion_tokens": "48644788"
+        "prompt_tokens": "55562390",
+        "completion_tokens": "48617091"
       }
     },
     {
@@ -2562,8 +2609,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "162149295",
-        "completion_tokens": "162149295"
+        "prompt_tokens": "162056972",
+        "completion_tokens": "162056972"
       }
     },
     {
@@ -2576,7 +2623,7 @@
         "image": "0",
         "request": "0"
       },
-      "context_length": 32000,
+      "context_length": 32769,
       "architecture": {
         "modality": "text",
         "tokenizer": "Mistral",
@@ -2587,8 +2634,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "77831661",
-        "completion_tokens": "77831661"
+        "prompt_tokens": "77787346",
+        "completion_tokens": "77787346"
       }
     },
     {
@@ -2612,8 +2659,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "4864478",
-        "completion_tokens": "4864478"
+        "prompt_tokens": "4861709",
+        "completion_tokens": "4861709"
       }
     },
     {
@@ -2626,7 +2673,7 @@
         "image": "0",
         "request": "0"
       },
-      "context_length": 32000,
+      "context_length": 32769,
       "architecture": {
         "modality": "text",
         "tokenizer": "Mistral",
@@ -2637,8 +2684,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "144132706",
-        "completion_tokens": "144132706"
+        "prompt_tokens": "144050642",
+        "completion_tokens": "144050642"
       }
     },
     {
@@ -2737,8 +2784,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "389158308",
-        "completion_tokens": "389158308"
+        "prompt_tokens": "388936734",
+        "completion_tokens": "388936734"
       }
     },
     {
@@ -2762,33 +2809,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "64859718",
-        "completion_tokens": "64859718"
-      }
-    },
-    {
-      "id": "huggingfaceh4/zephyr-orpo-141b-a35b",
-      "name": "Zephyr 141B-A35B",
-      "description": "Zephyr 141B-A35B is A Mixture of Experts (MoE) model with 141B total parameters and 35B active parameters. Fine-tuned on a mix of publicly available, synthetic datasets.\n\nIt is an instruct finetune of [Mixtral 8x22B](/models/mistralai/mixtral-8x22b).\n\n#moe",
-      "pricing": {
-        "prompt": "0.00000065",
-        "completion": "0.00000065",
-        "image": "0",
-        "request": "0"
-      },
-      "context_length": 65536,
-      "architecture": {
-        "modality": "text",
-        "tokenizer": "Mistral",
-        "instruct_type": "zephyr"
-      },
-      "top_provider": {
-        "max_completion_tokens": null,
-        "is_moderated": false
-      },
-      "per_request_limits": {
-        "prompt_tokens": "59870508",
-        "completion_tokens": "59870508"
+        "prompt_tokens": "64822789",
+        "completion_tokens": "64822789"
       }
     },
     {
@@ -2812,8 +2834,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "389158308",
-        "completion_tokens": "389158308"
+        "prompt_tokens": "388936734",
+        "completion_tokens": "388936734"
       }
     },
     {
@@ -2837,8 +2859,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "59870508",
-        "completion_tokens": "59870508"
+        "prompt_tokens": "59836420",
+        "completion_tokens": "59836420"
       }
     },
     {
@@ -2846,8 +2868,8 @@
       "name": "WizardLM-2 7B",
       "description": "WizardLM-2 7B is the smaller variant of Microsoft AI's latest Wizard model. It is the fastest and achieves comparable performance with existing 10x larger opensource leading models\n\nIt is a finetune of [Mistral 7B Instruct](/models/mistralai/mistral-7b-instruct), using the same technique as [WizardLM-2 8x22B](/models/microsoft/wizardlm-2-8x22b).\n\nTo read more about the model release, [click here](https://wizardlm.github.io/WizardLM2/).\n\n#moe",
       "pricing": {
-        "prompt": "0.0000001",
-        "completion": "0.0000001",
+        "prompt": "0.00000007",
+        "completion": "0.00000007",
         "image": "0",
         "request": "0"
       },
@@ -2862,8 +2884,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "389158308",
-        "completion_tokens": "389158308"
+        "prompt_tokens": "555623905",
+        "completion_tokens": "555623905"
       }
     },
     {
@@ -2887,8 +2909,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "43239812",
-        "completion_tokens": "43239812"
+        "prompt_tokens": "43215192",
+        "completion_tokens": "43215192"
       }
     },
     {
@@ -2912,8 +2934,33 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "59870508",
-        "completion_tokens": "59870508"
+        "prompt_tokens": "59836420",
+        "completion_tokens": "59836420"
+      }
+    },
+    {
+      "id": "lynn/soliloquy-l3",
+      "name": "Lynn: Llama 3 Soliloquy 8B v2",
+      "description": "Soliloquy-L3 v2 is a fast, highly capable roleplaying model designed for immersive, dynamic experiences. Trained on over 250 million tokens of roleplaying data, Soliloquy-L3 has a vast knowledge base, rich literary expression, and support for up to 24k context length. It outperforms existing ~13B models, delivering enhanced roleplaying capabilities.\n\nUsage of this model is subject to [Meta's Acceptable Use Policy](https://llama.meta.com/llama3/use-policy/).",
+      "pricing": {
+        "prompt": "0.00000005",
+        "completion": "0.00000005",
+        "image": "0",
+        "request": "0"
+      },
+      "context_length": 24576,
+      "architecture": {
+        "modality": "text",
+        "tokenizer": "Llama3",
+        "instruct_type": "llama3"
+      },
+      "top_provider": {
+        "max_completion_tokens": null,
+        "is_moderated": false
+      },
+      "per_request_limits": {
+        "prompt_tokens": "777873468",
+        "completion_tokens": "777873468"
       }
     },
     {
@@ -2937,8 +2984,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "4864478",
-        "completion_tokens": "1621492"
+        "prompt_tokens": "4861709",
+        "completion_tokens": "1620569"
       }
     },
     {
@@ -2962,8 +3009,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "4864478",
-        "completion_tokens": "1621492"
+        "prompt_tokens": "4861709",
+        "completion_tokens": "1620569"
       }
     },
     {
@@ -2987,8 +3034,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "48644788",
-        "completion_tokens": "16214929"
+        "prompt_tokens": "48617091",
+        "completion_tokens": "16205697"
       }
     },
     {
@@ -3012,8 +3059,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "48644788",
-        "completion_tokens": "16214929"
+        "prompt_tokens": "48617091",
+        "completion_tokens": "16205697"
       }
     },
     {
@@ -3062,8 +3109,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "43239812",
-        "completion_tokens": "43239812"
+        "prompt_tokens": "43215192",
+        "completion_tokens": "43215192"
       }
     },
     {
@@ -3087,8 +3134,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "194579154",
-        "completion_tokens": "194579154"
+        "prompt_tokens": "194468367",
+        "completion_tokens": "194468367"
       }
     },
     {
@@ -3112,8 +3159,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "194579154",
-        "completion_tokens": "194579154"
+        "prompt_tokens": "194468367",
+        "completion_tokens": "194468367"
       }
     },
     {
@@ -3137,8 +3184,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "194579154",
-        "completion_tokens": "194579154"
+        "prompt_tokens": "194468367",
+        "completion_tokens": "194468367"
       }
     },
     {
@@ -3162,8 +3209,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "259438872",
-        "completion_tokens": "259438872"
+        "prompt_tokens": "259291156",
+        "completion_tokens": "259291156"
       }
     },
     {
@@ -3187,8 +3234,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "38915830",
-        "completion_tokens": "38915830"
+        "prompt_tokens": "38893673",
+        "completion_tokens": "38893673"
       }
     },
     {
@@ -3212,8 +3259,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "194579154",
-        "completion_tokens": "194579154"
+        "prompt_tokens": "194468367",
+        "completion_tokens": "194468367"
       }
     },
     {
@@ -3237,8 +3284,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "43239812",
-        "completion_tokens": "43239812"
+        "prompt_tokens": "43215192",
+        "completion_tokens": "43215192"
       }
     },
     {
@@ -3262,8 +3309,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "3891583",
-        "completion_tokens": "3891583"
+        "prompt_tokens": "3889367",
+        "completion_tokens": "3889367"
       }
     },
     {
@@ -3287,8 +3334,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "3891583",
-        "completion_tokens": "3891583"
+        "prompt_tokens": "3889367",
+        "completion_tokens": "3889367"
       }
     },
     {
@@ -3312,8 +3359,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "155663323",
-        "completion_tokens": "155663323"
+        "prompt_tokens": "155574693",
+        "completion_tokens": "155574693"
       }
     },
     {
@@ -3337,8 +3384,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "19457915",
-        "completion_tokens": "6485971"
+        "prompt_tokens": "19446836",
+        "completion_tokens": "6482278"
       }
     },
     {
@@ -3362,8 +3409,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "14413270",
-        "completion_tokens": "4804423"
+        "prompt_tokens": "14405064",
+        "completion_tokens": "4801688"
       }
     },
     {
@@ -3387,8 +3434,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "4864478",
-        "completion_tokens": "1621492"
+        "prompt_tokens": "4861709",
+        "completion_tokens": "1620569"
       }
     },
     {
@@ -3412,8 +3459,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "38915830",
-        "completion_tokens": "19457915"
+        "prompt_tokens": "38893673",
+        "completion_tokens": "19446836"
       }
     },
     {
@@ -3437,8 +3484,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "77831661",
-        "completion_tokens": "25943887"
+        "prompt_tokens": "77787346",
+        "completion_tokens": "25929115"
       }
     },
     {
@@ -3462,8 +3509,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "12971943",
-        "completion_tokens": "2594388"
+        "prompt_tokens": "12964557",
+        "completion_tokens": "2592911"
       }
     }
   ]

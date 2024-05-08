@@ -208,6 +208,7 @@ export default function () {
     });
     if (!response.ok) {
       const res = await response.json() as any;
+      console.log(res)
       throw new Error(res.error.message);
     }
     const data = response.body;
