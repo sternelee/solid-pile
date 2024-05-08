@@ -1,11 +1,7 @@
 import { APIKeys, type IProvider } from "~/providers";
-import Models from "~/openrouter.json";
 
 // eslint-disable-next-line @typescript-eslint/naming-convention
 const MAX_INPUTS: any = {};
-Models.data.forEach((v) => {
-  MAX_INPUTS[v.id] = v.context_length;
-});
 
 /**
  * 用于创建 .env.example 文件，不要直接填写敏感信息。
@@ -32,7 +28,6 @@ export const defaultEnv = {
 - [[Shift]] + [[Enter]] 换行。开头输入 [[/]] 或者 [[空格]] 搜索 Prompt 预设。[[↑]] 可编辑最近一次提问。点击顶部名称滚动到顶部，点击输入框滚动到底部。
 `,
   CLIENT_MAX_INPUT_TOKENS: MAX_INPUTS as Record<string, number>,
-  OPENAI_API_BASE_URL: "openrouter.ai/api",
   OPENAI_API_KEY: "",
   TIMEOUT: 30000,
   PASSWORD: "",

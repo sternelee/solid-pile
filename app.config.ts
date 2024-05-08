@@ -94,6 +94,6 @@ export default defineConfig({
     ],
   },
   server: {
-    preset: "cloudflare-pages",
+    preset: "vercel-edge",
   },
 });
