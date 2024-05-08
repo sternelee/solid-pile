@@ -2,8 +2,9 @@ import Header from "~/components/Header"
 import type { JSXElement } from "solid-js"
 // import "katex/dist/katex.min.css";
 import "~/styles/main.css";
-import "~/styles/prism-material-dark.css"
-import "~/styles/prism-themes-modify.css"
+import "highlight.js/styles/atom-one-dark.min.css";
+// import "~/styles/prism-material-dark.css"
+// import "~/styles/prism-themes-modify.css"
 
 export default function ({ children }: { children: JSXElement }) {
   return (

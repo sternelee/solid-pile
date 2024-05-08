@@ -12,6 +12,8 @@ import workersAi from "./workers-ai";
 import deepseek from "./deepseek";
 import coze from "./coze";
 import atomLlama from "./atom-llama";
+import Cohere from "./cohere";
+import cohere from "./cohere"
 
 export const APIKeys = {
   openai: "",
@@ -26,10 +28,11 @@ export const APIKeys = {
   "atom-llama": "",
   "together-ai": "",
   "mistral-ai": "",
+  cohere: "",
   claude: "",
   lingyi: "",
   "workers-ai": "",
-  coze: ""
+  coze: "",
 };
 
 export const PROVIDER_LIST = Object.keys(APIKeys);
@@ -49,5 +52,6 @@ export const ProviderMap = {
   "workers-ai": workersAi,
   "atom-llama": atomLlama,
   deepseek,
-  coze
+  coze,
+  cohere: Cohere
 };
