@@ -20,7 +20,7 @@ import { useNavigate } from "@solidjs/router";
 import { throttle } from "@solid-primitives/scheduled";
 
 // 3em
-export const defaultInputBoxHeight = 48;
+export const defaultInputBoxHeight = 52;
 export default function ({
   width,
   height,
