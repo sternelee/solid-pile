@@ -3,6 +3,7 @@ export default {
   name: "cloudflare AI",
   href: "https://dash.cloudflare.com/profile/api-tokens",
   defaultModel: "llama-2-7b-chat-int8",
+  placeholder: "API Key",
   models: [
     {
       label: "llama-2-7b-chat-int8",

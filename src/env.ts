@@ -12,6 +12,7 @@ export const defaultEnv = {
     APIKeys,
     password: "",
     enterToSend: true,
+    requestWithBackend: true,
   },
   CLIENT_SESSION_SETTINGS: {
     title: "",

@@ -3,6 +3,7 @@ export default {
   name: "智谱清言",
   href: "https://open.bigmodel.cn/usercenter/apikeys",
   defaultModel: "glm-3-turbo",
+  placeholder: "API Key",
   models: [
     {
       label: "GLM-3-Turbo",

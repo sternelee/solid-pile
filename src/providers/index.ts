@@ -12,8 +12,7 @@ import workersAi from "./workers-ai";
 import deepseek from "./deepseek";
 import coze from "./coze";
 import atomLlama from "./atom-llama";
-import Cohere from "./cohere";
-import cohere from "./cohere"
+import cohere from "./cohere";
 
 export const APIKeys = {
   openai: "",
@@ -38,7 +37,7 @@ export const APIKeys = {
 export const PROVIDER_LIST = Object.keys(APIKeys);
 export type IProvider = keyof typeof APIKeys;
 
-export const ProviderMap = {
+export default {
   openai,
   openrouter,
   google,
@@ -53,5 +52,5 @@ export const ProviderMap = {
   "atom-llama": atomLlama,
   deepseek,
   coze,
-  cohere: Cohere
+  cohere,
 };

@@ -17,7 +17,7 @@ import {
   blobToBase64,
 } from "~/utils";
 import { Selector, Switch as SwitchButton } from "../Common";
-import { type IProvider, ProviderMap, PROVIDER_LIST } from "~/providers";
+import ProviderMap, { type IProvider, PROVIDER_LIST } from "~/providers";
 
 export const [actionState, setActionState] = createStore({
   showSetting: "none" as "none" | "global" | "session",
@@ -91,19 +91,19 @@ export default function SettingAction() {
                 }))}
               />
             </SettingItem>
-            {!store.GLOBAL_SETTINGS.password && (
+            {!store.globalSettings.password && (
               <SettingItem icon="i-carbon:api" label="API Key">
                 <input
                   type="password"
                   value={
-                    store.GLOBAL_SETTINGS.APIKeys[
+                    store.globalSettings.APIKeys[
                       store.sessionSettings.provider
                     ]
                   }
                   class="input-box"
                   onInput={(e) => {
                     setStore(
-                      "GLOBAL_SETTINGS",
+                      "globalSettings",
                       "APIKeys",
                       store.sessionSettings.provider,
                       (e.target as HTMLInputElement).value
@@ -129,11 +129,11 @@ export default function SettingAction() {
             <SettingItem icon="i-ri:lock-password-line" label="管理员密码">
               <input
                 type="password"
-                value={store.GLOBAL_SETTINGS.password}
+                value={store.globalSettings.password}
                 class="input-box"
                 onInput={(e) => {
                   setStore(
-                    "GLOBAL_SETTINGS",
+                    "globalSettings",
                     "password",
                     (e.target as HTMLInputElement).value
                   );
@@ -142,10 +142,10 @@ export default function SettingAction() {
             </SettingItem>
             <SettingItem icon="i-carbon:keyboard" label="Enter 键发送消息">
               <SwitchButton
-                checked={store.GLOBAL_SETTINGS.enterToSend}
+                checked={store.globalSettings.enterToSend}
                 onChange={(e) => {
                   setStore(
-                    "GLOBAL_SETTINGS",
+                    "globalSettings",
                     "enterToSend",
                     (e.target as HTMLInputElement).checked
                   );

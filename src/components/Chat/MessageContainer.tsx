@@ -3,7 +3,7 @@ import { RootStore, defaultMessage } from "~/store";
 import { scrollToBottom } from "~/utils";
 import MessageItem from "./MessageItem";
 import { defaultInputBoxHeight } from "./InputBox";
-import { ProviderMap } from "~/providers";
+import  ProviderMap  from "~/providers";
 import { TransitionGroup } from "solid-transition-group";
 import "~/styles/transition.css";
 

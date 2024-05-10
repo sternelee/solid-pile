@@ -2,7 +2,7 @@
   "name": "solid-pile",
   "type": "module",
   "scripts": {
-    "dev": "PORT=5678 vinxi dev",
+    "dev": "vinxi dev",
     "build": "vinxi build",
     "start": "vinxi start",
     "serve": "wrangler pages dev ./dist --compatibility-flags=nodejs_als",

@@ -235,7 +235,7 @@ export default function ({
                     e.preventDefault();
                   }
                 } else if (e.keyCode === 13) {
-                  if (!e.shiftKey && store.GLOBAL_SETTINGS.enterToSend) {
+                  if (!e.shiftKey && store.globalSettings.enterToSend) {
                     e.preventDefault();
                     sendMessage(undefined, actionState.fakeRole);
                   }

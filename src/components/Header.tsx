@@ -3,7 +3,7 @@ import { useNavigate } from "@solidjs/router";
 import { RootStore, loadSession } from "~/store";
 import ThemeToggle from "./ThemeToggle";
 import AuthLogin from "./AuthLogin";
-import { ProviderMap } from "~/providers";
+import  ProviderMap  from "~/providers";
 import { scrollToBottom } from "~/utils";
 
 function splitEmoji(text: string) {

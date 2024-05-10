@@ -7,6 +7,7 @@ import { setSession, isMobile } from "~/utils";
 import MessageContainer from "./MessageContainer";
 import InputBox, { defaultInputBoxHeight } from "./InputBox";
 import { type FakeRoleUnion, setActionState } from "./SettingAction";
+import { fetchChat } from "~/providers/util"
 
 const SearchParamKey = "q";
 
@@ -46,7 +47,7 @@ export default function () {
   createEffect(() => {
     localStorage.setItem(
       LocalStorageKey.GLOBAL_SETTINGS,
-      JSON.stringify(store.GLOBAL_SETTINGS)
+      JSON.stringify(store.globalSettings)
     );
   });
 
@@ -128,18 +129,18 @@ export default function () {
       try {
         const content = store.inputImage
           ? [
-              {
-                type: "text",
-                text: inputValue,
+            {
+              type: "text",
+              text: inputValue,
+            },
+            {
+              type: "image_url",
+              image_url: {
+                url: store.inputImage,
+                detail: "auto",
               },
-              {
-                type: "image_url",
-                image_url: {
-                  url: store.inputImage,
-                  detail: "auto",
-                },
-              },
-            ]
+            },
+          ]
           : inputValue;
         // @ts-ignore
         setStore("messageList", (k) => [
@@ -165,12 +166,12 @@ export default function () {
           store.sessionSettings.continuousDialogue
             ? store.validContext
             : [
-                ...store.validContext,
-                {
-                  role: "user",
-                  content,
-                },
-              ]
+              ...store.validContext,
+              {
+                role: "user",
+                content,
+              },
+            ]
         );
       } catch (error: any) {
         setStore("loading", false);
@@ -192,20 +193,29 @@ export default function () {
   }
 
   async function fetchGPT(messages: ChatMessage[]) {
-    const response = await fetch("/api/chat", {
-      method: "POST",
-      body: JSON.stringify({
-        messages,
-        key:
-          store.GLOBAL_SETTINGS.APIKeys[store.sessionSettings.provider] ||
-          undefined,
-        temperature: store.sessionSettings.APITemperature,
-        password: store.GLOBAL_SETTINGS.password,
-        provider: store.currentProvider,
-        model: store.currentModel,
-      }),
-      signal: controller?.signal,
-    });
+    let response: Response;
+    const body = {
+          messages,
+          key:
+            store.globalSettings.APIKeys[store.sessionSettings.provider] ||
+            undefined,
+          temperature: store.sessionSettings.APITemperature,
+          password: store.globalSettings.password,
+          provider: store.currentProvider,
+          model: store.currentModel,
+    }
+    if (store.globalSettings.requestWithBackend) {
+      response = await fetch("/api/chat", {
+        method: "POST",
+        body: JSON.stringify(body),
+        signal: controller?.signal,
+      });
+    } else {
+      response = await fetchChat({
+        ...body,
+        signal: controller?.signal as AbortSignal
+      })
+    }
     if (!response.ok) {
       const res = await response.json() as any;
       console.log(res)

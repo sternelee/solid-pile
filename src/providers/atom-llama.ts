@@ -3,6 +3,7 @@ export default {
   name: "Atom LLama",
   href: "https://llama.family/docs/secret",
   defaultModel: "Atom-13B-Chat",
+  placeholder: "API Key",
   models: [
     {
       label: "Atom-13B-Chat",

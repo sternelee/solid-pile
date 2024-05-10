@@ -7,7 +7,7 @@ import { Fzf } from "fzf";
 import type { Model, Option } from "~/types";
 import { countTokens } from "~/utils/tokens";
 import { throttle } from "@solid-primitives/scheduled";
-import { ProviderMap } from "~/providers";
+import ProviderMap from "~/providers";
 
 let GLOBAL_SETTINGS = { ...defaultEnv.CLIENT_GLOBAL_SETTINGS };
 let _ = import.meta.env.CLIENT_GLOBAL_SETTINGS;
@@ -80,7 +80,7 @@ Object.values(ProviderMap)
 function Store() {
   const [store, setStore] = createStore({
     sessionId: "index",
-    GLOBAL_SETTINGS,
+    globalSettings: GLOBAL_SETTINGS,
     sessionSettings,
     inputContent: "",
     inputImage: "",
@@ -158,7 +158,7 @@ function Store() {
 
   const remainingToken = createMemo(
     () =>
-      (store.GLOBAL_SETTINGS.APIKeys
+      (store.globalSettings.APIKeys
         ? maxInputTokens[store.sessionSettings.model]
         : defaultEnv.CLIENT_MAX_INPUT_TOKENS[store.sessionSettings.model]) -
       store.contextToken -
@@ -207,7 +207,7 @@ export function loadSession(id: string) {
       const session = getSession(id);
       if (GLOBAL_SETTINGS) {
         const parsed = JSON.parse(GLOBAL_SETTINGS);
-        setStore("GLOBAL_SETTINGS", (t) => ({
+        setStore("globalSettings", (t) => ({
           ...t,
           ...parsed,
         }));
