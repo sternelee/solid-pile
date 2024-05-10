@@ -174,7 +174,7 @@ export default function ({
     >
       <div
         style={{
-          transition: "opacity 1s ease-in-out",
+          transition: "opacity 200ms ease-in-out",
           opacity: width() === "init" ? 0 : 100,
         }}
       >

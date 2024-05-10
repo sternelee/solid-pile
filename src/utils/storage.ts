@@ -1,9 +1,16 @@
+import localForage from "localforage";
 import { type Session, LocalStorageKey } from "~/types"
 
-export function getSession(id: string) {
+
+const localStore = localForage.createInstance({
+  name: "solid-chat",
+  driver: localForage.INDEXEDDB
+});
+
+export async function getSession(id: string) {
   try {
-    const _ = localStorage.getItem(LocalStorageKey.PREFIX_SESSION + id)
-    if (_) return JSON.parse(_) as Session
+    const _ = await localStore.getItem(LocalStorageKey.PREFIX_SESSION + id)
+    if (_) return _ as Session
   } catch (e) {
     console.error("Error parsing session:", e)
   }
@@ -11,19 +18,19 @@ export function getSession(id: string) {
 }
 
 export function setSession(id: string, data: Session) {
-  localStorage.setItem(LocalStorageKey.PREFIX_SESSION + id, JSON.stringify(data))
+  localStore.setItem(LocalStorageKey.PREFIX_SESSION + id, JSON.stringify(data))
 }
 
 export function delSession(id: string) {
   localStorage.removeItem(LocalStorageKey.PREFIX_SESSION + id)
 }
 
-export function fetchAllSessions() {
+export async function fetchAllSessions() {
   const sessions: Session[] = []
-  Object.keys(localStorage).forEach(key => {
+  Object.keys(localStorage).forEach(async key => {
     const id = key.replace(LocalStorageKey.PREFIX_SESSION, "")
     if (id !== key) {
-      const session = getSession(id)
+      const session = await getSession(id)
       if (session) sessions.push(session)
     }
   })

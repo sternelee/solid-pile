@@ -126,6 +126,18 @@ export default function SettingAction() {
                 options={ProviderMap[store.sessionSettings.provider].models}
               />
             </SettingItem>
+            <SettingItem icon="i-carbon:flow-modeler" label="请求后端转发">
+              <SwitchButton
+                checked={store.globalSettings.requestWithBackend}
+                onChange={(e: any) => {
+                  setStore(
+                    "globalSettings",
+                    "requestWithBackend",
+                    (e.target as HTMLInputElement).checked
+                  );
+                }}
+              />
+            </SettingItem>
             <SettingItem icon="i-ri:lock-password-line" label="管理员密码">
               <input
                 type="password"
@@ -248,11 +260,11 @@ export default function SettingAction() {
           <hr class="my-1 bg-slate-5 bg-op-15 border-none h-1px"></hr>
           <div class="flex justify-end">
             <ActionItem
-              onClick={() => {
+              onClick={async () => {
                 let sessionID: string;
                 do {
                   sessionID = generateId();
-                } while (getSession(sessionID));
+                } while (await getSession(sessionID));
                 setSession(sessionID, {
                   id: sessionID,
                   lastVisit: Date.now(),

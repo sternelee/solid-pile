@@ -198,13 +198,13 @@ export const FZFData = {
 export function loadSession(id: string) {
   const { store, setStore } = RootStore;
   // 只触发一次更新
-  batch(() => {
+  batch(async () => {
     setStore("sessionId", id);
     try {
       const GLOBAL_SETTINGS = localStorage.getItem(
         LocalStorageKey.GLOBAL_SETTINGS
       );
-      const session = getSession(id);
+      const session = await getSession(id);
       if (GLOBAL_SETTINGS) {
         const parsed = JSON.parse(GLOBAL_SETTINGS);
         setStore("globalSettings", (t) => ({
@@ -235,8 +235,8 @@ export function loadSession(id: string) {
       console.log("Localstorage parse error");
     }
   });
-  setTimeout(() => {
-    const sessions = fetchAllSessions();
+  setTimeout(async () => {
+    const sessions = await fetchAllSessions();
     FZFData.sessionOptions = sessions
       .sort((m, n) => n.lastVisit - m.lastVisit)
       .filter((k) => k.id !== store.sessionId && k.id !== "index")

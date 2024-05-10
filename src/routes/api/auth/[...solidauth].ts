@@ -16,7 +16,7 @@ const authOpts: SolidAuthConfig = {
     })
   ],
   debug: false,
-  secret: process.env.AUTH_SECRET
+  secret: process.env.AUTH_SECRET || "961103"
 }
 
 export const { GET, POST } = SolidAuth(authOpts)

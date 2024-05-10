@@ -11,12 +11,12 @@ export default function Session() {
   const { store, setStore } = RootStore;
   const params = useParams<{ session?: string }>();
 
-  onMount(() => {
-    const redirect = () =>
+  onMount(async () => {
+    const redirect = async () =>
       !params.session ||
       params.session === "index" ||
-      !getSession(params.session);
-    if (redirect()) useNavigate()("/", { replace: true });
+      !await getSession(params.session);
+    if (await redirect()) useNavigate()("/", { replace: true });
     else setStore("sessionId", params.session ?? "index");
   });
 
