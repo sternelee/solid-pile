@@ -5,8 +5,6 @@ import { IProvider } from "~/providers";
 import { fetchChat } from "~/providers/util";
 
 
-const passwordSet = process.env.PASSWORD || defaultEnv.PASSWORD;
-
 export async function POST({ request }: APIEvent) {
   try {
     const body: {
@@ -20,12 +18,12 @@ export async function POST({ request }: APIEvent) {
 
     let key = body.key || "";
     const password = body.password;
+    const passwordSet = process.env.PASSWORD || defaultEnv.PASSWORD;
     if (password && passwordSet === password) {
       // 没有传key时才校验管理密码
       const PROVIDER_KEY =
-        body.provider.toUpperCase().replaceAll("-", "_") + "_KEY";
+        body.provider.toUpperCase().replaceAll("-", "_") + "_API";
       key = process.env[PROVIDER_KEY] || "";
-      console.log(body.provider, PROVIDER_KEY, key);
     }
 
     if (!body.messages?.length) {

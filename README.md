@@ -35,3 +35,7 @@ By default, `npm run build` will generate a Node app that you can run with `npm 
 - [@zag-js/solid](https://zagjs.com/components/solid/dialog)
 
 https://github.com/lucia-auth/examples/blob/main/solidstart/github-oauth/src/routes/login/github/index.ts
+
+## 注意
+
+- 打包更改从 `http://localhost:3000` 改成 `https://pile.leeapps.dev`

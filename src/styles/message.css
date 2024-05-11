@@ -75,6 +75,10 @@ pre code.hljs {
   color: rgba(255, 255, 255, 0.8);
 }
 
+.message ul {
+  list-style: inside;
+}
+
 #message-container-img .avatar img {
   transform: scale(1.5);
 }

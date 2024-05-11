@@ -150,7 +150,7 @@ export default function MessageItem(props: Props) {
               when={props.message.type === "locked"}
               fallback={
                 props.message.type === "temporary" ? null : (
-                  <div class={roleIcons[props.message.role]} />
+                  <div class={`text-white ${roleIcons[props.message.role]}`} />
                 )
               }
             >

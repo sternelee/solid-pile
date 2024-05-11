@@ -1,3 +1,4 @@
+import 'dotenv/config'
 import { defineConfig } from "@solidjs/start/config";
 import unocss from "unocss/vite";
 import {
