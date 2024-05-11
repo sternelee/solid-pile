@@ -126,7 +126,7 @@ export default function MessageItem(props: Props) {
 
   return (
     <div
-      class="group flex gap-3 px-4 mx--4 rounded-lg transition-colors mt-4 sm:hover:bg-slate/6 dark:sm:hover:bg-slate/5 relative message-item"
+      class="group flex gap-3 px-4 mx--4 mt-36px rounded-lg transition-colors mt-4 sm:hover:bg-slate/6 dark:sm:hover:bg-slate/5 relative message-item"
       style={{
         transition: "all 0.3s",
       }}
@@ -169,6 +169,11 @@ export default function MessageItem(props: Props) {
         class="message prose prose-slate break-all max-w-full dark:prose-invert dark:text-slate break-words overflow-hidden"
         innerHTML={renderedMarkdown()}
       />
+      <Show when={!props.hiddenAction && props.message.role === "assistant"}>
+        <div class="absolute bottom-[-22px] left-50px badge badge-neutral">
+          {props.message.provide}: {props.message.model}
+        </div>
+      </Show>
       <Show when={!props.hiddenAction}>
         <MessageAction
           del={del}
