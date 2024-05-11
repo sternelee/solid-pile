@@ -1,6 +1,7 @@
 .message pre {
   position: relative;
   min-width: 18rem;
+  margin: 1em 0;
   overflow: hidden;
   overflow-x: auto;
   --un-bg-opacity: 1;

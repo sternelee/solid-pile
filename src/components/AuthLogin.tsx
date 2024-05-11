@@ -38,6 +38,7 @@ const AuthLogin: VoidComponent = () => {
                   <i class="inline-block i-carbon:logo-github text-2xl" />
                   <span class="ml-2">Github</span>
                 </button>
+                {/**
                 <button
                   class="flex items-center"
                   onClick={() => signIn("google")}
@@ -45,6 +46,7 @@ const AuthLogin: VoidComponent = () => {
                   <i class="inline-block i-carbon:logo-google text-2xl" />
                   <span class="ml-2">Google</span>
                 </button>
+                   * */}
               </>
             }
           >
