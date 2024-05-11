@@ -1,6 +1,7 @@
 import { usePrefersDark } from "@solid-primitives/media";
 import { createEffect, createSignal, For } from "solid-js";
 import { LocalStorageKey } from "~/types";
+import { hslToRgb } from "~/utils";
 
 const themes = [
   "light",
@@ -75,6 +76,17 @@ export default function ThemeToggle() {
   function toggle(t: string) {
     setTheme(t);
     document.documentElement.setAttribute("data-theme", t);
+    const rootElement = document.documentElement;
+    const computedStyle = window.getComputedStyle(rootElement);
+    // hsl(var(--b1) / var(--un-bg-opacity, 1))
+    const b1Color = computedStyle.getPropertyValue("--b1");
+    // const bgOpacity = computedStyle.getPropertyValue('--un-bg-opacity') || 1;
+    const hslColor = b1Color.split(" ").map((v, i) => {
+      if (i === 0) return Number(v);
+      return Number(v.replace(/[^\d]/g, "")) / 100;
+    });
+    const rgb = hslToRgb(hslColor[0], hslColor[1], hslColor[2]);
+    document.documentElement.setAttribute("theme-color", rgb);
   }
 
   createEffect(() => {

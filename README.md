@@ -38,4 +38,5 @@ https://github.com/lucia-auth/examples/blob/main/solidstart/github-oauth/src/rou
 
 ## 注意
 
+- 打包前先设置好 `AUTH_SECRET`
 - 打包更改从 `http://localhost:3000` 改成 `https://pile.leeapps.dev`
