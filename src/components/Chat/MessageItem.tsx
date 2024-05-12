@@ -2,7 +2,7 @@ import { Show, createSignal, createEffect, createMemo } from "solid-js";
 import { createSession } from "@solid-mediakit/auth/client";
 import { useCopyCode } from "~/hooks";
 import { RootStore } from "~/store";
-import type { ChatMessage } from "~/types";
+import type { ChatMessage, ChatMessageContent } from "~/types";
 import { copyToClipboard } from "~/utils";
 import MessageAction from "./MessageAction";
 import type { FakeRoleUnion } from "./SettingAction";
@@ -12,6 +12,7 @@ import { throttle } from "@solid-primitives/scheduled";
 interface Props {
   message: ChatMessage;
   hiddenAction: boolean;
+  hiddenModel: boolean;
   index?: number;
   sendMessage?: (value?: string, fakeRole?: FakeRoleUnion) => void;
 }
@@ -28,9 +29,16 @@ export default function MessageItem(props: Props) {
   const session = createSession();
   const avatar = createMemo(() => session()?.user?.image);
 
+  const textContent = createMemo(() => {
+    if (props.message.contentType === 'image') {
+      return `${props.message.content[0].text} \n![](${props.message.content[1].image_url.url})`
+    }
+    return props.message.content
+  })
+
   const [renderedMarkdown, setRenderedMarkdown] = createSignal(
     md
-      .render(props.message.content || "")
+      .render(textContent() || "")
       .replaceAll("<kbd>", '<kbd class="kbd">')
   );
   const { store, setStore } = RootStore;
@@ -44,11 +52,11 @@ export default function MessageItem(props: Props) {
   useCopyCode();
 
   function copy() {
-    copyToClipboard(props.message.content);
+    copyToClipboard(textContent());
   }
 
   function edit() {
-    setStore("inputContent", props.message.content);
+    setStore("inputContent", textContent());
   }
 
   function del() {
@@ -67,7 +75,7 @@ export default function MessageItem(props: Props) {
   }
 
   function reAnswer() {
-    let question = "";
+    let question: any = "";
     setStore("messageList", (messages) => {
       if (messages[props.index!].role === "user") {
         question = messages[props.index!].content;
@@ -114,11 +122,11 @@ export default function MessageItem(props: Props) {
 
   createEffect(() => {
     if (props.message.type === "temporary") {
-      throttleRender(props.message.content);
+      throttleRender(textContent());
     } else {
       setRenderedMarkdown(
         md
-          .render(props.message.content)
+          .render(textContent())
           .replaceAll("<kbd>", '<kbd class="kbd">')
       );
     }
@@ -126,7 +134,7 @@ export default function MessageItem(props: Props) {
 
   return (
     <div
-      class="group flex gap-3 px-4 mx--4 mt-36px rounded-lg transition-colors mt-4 sm:hover:bg-slate/6 dark:sm:hover:bg-slate/5 relative message-item"
+      class="group flex gap-3 px-4 mx--4 mt-36px rounded-lg transition-colors sm:hover:bg-slate/6 dark:sm:hover:bg-slate/5 relative message-item"
       style={{
         transition: "all 0.3s",
       }}
@@ -169,9 +177,9 @@ export default function MessageItem(props: Props) {
         class="message prose prose-slate break-all max-w-full dark:prose-invert dark:text-slate break-words overflow-hidden"
         innerHTML={renderedMarkdown()}
       />
-      <Show when={!props.hiddenAction && props.message.role === "assistant"}>
+      <Show when={!props.hiddenModel}>
         <div class="absolute bottom-[-22px] left-50px badge badge-neutral">
-          {props.message.provide}: {props.message.model}
+          {props.message.provider}: {props.message.model}
         </div>
       </Show>
       <Show when={!props.hiddenAction}>

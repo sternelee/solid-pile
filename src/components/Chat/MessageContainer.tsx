@@ -63,7 +63,7 @@ export default function ({
     >
       <div id="message-container-img">
         <Show when={!store.messageList.length}>
-          <MessageItem hiddenAction={true} message={defaultMessage$} />
+          <MessageItem hiddenAction={true} message={defaultMessage$} hiddenModel={true} />
         </Show>
         <TransitionGroup name="transition-group">
           <For each={store.messageList}>
@@ -72,6 +72,7 @@ export default function ({
                 message={message}
                 hiddenAction={store.loading || message.type === "temporary"}
                 index={index()}
+                hiddenModel={message.role !== 'assistant'}
                 sendMessage={sendMessage}
               />
             )}

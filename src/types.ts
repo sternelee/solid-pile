@@ -7,26 +7,34 @@ export const enum LocalStorageKey {
   PREFIX_SESSION = "gpt-session-",
 }
 
-export type ImageMessage =
-  | {
-      type: "text";
-      text: string;
-    }
-  | {
+export type TextMessage = {
+  content: string;
+  contentType: "text"
+}
+
+export type ImageMessage = {
+  contentType: "image"
+  content: [{
+    type: "text";
+    text: string;
+  },
+    {
       type: "image_url";
       image_url: {
         url: string;
         detail: string;
       };
-    };
+    }]
+}
 
-export interface ChatMessage {
+export type ChatMessageContent = TextMessage | ImageMessage;
+
+export type ChatMessage = {
   role: Role;
-  content: string;
-  provide?: IProvider;
+  provider?: IProvider;
   model?: string;
   type?: "default" | "locked" | "temporary";
-}
+} & ChatMessageContent;
 
 export type Role = "system" | "user" | "assistant" | "error";
 export type SimpleModel = "gpt-3.5" | "gpt-4" | "gpt-4-preview";

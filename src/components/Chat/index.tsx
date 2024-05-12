@@ -85,6 +85,7 @@ export default function () {
       setStore("messageList", (k) => [
         {
           role: "system",
+          contentType: "text",
           content: inputValue,
         },
         ...k,
@@ -104,6 +105,7 @@ export default function () {
           ...k,
           {
             role: "assistant",
+            contentType: "text",
             content: inputValue,
           },
         ]);
@@ -112,6 +114,7 @@ export default function () {
           ...k,
           {
             role: "user",
+            contentType: "text",
             content: inputValue,
           },
         ]);
@@ -122,6 +125,7 @@ export default function () {
         ...k,
         {
           role: "user",
+          contentType: "text",
           content: inputValue,
         },
       ]);
@@ -147,6 +151,7 @@ export default function () {
           ...k,
           {
             role: "user",
+            contentType: store.inputImage ? "image" : "text",
             content,
           },
         ]);
@@ -181,6 +186,7 @@ export default function () {
             ...k,
             {
               role: "error",
+              contentType: "text",
               content: error.message.replace(/(sk-\w{5})\w+/g, "$1"),
               provider: store.sessionSettings.provider,
               model: store.sessionSettings.model,
@@ -195,14 +201,14 @@ export default function () {
   async function fetchGPT(messages: ChatMessage[]) {
     let response: Response;
     const body = {
-          messages,
-          key:
-            store.globalSettings.APIKeys[store.sessionSettings.provider] ||
-            undefined,
-          temperature: store.sessionSettings.APITemperature,
-          password: store.globalSettings.password,
-          provider: store.currentProvider,
-          model: store.currentModel,
+      messages,
+      key:
+        store.globalSettings.APIKeys[store.sessionSettings.provider] ||
+        undefined,
+      temperature: store.sessionSettings.APITemperature,
+      password: store.globalSettings.password,
+      provider: store.currentProvider,
+      model: store.currentModel,
     }
     if (store.globalSettings.requestWithBackend) {
       response = await fetch("/api/chat", {
@@ -251,6 +257,7 @@ export default function () {
                 {
                   role: "assistant",
                   content: char,
+                  contentType: "text",
                   type: "temporary",
                   provider: store.sessionSettings.provider,
                   model: store.sessionSettings.model,

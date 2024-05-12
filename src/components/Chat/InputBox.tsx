@@ -8,7 +8,7 @@ import {
   onMount,
   batch,
 } from "solid-js";
-import { FZFData, RootStore, loadSession } from "~/store";
+import { FZFData, RootStore, loadSession, VISON_MODELS } from "~/store";
 import type { Option } from "~/types";
 import { scrollToBottom, blobToBase64 } from "~/utils";
 import SettingAction, {
@@ -51,7 +51,7 @@ export default function ({
     document.addEventListener("paste", async (ev) => {
       // 支持图片的model
       if (
-        store.currentModel.indexOf("vision") === -1 &&
+        VISON_MODELS.includes(store.currentModel) &&
         !store.sessionSettings.continuousDialogue
       )
         return;
@@ -246,7 +246,7 @@ export default function ({
                   const content = userMessages.at(-1);
                   if (content && !store.inputContent) {
                     e.preventDefault();
-                    setStore("inputContent", content);
+                    setStore("inputContent", typeof content === 'string' ? content : content[0].text);
                   }
                 }
               }}

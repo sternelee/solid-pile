@@ -54,7 +54,8 @@ export const defaultMessage: ChatMessage = {
   role: "assistant",
   content:
     import.meta.env.CLIENT_DEFAULT_MESSAGE || defaultEnv.CLIENT_DEFAULT_MESSAGE,
-  provide: "openai",
+  provider: "deepseek",
+  contentType: "text",
   model: "gpt-3.5-turbo",
   type: "default",
 };
@@ -320,3 +321,5 @@ export type LinkContext = {
   // summary: "";
   aiCard?: Message | null;
 };
+
+export const VISON_MODELS = ["openai/gpt-4-turbo", "openai/gpt-4-vision-preview", "google/gemini-pro-vision", "fireworks/firellava-13b", "haotian-liu/llava-13b", "nousresearch/nous-hermes-2-vision-7b", "yi-vl-plus", "gemini-pro-vision", "glm-4v"]

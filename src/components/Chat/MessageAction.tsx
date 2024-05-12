@@ -18,7 +18,7 @@ export default function MessageAction({
   return (
     <div
       class="flex absolute items-center justify-between <sm:top--4 <sm:right-0 top-2 right-2 text-sm group-hover:opacity-100 group-focus:opacity-100 opacity-0 rounded"
-      style={{ background: "hsl(var(--n))" }}
+      style={{ background: "hsl(var(--bc) / 0.2)" }}
     >
       <Show when={role === "assistant"}>
         <ActionItem

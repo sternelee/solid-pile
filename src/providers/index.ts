@@ -15,7 +15,7 @@ import atomLlama from "./atom-llama";
 import cohere from "./cohere";
 
 export const APIKeys = {
-  openai: "",
+  deepseek: "",
   openrouter: "",
   google: "",
   // baidu: "",
@@ -23,13 +23,13 @@ export const APIKeys = {
   groq: "",
   moonshot: "",
   zhipu: "",
-  deepseek: "",
   "atom-llama": "",
+  cohere: "",
+  lingyi: "",
+  openai: "",
   "together-ai": "",
   "mistral-ai": "",
-  cohere: "",
   claude: "",
-  lingyi: "",
   "workers-ai": "",
   coze: "",
 };

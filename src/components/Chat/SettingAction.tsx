@@ -4,7 +4,7 @@ import { createStore } from "solid-js/store";
 import { useNavigate } from "@solidjs/router";
 import { defaultEnv } from "~/env";
 import { clickOutside } from "~/hooks";
-import { RootStore, loadSession } from "~/store";
+import { RootStore, loadSession, VISON_MODELS } from "~/store";
 import type { ChatMessage } from "~/types";
 import {
   copyToClipboard,
@@ -355,7 +355,7 @@ export default function SettingAction() {
             icon="i-carbon:settings-services"
             label="对话设置"
           />
-          {store.currentModel.includes("vision") && (
+          {VISON_MODELS.includes(store.currentModel) && (
             <>
               <input
                 type="file"
