@@ -8,8 +8,8 @@ export default {
     {
       label: "GLM-3-Turbo",
       value: "glm-3-turbo",
-      input: 0.005,
-      output: 0.005,
+      input: 0.001,
+      output: 0.001,
     },
     {
       label: "GLM-4",
