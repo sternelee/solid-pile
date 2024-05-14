@@ -56,6 +56,7 @@ export default function SettingAction() {
 
   // tree shaking
   clickOutside;
+
   return (
     <div
       class="text-sm my-2"
@@ -366,7 +367,7 @@ export default function SettingAction() {
                   if (e.target.files?.length === 0) return;
                   const file = e.target.files![0];
                   const url = await blobToBase64(file);
-                  setStore({ inputImage: url });
+                  setStore('inputImage', url)
                 }}
               />
               <ActionItem

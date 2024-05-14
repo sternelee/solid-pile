@@ -26,12 +26,12 @@ export const APIKeys = {
   "atom-llama": "",
   cohere: "",
   lingyi: "",
-  openai: "",
+  // openai: "",
   "together-ai": "",
   "mistral-ai": "",
-  claude: "",
-  "workers-ai": "",
-  coze: "",
+  // claude: "",
+  // "workers-ai": "",
+  // coze: "",
 };
 
 export const PROVIDER_LIST = Object.keys(APIKeys);
