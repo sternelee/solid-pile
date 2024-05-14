@@ -261,11 +261,11 @@ export default function SettingAction() {
           <hr class="my-1 bg-slate-5 bg-op-15 border-none h-1px"></hr>
           <div class="flex justify-end">
             <ActionItem
-              onClick={async () => {
+              onClick={() => {
                 let sessionID: string;
                 do {
                   sessionID = generateId();
-                } while (await getSession(sessionID));
+                } while (getSession(sessionID));
                 setSession(sessionID, {
                   id: sessionID,
                   lastVisit: Date.now(),
