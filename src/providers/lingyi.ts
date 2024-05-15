@@ -33,6 +33,7 @@ export default {
       label: "yi-medium-200k",
       input: 0.012,
       output: 0.012,
+      context_length: 200000,
     },
     {
       value: "yi-spark",

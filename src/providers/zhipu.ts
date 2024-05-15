@@ -17,14 +17,14 @@ export default {
       value: "glm-4",
       input: 0.1,
       output: 0.1,
-      context_length: 32000,
+      context_length: 128000,
     },
     {
       label: "GLM-4-V",
       value: "glm-4v",
       input: 0.1,
       output: 0.1,
-      context_length: 32000,
+      context_length: 128000,
     },
   ],
 };
