@@ -82,7 +82,7 @@ export default function ({
       <Show
         when={!store.loading && (store.contextToken || store.inputContentToken)}
       >
-        <div class="flex items-center px-1em text-0.8em">
+        <div class="flex items-center mt-2em px-1em text-0.8em">
           <hr class="flex-1 border-slate/40" />
           <Show
             when={store.inputContentToken}

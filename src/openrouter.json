@@ -3,14 +3,14 @@
     {
       "id": "openrouter/auto",
       "name": "Auto (best for prompt)",
-      "description": "Depending on their size, subject, and complexity, your prompts will be sent to [Mistral Large](/models/mistralai/mistral-large) or [GPT-4 Turbo](/models/openai/gpt-4-turbo).  To see which model was used, visit [Activity](/activity).",
+      "description": "Depending on their size, subject, and complexity, your prompts will be sent to [Mistral Large](/models/mistralai/mistral-large), [Claude 3 Sonnet](/models/anthropic/claude-3-sonnet:beta) or [GPT-4o](/models/openai/gpt-4o).  To see which model was used, visit [Activity](/activity).",
       "pricing": {
         "prompt": "-1",
         "completion": "-1",
         "request": "-1",
         "image": "-1"
       },
-      "context_length": 128000,
+      "context_length": 200000,
       "architecture": {
         "modality": "text",
         "tokenizer": "Router",
@@ -268,8 +268,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "38882712",
-        "completion_tokens": "38882712"
+        "prompt_tokens": "38861092",
+        "completion_tokens": "38861092"
       }
     },
     {
@@ -293,8 +293,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "7776542",
-        "completion_tokens": "7776542"
+        "prompt_tokens": "7772218",
+        "completion_tokens": "7772218"
       }
     },
     {
@@ -318,8 +318,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "216015071",
-        "completion_tokens": "216015071"
+        "prompt_tokens": "215894960",
+        "completion_tokens": "215894960"
       }
     },
     {
@@ -343,8 +343,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "34562411",
-        "completion_tokens": "34562411"
+        "prompt_tokens": "34543193",
+        "completion_tokens": "34543193"
       }
     },
     {
@@ -368,8 +368,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "10368723",
-        "completion_tokens": "10368723"
+        "prompt_tokens": "10362958",
+        "completion_tokens": "10362958"
       }
     },
     {
@@ -393,8 +393,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "4147489",
-        "completion_tokens": "4147489"
+        "prompt_tokens": "4145183",
+        "completion_tokens": "4145183"
       }
     },
     {
@@ -418,8 +418,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "17281205",
-        "completion_tokens": "17281205"
+        "prompt_tokens": "17271596",
+        "completion_tokens": "17271596"
       }
     },
     {
@@ -443,8 +443,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "103687234",
-        "completion_tokens": "103687234"
+        "prompt_tokens": "103629581",
+        "completion_tokens": "103629581"
       }
     },
     {
@@ -468,8 +468,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "4320301",
-        "completion_tokens": "4320301"
+        "prompt_tokens": "4317899",
+        "completion_tokens": "4317899"
       }
     },
     {
@@ -493,8 +493,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "70703876",
-        "completion_tokens": "13760747"
+        "prompt_tokens": "70664562",
+        "completion_tokens": "13753096"
       }
     },
     {
@@ -518,8 +518,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "172812057",
-        "completion_tokens": "17281205"
+        "prompt_tokens": "172715968",
+        "completion_tokens": "17271596"
       }
     },
     {
@@ -543,8 +543,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "34562411",
-        "completion_tokens": "34562411"
+        "prompt_tokens": "34543193",
+        "completion_tokens": "34543193"
       }
     },
     {
@@ -568,8 +568,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "34562411",
-        "completion_tokens": "34562411"
+        "prompt_tokens": "34543193",
+        "completion_tokens": "34543193"
       }
     },
     {
@@ -593,8 +593,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "172812057",
-        "completion_tokens": "17281205"
+        "prompt_tokens": "172715968",
+        "completion_tokens": "17271596"
       }
     },
     {
@@ -618,8 +618,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "172812057",
-        "completion_tokens": "17281205"
+        "prompt_tokens": "172715968",
+        "completion_tokens": "17271596"
       }
     },
     {
@@ -643,8 +643,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "11520803",
-        "completion_tokens": "11520803"
+        "prompt_tokens": "11514397",
+        "completion_tokens": "11514397"
       }
     },
     {
@@ -668,8 +668,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "216015071",
-        "completion_tokens": "216015071"
+        "prompt_tokens": "215894960",
+        "completion_tokens": "215894960"
       }
     },
     {
@@ -693,8 +693,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "54003767",
-        "completion_tokens": "54003767"
+        "prompt_tokens": "53973740",
+        "completion_tokens": "53973740"
       }
     },
     {
@@ -718,8 +718,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "48003349",
-        "completion_tokens": "48003349"
+        "prompt_tokens": "47976657",
+        "completion_tokens": "47976657"
       }
     },
     {
@@ -743,8 +743,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "54003767",
-        "completion_tokens": "54003767"
+        "prompt_tokens": "53973740",
+        "completion_tokens": "53973740"
       }
     },
     {
@@ -768,8 +768,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "216015071",
-        "completion_tokens": "216015071"
+        "prompt_tokens": "215894960",
+        "completion_tokens": "215894960"
       }
     },
     {
@@ -793,8 +793,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "216015071",
-        "completion_tokens": "216015071"
+        "prompt_tokens": "215894960",
+        "completion_tokens": "215894960"
       }
     },
     {
@@ -818,8 +818,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "144010047",
-        "completion_tokens": "144010047"
+        "prompt_tokens": "143929973",
+        "completion_tokens": "143929973"
       }
     },
     {
@@ -843,8 +843,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "216015071",
-        "completion_tokens": "216015071"
+        "prompt_tokens": "215894960",
+        "completion_tokens": "215894960"
       }
     },
     {
@@ -868,8 +868,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "54003767",
-        "completion_tokens": "54003767"
+        "prompt_tokens": "53973740",
+        "completion_tokens": "53973740"
       }
     },
     {
@@ -893,8 +893,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "54003767",
-        "completion_tokens": "54003767"
+        "prompt_tokens": "53973740",
+        "completion_tokens": "53973740"
       }
     },
     {
@@ -918,8 +918,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "308592959",
-        "completion_tokens": "308592959"
+        "prompt_tokens": "308421372",
+        "completion_tokens": "308421372"
       }
     },
     {
@@ -943,8 +943,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "216015071",
-        "completion_tokens": "216015071"
+        "prompt_tokens": "215894960",
+        "completion_tokens": "215894960"
       }
     },
     {
@@ -968,8 +968,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "216015071",
-        "completion_tokens": "216015071"
+        "prompt_tokens": "215894960",
+        "completion_tokens": "215894960"
       }
     },
     {
@@ -993,8 +993,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "72005023",
-        "completion_tokens": "72005023"
+        "prompt_tokens": "71964986",
+        "completion_tokens": "71964986"
       }
     },
     {
@@ -1018,8 +1018,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "54003767",
-        "completion_tokens": "54003767"
+        "prompt_tokens": "53973740",
+        "completion_tokens": "53973740"
       }
     },
     {
@@ -1043,8 +1043,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "72005023",
-        "completion_tokens": "72005023"
+        "prompt_tokens": "71964986",
+        "completion_tokens": "71964986"
       }
     },
     {
@@ -1068,8 +1068,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "216015071",
-        "completion_tokens": "216015071"
+        "prompt_tokens": "215894960",
+        "completion_tokens": "215894960"
       }
     },
     {
@@ -1093,8 +1093,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "216015071",
-        "completion_tokens": "216015071"
+        "prompt_tokens": "215894960",
+        "completion_tokens": "215894960"
       }
     },
     {
@@ -1118,8 +1118,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "48003349",
-        "completion_tokens": "48003349"
+        "prompt_tokens": "47976657",
+        "completion_tokens": "47976657"
       }
     },
     {
@@ -1143,8 +1143,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "216015071",
-        "completion_tokens": "216015071"
+        "prompt_tokens": "215894960",
+        "completion_tokens": "215894960"
       }
     },
     {
@@ -1168,8 +1168,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "216015071",
-        "completion_tokens": "216015071"
+        "prompt_tokens": "215894960",
+        "completion_tokens": "215894960"
       }
     },
     {
@@ -1193,8 +1193,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "18001255",
-        "completion_tokens": "18001255"
+        "prompt_tokens": "17991246",
+        "completion_tokens": "17991246"
       }
     },
     {
@@ -1218,8 +1218,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "24001674",
-        "completion_tokens": "24001674"
+        "prompt_tokens": "23988328",
+        "completion_tokens": "23988328"
       }
     },
     {
@@ -1243,8 +1243,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "54003767",
-        "completion_tokens": "54003767"
+        "prompt_tokens": "53973740",
+        "completion_tokens": "53973740"
       }
     },
     {
@@ -1268,8 +1268,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "144010047",
-        "completion_tokens": "144010047"
+        "prompt_tokens": "143929973",
+        "completion_tokens": "143929973"
       }
     },
     {
@@ -1293,8 +1293,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "216015071",
-        "completion_tokens": "216015071"
+        "prompt_tokens": "215894960",
+        "completion_tokens": "215894960"
       }
     },
     {
@@ -1318,8 +1318,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "432030143",
-        "completion_tokens": "432030143"
+        "prompt_tokens": "431789921",
+        "completion_tokens": "431789921"
       }
     },
     {
@@ -1343,8 +1343,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "72005023",
-        "completion_tokens": "72005023"
+        "prompt_tokens": "71964986",
+        "completion_tokens": "71964986"
       }
     },
     {
@@ -1368,8 +1368,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "77765425",
-        "completion_tokens": "25921808"
+        "prompt_tokens": "77722185",
+        "completion_tokens": "25907395"
       }
     },
     {
@@ -1393,8 +1393,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "77765425",
-        "completion_tokens": "25921808"
+        "prompt_tokens": "77722185",
+        "completion_tokens": "25907395"
       }
     },
     {
@@ -1418,8 +1418,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "38882712",
-        "completion_tokens": "19441356"
+        "prompt_tokens": "38861092",
+        "completion_tokens": "19430546"
       }
     },
     {
@@ -1443,8 +1443,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "38882712",
-        "completion_tokens": "19441356"
+        "prompt_tokens": "38861092",
+        "completion_tokens": "19430546"
       }
     },
     {
@@ -1468,8 +1468,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "38882712",
-        "completion_tokens": "19441356"
+        "prompt_tokens": "38861092",
+        "completion_tokens": "19430546"
       }
     },
     {
@@ -1493,8 +1493,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "12960904",
-        "completion_tokens": "9720678"
+        "prompt_tokens": "12953697",
+        "completion_tokens": "9715273"
       }
     },
     {
@@ -1518,8 +1518,33 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "7776542",
-        "completion_tokens": "2592180"
+        "prompt_tokens": "7772218",
+        "completion_tokens": "2590739"
+      }
+    },
+    {
+      "id": "openai/gpt-4o-2024-05-13",
+      "name": "OpenAI: GPT-4o (2024-05-13)",
+      "description": "GPT-4o (\"o\" for \"omni\") is OpenAI's latest AI model, supporting both text and image inputs with text outputs. It maintains the intelligence level of [GPT-4 Turbo](/models/openai/gpt-4-turbo) while being twice as fast and 50% more cost-effective. GPT-4o also offers improved performance in processing non-English languages and enhanced visual capabilities.\n\nFor benchmarking against other models, it was briefly called [\"im-also-a-good-gpt2-chatbot\"](https://twitter.com/LiamFedus/status/1790064963966370209)\n\n#multimodal",
+      "pricing": {
+        "prompt": "0.000005",
+        "completion": "0.000015",
+        "image": "0.002312",
+        "request": "0"
+      },
+      "context_length": 128000,
+      "architecture": {
+        "modality": "text",
+        "tokenizer": "GPT",
+        "instruct_type": null
+      },
+      "top_provider": {
+        "max_completion_tokens": 4096,
+        "is_moderated": true
+      },
+      "per_request_limits": {
+        "prompt_tokens": "7772218",
+        "completion_tokens": "2590739"
       }
     },
     {
@@ -1543,8 +1568,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "3888271",
-        "completion_tokens": "1296090"
+        "prompt_tokens": "3886109",
+        "completion_tokens": "1295369"
       }
     },
     {
@@ -1568,8 +1593,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "3888271",
-        "completion_tokens": "1296090"
+        "prompt_tokens": "3886109",
+        "completion_tokens": "1295369"
       }
     },
     {
@@ -1593,8 +1618,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "3888271",
-        "completion_tokens": "1296090"
+        "prompt_tokens": "3886109",
+        "completion_tokens": "1295369"
       }
     },
     {
@@ -1618,8 +1643,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "1296090",
-        "completion_tokens": "648045"
+        "prompt_tokens": "1295369",
+        "completion_tokens": "647684"
       }
     },
     {
@@ -1643,8 +1668,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "1296090",
-        "completion_tokens": "648045"
+        "prompt_tokens": "1295369",
+        "completion_tokens": "647684"
       }
     },
     {
@@ -1668,8 +1693,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "648045",
-        "completion_tokens": "324022"
+        "prompt_tokens": "647684",
+        "completion_tokens": "323842"
       }
     },
     {
@@ -1693,8 +1718,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "648045",
-        "completion_tokens": "324022"
+        "prompt_tokens": "647684",
+        "completion_tokens": "323842"
       }
     },
     {
@@ -1718,8 +1743,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "3888271",
-        "completion_tokens": "1296090"
+        "prompt_tokens": "3886109",
+        "completion_tokens": "1295369"
       }
     },
     {
@@ -1743,8 +1768,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "25921808",
-        "completion_tokens": "19441356"
+        "prompt_tokens": "25907395",
+        "completion_tokens": "19430546"
       }
     },
     {
@@ -1768,8 +1793,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "155530851",
-        "completion_tokens": "77765425"
+        "prompt_tokens": "155444371",
+        "completion_tokens": "77722185"
       }
     },
     {
@@ -1793,8 +1818,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "155530851",
-        "completion_tokens": "77765425"
+        "prompt_tokens": "155444371",
+        "completion_tokens": "77722185"
       }
     },
     {
@@ -1818,8 +1843,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "155530851",
-        "completion_tokens": "77765425"
+        "prompt_tokens": "155444371",
+        "completion_tokens": "77722185"
       }
     },
     {
@@ -1843,8 +1868,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "155530851",
-        "completion_tokens": "77765425"
+        "prompt_tokens": "155444371",
+        "completion_tokens": "77722185"
       }
     },
     {
@@ -1868,8 +1893,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "311061703",
-        "completion_tokens": "103687234"
+        "prompt_tokens": "310888743",
+        "completion_tokens": "103629581"
       }
     },
     {
@@ -1893,8 +1918,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "311061703",
-        "completion_tokens": "103687234"
+        "prompt_tokens": "310888743",
+        "completion_tokens": "103629581"
       }
     },
     {
@@ -1918,24 +1943,124 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "15553085",
-        "completion_tokens": "5184361"
+        "prompt_tokens": "15544437",
+        "completion_tokens": "5181479"
       }
     },
     {
-      "id": "perplexity/pplx-70b-online",
-      "name": "Perplexity: PPLX 70B Online",
-      "description": "The larger, internet-connected chat model by Perplexity Labs, based on [Llama 2 70B](/models/meta-llama/llama-2-70b-chat). The online models are focused on delivering helpful, up-to-date, and factual responses. #online",
+      "id": "google/gemini-flash-1.5",
+      "name": "Google: Gemini Flash 1.5 (preview)",
+      "description": "Gemini 1.5 Flash is a foundation model that performs well at a variety of multimodal tasks such as visual understanding, classification, summarization, and creating content from image, audio and video. It's adept at processing visual and text inputs such as photographs, documents, infographics, and screenshots.\n\nGemini 1.5 Flash is designed for high-volume, high-frequency tasks where cost and latency matter. On most common tasks, Flash achieves comparable quality to other Gemini Pro models at a significantly reduced cost. Flash is well-suited for applications like chat assistants and on-demand content generation where speed and scale matter.\n\n#multimodal",
+      "pricing": {
+        "prompt": "0.00000025",
+        "completion": "0.00000075",
+        "image": "0.000265",
+        "request": "0"
+      },
+      "context_length": 2800000,
+      "architecture": {
+        "modality": "multimodal",
+        "tokenizer": "Gemini",
+        "instruct_type": null
+      },
+      "top_provider": {
+        "max_completion_tokens": 22937,
+        "is_moderated": false
+      },
+      "per_request_limits": {
+        "prompt_tokens": "155444371",
+        "completion_tokens": "51814790"
+      }
+    },
+    {
+      "id": "perplexity/llama-3-sonar-small-32k-chat",
+      "name": "Perplexity: Llama3 Sonar 8B",
+      "description": "Llama3 Sonar is Perplexity's latest model family. It surpasses their earlier Sonar models in cost-efficiency, speed, and performance.\n\nThis is a normal offline LLM, but the [online version](/models/perplexity/llama-3-sonar-small-32k-online) of this model has Internet access.",
+      "pricing": {
+        "prompt": "0.0000002",
+        "completion": "0.0000002",
+        "image": "0",
+        "request": "0"
+      },
+      "context_length": 32768,
+      "architecture": {
+        "modality": "text",
+        "tokenizer": "Llama3",
+        "instruct_type": null
+      },
+      "top_provider": {
+        "max_completion_tokens": null,
+        "is_moderated": false
+      },
+      "per_request_limits": {
+        "prompt_tokens": "194305464",
+        "completion_tokens": "194305464"
+      }
+    },
+    {
+      "id": "perplexity/llama-3-sonar-small-32k-online",
+      "name": "Perplexity: Llama3 Sonar 8B Online",
+      "description": "Llama3 Sonar is Perplexity's latest model family. It surpasses their earlier Sonar models in cost-efficiency, speed, and performance.\n\nThis is the online version of the [offline chat model](/models/perplexity/llama-3-sonar-small-32k-chat). It is focused on delivering helpful, up-to-date, and factual responses. #online",
+      "pricing": {
+        "prompt": "0.0000002",
+        "completion": "0.0000002",
+        "image": "0",
+        "request": "0.005"
+      },
+      "context_length": 28000,
+      "architecture": {
+        "modality": "text",
+        "tokenizer": "Llama3",
+        "instruct_type": null
+      },
+      "top_provider": {
+        "max_completion_tokens": null,
+        "is_moderated": false
+      },
+      "per_request_limits": {
+        "prompt_tokens": "194305464",
+        "completion_tokens": "194305464"
+      }
+    },
+    {
+      "id": "perplexity/llama-3-sonar-large-32k-chat",
+      "name": "Perplexity: Llama3 Sonar 70B",
+      "description": "Llama3 Sonar is Perplexity's latest model family. It surpasses their earlier Sonar models in cost-efficiency, speed, and performance.\n\nThis is a normal offline LLM, but the [online version](/models/perplexity/llama-3-sonar-large-32k-online) of this model has Internet access.",
+      "pricing": {
+        "prompt": "0.000001",
+        "completion": "0.000001",
+        "image": "0",
+        "request": "0"
+      },
+      "context_length": 32768,
+      "architecture": {
+        "modality": "text",
+        "tokenizer": "Llama3",
+        "instruct_type": null
+      },
+      "top_provider": {
+        "max_completion_tokens": null,
+        "is_moderated": false
+      },
+      "per_request_limits": {
+        "prompt_tokens": "38861092",
+        "completion_tokens": "38861092"
+      }
+    },
+    {
+      "id": "perplexity/llama-3-sonar-large-32k-online",
+      "name": "Perplexity: Llama3 Sonar 70B Online",
+      "description": "Llama3 Sonar is Perplexity's latest model family. It surpasses their earlier Sonar models in cost-efficiency, speed, and performance.\n\nThis is the online version of the [offline chat model](/models/perplexity/llama-3-sonar-large-32k-chat). It is focused on delivering helpful, up-to-date, and factual responses. #online",
       "pricing": {
         "prompt": "0.000001",
         "completion": "0.000001",
         "image": "0",
         "request": "0.005"
       },
-      "context_length": 4096,
+      "context_length": 28000,
       "architecture": {
         "modality": "text",
-        "tokenizer": "Llama2",
+        "tokenizer": "Llama3",
         "instruct_type": null
       },
       "top_provider": {
@@ -1943,183 +2068,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "38882712",
-        "completion_tokens": "38882712"
-      }
-    },
-    {
-      "id": "perplexity/pplx-7b-online",
-      "name": "Perplexity: PPLX 7B Online",
-      "description": "The smaller, internet-connected chat model by Perplexity Labs, based on [Mistral 7B](/models/mistralai/mistral-7b-instruct). The online models are focused on delivering helpful, up-to-date, and factual responses. #online",
-      "pricing": {
-        "prompt": "0.0000002",
-        "completion": "0.0000002",
-        "image": "0",
-        "request": "0.005"
-      },
-      "context_length": 4096,
-      "architecture": {
-        "modality": "text",
-        "tokenizer": "Llama2",
-        "instruct_type": null
-      },
-      "top_provider": {
-        "max_completion_tokens": null,
-        "is_moderated": false
-      },
-      "per_request_limits": {
-        "prompt_tokens": "194413564",
-        "completion_tokens": "194413564"
-      }
-    },
-    {
-      "id": "perplexity/pplx-7b-chat",
-      "name": "Perplexity: PPLX 7B Chat",
-      "description": "The smaller chat model by Perplexity Labs, with 7 billion parameters. Based on [Mistral 7B](/models/mistralai/mistral-7b-instruct).",
-      "pricing": {
-        "prompt": "0.0000002",
-        "completion": "0.0000002",
-        "image": "0",
-        "request": "0"
-      },
-      "context_length": 8192,
-      "architecture": {
-        "modality": "text",
-        "tokenizer": "Llama2",
-        "instruct_type": null
-      },
-      "top_provider": {
-        "max_completion_tokens": null,
-        "is_moderated": false
-      },
-      "per_request_limits": {
-        "prompt_tokens": "194413564",
-        "completion_tokens": "194413564"
-      }
-    },
-    {
-      "id": "perplexity/pplx-70b-chat",
-      "name": "Perplexity: PPLX 70B Chat",
-      "description": "The larger chat model by Perplexity Labs, with 70 billion parameters. Based on [Llama 2 70B](/models/meta-llama/llama-2-70b-chat).",
-      "pricing": {
-        "prompt": "0.000001",
-        "completion": "0.000001",
-        "image": "0",
-        "request": "0"
-      },
-      "context_length": 4096,
-      "architecture": {
-        "modality": "text",
-        "tokenizer": "Llama2",
-        "instruct_type": null
-      },
-      "top_provider": {
-        "max_completion_tokens": null,
-        "is_moderated": false
-      },
-      "per_request_limits": {
-        "prompt_tokens": "38882712",
-        "completion_tokens": "38882712"
-      }
-    },
-    {
-      "id": "perplexity/sonar-small-chat",
-      "name": "Perplexity: Sonar 7B",
-      "description": "Sonar is Perplexity's latest model family. It surpasses their earlier models in cost-efficiency, speed, and performance.\n\nThe version of this model with Internet access is [Sonar 7B Online](/models/perplexity/sonar-small-online).",
-      "pricing": {
-        "prompt": "0.0000002",
-        "completion": "0.0000002",
-        "image": "0",
-        "request": "0"
-      },
-      "context_length": 16384,
-      "architecture": {
-        "modality": "text",
-        "tokenizer": "Mistral",
-        "instruct_type": null
-      },
-      "top_provider": {
-        "max_completion_tokens": null,
-        "is_moderated": false
-      },
-      "per_request_limits": {
-        "prompt_tokens": "194413564",
-        "completion_tokens": "194413564"
-      }
-    },
-    {
-      "id": "perplexity/sonar-medium-chat",
-      "name": "Perplexity: Sonar 8x7B",
-      "description": "Sonar is Perplexity's latest model family. It surpasses their earlier models in cost-efficiency, speed, and performance.\n\nThe version of this model with Internet access is [Sonar 8x7B Online](/models/perplexity/sonar-medium-online).",
-      "pricing": {
-        "prompt": "0.0000006",
-        "completion": "0.0000006",
-        "image": "0",
-        "request": "0"
-      },
-      "context_length": 16384,
-      "architecture": {
-        "modality": "text",
-        "tokenizer": "Mistral",
-        "instruct_type": null
-      },
-      "top_provider": {
-        "max_completion_tokens": null,
-        "is_moderated": false
-      },
-      "per_request_limits": {
-        "prompt_tokens": "64804521",
-        "completion_tokens": "64804521"
-      }
-    },
-    {
-      "id": "perplexity/sonar-small-online",
-      "name": "Perplexity: Sonar 7B Online",
-      "description": "Sonar is Perplexity's latest model family. It surpasses their earlier models in cost-efficiency, speed, and performance.\n\nThis is the online version of [Sonar 7B](/models/perplexity/sonar-small-chat). It is focused on delivering helpful, up-to-date, and factual responses. #online",
-      "pricing": {
-        "prompt": "0.0000002",
-        "completion": "0.0000002",
-        "image": "0",
-        "request": "0.005"
-      },
-      "context_length": 12000,
-      "architecture": {
-        "modality": "text",
-        "tokenizer": "Mistral",
-        "instruct_type": null
-      },
-      "top_provider": {
-        "max_completion_tokens": null,
-        "is_moderated": false
-      },
-      "per_request_limits": {
-        "prompt_tokens": "194413564",
-        "completion_tokens": "194413564"
-      }
-    },
-    {
-      "id": "perplexity/sonar-medium-online",
-      "name": "Perplexity: Sonar 8x7B Online",
-      "description": "Sonar is Perplexity's latest model family. It surpasses their earlier models in cost-efficiency, speed, and performance.\n\nThis is the online version of [Sonar 8x7B](/models/perplexity/sonar-medium-chat). It is focused on delivering helpful, up-to-date, and factual responses. #online",
-      "pricing": {
-        "prompt": "0.0000006",
-        "completion": "0.0000006",
-        "image": "0",
-        "request": "0.005"
-      },
-      "context_length": 12000,
-      "architecture": {
-        "modality": "text",
-        "tokenizer": "Mistral",
-        "instruct_type": null
-      },
-      "top_provider": {
-        "max_completion_tokens": null,
-        "is_moderated": false
-      },
-      "per_request_limits": {
-        "prompt_tokens": "64804521",
-        "completion_tokens": "64804521"
+        "prompt_tokens": "38861092",
+        "completion_tokens": "38861092"
       }
     },
     {
@@ -2143,8 +2093,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "194413564",
-        "completion_tokens": "194413564"
+        "prompt_tokens": "194305464",
+        "completion_tokens": "194305464"
       }
     },
     {
@@ -2168,8 +2118,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "2592180",
-        "completion_tokens": "518436"
+        "prompt_tokens": "2590739",
+        "completion_tokens": "518147"
       }
     },
     {
@@ -2193,8 +2143,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "12960904",
-        "completion_tokens": "2592180"
+        "prompt_tokens": "12953697",
+        "completion_tokens": "2590739"
       }
     },
     {
@@ -2218,8 +2168,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "155530851",
-        "completion_tokens": "31106170"
+        "prompt_tokens": "155444371",
+        "completion_tokens": "31088874"
       }
     },
     {
@@ -2243,8 +2193,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "4860339",
-        "completion_tokens": "1620113"
+        "prompt_tokens": "4857636",
+        "completion_tokens": "1619212"
       }
     },
     {
@@ -2268,8 +2218,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "4860339",
-        "completion_tokens": "1620113"
+        "prompt_tokens": "4857636",
+        "completion_tokens": "1619212"
       }
     },
     {
@@ -2293,8 +2243,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "4860339",
-        "completion_tokens": "1620113"
+        "prompt_tokens": "4857636",
+        "completion_tokens": "1619212"
       }
     },
     {
@@ -2318,8 +2268,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "48603391",
-        "completion_tokens": "16201130"
+        "prompt_tokens": "48576366",
+        "completion_tokens": "16192122"
       }
     },
     {
@@ -2343,8 +2293,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "2592180",
-        "completion_tokens": "518436"
+        "prompt_tokens": "2590739",
+        "completion_tokens": "518147"
       }
     },
     {
@@ -2368,8 +2318,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "12960904",
-        "completion_tokens": "2592180"
+        "prompt_tokens": "12953697",
+        "completion_tokens": "2590739"
       }
     },
     {
@@ -2393,8 +2343,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "155530851",
-        "completion_tokens": "31106170"
+        "prompt_tokens": "155444371",
+        "completion_tokens": "31088874"
       }
     },
     {
@@ -2418,8 +2368,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "4860339",
-        "completion_tokens": "1620113"
+        "prompt_tokens": "4857636",
+        "completion_tokens": "1619212"
       }
     },
     {
@@ -2443,8 +2393,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "4860339",
-        "completion_tokens": "1620113"
+        "prompt_tokens": "4857636",
+        "completion_tokens": "1619212"
       }
     },
     {
@@ -2468,8 +2418,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "4860339",
-        "completion_tokens": "1620113"
+        "prompt_tokens": "4857636",
+        "completion_tokens": "1619212"
       }
     },
     {
@@ -2493,8 +2443,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "48603391",
-        "completion_tokens": "16201130"
+        "prompt_tokens": "48576366",
+        "completion_tokens": "16192122"
       }
     },
     {
@@ -2518,8 +2468,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "299097791",
-        "completion_tokens": "299097791"
+        "prompt_tokens": "298931483",
+        "completion_tokens": "298931483"
       }
     },
     {
@@ -2543,8 +2493,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "60754238",
-        "completion_tokens": "48603391"
+        "prompt_tokens": "60720457",
+        "completion_tokens": "48576366"
       }
     },
     {
@@ -2568,8 +2518,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "149548895",
-        "completion_tokens": "149548895"
+        "prompt_tokens": "149465741",
+        "completion_tokens": "149465741"
       }
     },
     {
@@ -2593,8 +2543,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "43203014",
-        "completion_tokens": "43203014"
+        "prompt_tokens": "43178992",
+        "completion_tokens": "43178992"
       }
     },
     {
@@ -2618,8 +2568,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "55546732",
-        "completion_tokens": "43203014"
+        "prompt_tokens": "55515847",
+        "completion_tokens": "43178992"
       }
     },
     {
@@ -2665,8 +2615,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "299097791",
-        "completion_tokens": "299097791"
+        "prompt_tokens": "298931483",
+        "completion_tokens": "298931483"
       }
     },
     {
@@ -2690,8 +2640,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "555467327",
-        "completion_tokens": "555467327"
+        "prompt_tokens": "555158470",
+        "completion_tokens": "555158470"
       }
     },
     {
@@ -2715,8 +2665,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "228721840",
-        "completion_tokens": "228721840"
+        "prompt_tokens": "228594664",
+        "completion_tokens": "228594664"
       }
     },
     {
@@ -2740,8 +2690,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "299097791",
-        "completion_tokens": "299097791"
+        "prompt_tokens": "298931483",
+        "completion_tokens": "298931483"
       }
     },
     {
@@ -2765,8 +2715,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "194413564",
-        "completion_tokens": "194413564"
+        "prompt_tokens": "194305464",
+        "completion_tokens": "194305464"
       }
     },
     {
@@ -2790,8 +2740,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "555467327",
-        "completion_tokens": "555467327"
+        "prompt_tokens": "555158470",
+        "completion_tokens": "555158470"
       }
     },
     {
@@ -2815,8 +2765,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "555467327",
-        "completion_tokens": "555467327"
+        "prompt_tokens": "555158470",
+        "completion_tokens": "555158470"
       }
     },
     {
@@ -2840,8 +2790,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "65902903",
-        "completion_tokens": "49218623"
+        "prompt_tokens": "65866259",
+        "completion_tokens": "49191256"
       }
     },
     {
@@ -2887,8 +2837,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "162011303",
-        "completion_tokens": "162011303"
+        "prompt_tokens": "161921220",
+        "completion_tokens": "161921220"
       }
     },
     {
@@ -2912,8 +2862,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "4860339",
-        "completion_tokens": "4860339"
+        "prompt_tokens": "4857636",
+        "completion_tokens": "4857636"
       }
     },
     {
@@ -2937,8 +2887,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "144010047",
-        "completion_tokens": "144010047"
+        "prompt_tokens": "143929973",
+        "completion_tokens": "143929973"
       }
     },
     {
@@ -3037,8 +2987,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "555467327",
-        "completion_tokens": "555467327"
+        "prompt_tokens": "555158470",
+        "completion_tokens": "555158470"
       }
     },
     {
@@ -3062,8 +3012,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "555467327",
-        "completion_tokens": "555467327"
+        "prompt_tokens": "555158470",
+        "completion_tokens": "555158470"
       }
     },
     {
@@ -3087,8 +3037,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "65902903",
-        "completion_tokens": "49218623"
+        "prompt_tokens": "65866259",
+        "completion_tokens": "49191256"
       }
     },
     {
@@ -3112,8 +3062,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "59819558",
-        "completion_tokens": "59819558"
+        "prompt_tokens": "59786296",
+        "completion_tokens": "59786296"
       }
     },
     {
@@ -3137,8 +3087,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "555467327",
-        "completion_tokens": "555467327"
+        "prompt_tokens": "555158470",
+        "completion_tokens": "555158470"
       }
     },
     {
@@ -3162,8 +3112,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "43203014",
-        "completion_tokens": "43203014"
+        "prompt_tokens": "43178992",
+        "completion_tokens": "43178992"
       }
     },
     {
@@ -3187,8 +3137,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "59819558",
-        "completion_tokens": "59819558"
+        "prompt_tokens": "59786296",
+        "completion_tokens": "59786296"
       }
     },
     {
@@ -3212,8 +3162,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "777654258",
-        "completion_tokens": "777654258"
+        "prompt_tokens": "777221858",
+        "completion_tokens": "777221858"
       }
     },
     {
@@ -3237,8 +3187,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "77765425",
-        "completion_tokens": "77765425"
+        "prompt_tokens": "77722185",
+        "completion_tokens": "77722185"
       }
     },
     {
@@ -3262,8 +3212,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "64804521",
-        "completion_tokens": "64804521"
+        "prompt_tokens": "64768488",
+        "completion_tokens": "64768488"
       }
     },
     {
@@ -3287,8 +3237,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "388827129",
-        "completion_tokens": "388827129"
+        "prompt_tokens": "388610929",
+        "completion_tokens": "388610929"
       }
     },
     {
@@ -3312,8 +3262,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "43203014",
-        "completion_tokens": "43203014"
+        "prompt_tokens": "43178992",
+        "completion_tokens": "43178992"
       }
     },
     {
@@ -3337,8 +3287,58 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "43203014",
-        "completion_tokens": "43203014"
+        "prompt_tokens": "43178992",
+        "completion_tokens": "43178992"
+      }
+    },
+    {
+      "id": "deepseek/deepseek-chat",
+      "name": "DeepSeek-V2 Chat",
+      "description": "DeepSeek-V2 Chat is a conversational finetune of DeepSeek-V2, a Mixture-of-Experts (MoE) language model. It comprises 236B total parameters, of which 21B are activated for each token.\n\nCompared with DeepSeek 67B, DeepSeek-V2 achieves stronger performance, and meanwhile saves 42.5% of training costs, reduces the KV cache by 93.3%, and boosts the maximum generation throughput to 5.76 times.\n\nDeepSeek-V2 achieves remarkable performance on both standard benchmarks and open-ended generation evaluations.",
+      "pricing": {
+        "prompt": "0.00000014",
+        "completion": "0.00000028",
+        "image": "0",
+        "request": "0"
+      },
+      "context_length": 128000,
+      "architecture": {
+        "modality": "text",
+        "tokenizer": "Other",
+        "instruct_type": null
+      },
+      "top_provider": {
+        "max_completion_tokens": 4096,
+        "is_moderated": false
+      },
+      "per_request_limits": {
+        "prompt_tokens": "277579235",
+        "completion_tokens": "138789617"
+      }
+    },
+    {
+      "id": "deepseek/deepseek-coder",
+      "name": "Deepseek Coder",
+      "description": "Deepseek Coder is composed of a series of code language models, each trained from scratch on 2T tokens, with a composition of 87% code and 13% natural language in both English and Chinese.\n\nThe model is pre-trained on project-level code corpus by employing a window size of 16K and a extra fill-in-the-blank task, to support project-level code completion and infilling. For coding capabilities, Deepseek Coder achieves state-of-the-art performance among open-source code models on multiple programming languages and various benchmarks",
+      "pricing": {
+        "prompt": "0.00000014",
+        "completion": "0.00000028",
+        "image": "0",
+        "request": "0"
+      },
+      "context_length": 16000,
+      "architecture": {
+        "modality": "text",
+        "tokenizer": "Other",
+        "instruct_type": null
+      },
+      "top_provider": {
+        "max_completion_tokens": 4096,
+        "is_moderated": false
+      },
+      "per_request_limits": {
+        "prompt_tokens": "277579235",
+        "completion_tokens": "138789617"
       }
     },
     {
@@ -3362,8 +3362,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "4860339",
-        "completion_tokens": "1620113"
+        "prompt_tokens": "4857636",
+        "completion_tokens": "1619212"
       }
     },
     {
@@ -3387,8 +3387,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "4860339",
-        "completion_tokens": "1620113"
+        "prompt_tokens": "4857636",
+        "completion_tokens": "1619212"
       }
     },
     {
@@ -3412,8 +3412,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "48603391",
-        "completion_tokens": "16201130"
+        "prompt_tokens": "48576366",
+        "completion_tokens": "16192122"
       }
     },
     {
@@ -3437,8 +3437,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "48603391",
-        "completion_tokens": "16201130"
+        "prompt_tokens": "48576366",
+        "completion_tokens": "16192122"
       }
     },
     {
@@ -3487,8 +3487,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "43203014",
-        "completion_tokens": "43203014"
+        "prompt_tokens": "43178992",
+        "completion_tokens": "43178992"
       }
     },
     {
@@ -3512,8 +3512,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "194413564",
-        "completion_tokens": "194413564"
+        "prompt_tokens": "194305464",
+        "completion_tokens": "194305464"
       }
     },
     {
@@ -3537,8 +3537,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "194413564",
-        "completion_tokens": "194413564"
+        "prompt_tokens": "194305464",
+        "completion_tokens": "194305464"
       }
     },
     {
@@ -3562,8 +3562,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "555467327",
-        "completion_tokens": "555467327"
+        "prompt_tokens": "555158470",
+        "completion_tokens": "555158470"
       }
     },
     {
@@ -3587,8 +3587,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "194413564",
-        "completion_tokens": "194413564"
+        "prompt_tokens": "194305464",
+        "completion_tokens": "194305464"
       }
     },
     {
@@ -3612,8 +3612,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "43203014",
-        "completion_tokens": "43203014"
+        "prompt_tokens": "43178992",
+        "completion_tokens": "43178992"
       }
     },
     {
@@ -3637,8 +3637,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "3888271",
-        "completion_tokens": "3888271"
+        "prompt_tokens": "3886109",
+        "completion_tokens": "3886109"
       }
     },
     {
@@ -3662,8 +3662,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "3888271",
-        "completion_tokens": "3888271"
+        "prompt_tokens": "3886109",
+        "completion_tokens": "3886109"
       }
     },
     {
@@ -3687,8 +3687,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "155530851",
-        "completion_tokens": "155530851"
+        "prompt_tokens": "155444371",
+        "completion_tokens": "155444371"
       }
     },
     {
@@ -3712,8 +3712,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "19441356",
-        "completion_tokens": "6480452"
+        "prompt_tokens": "19430546",
+        "completion_tokens": "6476848"
       }
     },
     {
@@ -3737,8 +3737,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "14401004",
-        "completion_tokens": "4800334"
+        "prompt_tokens": "14392997",
+        "completion_tokens": "4797665"
       }
     },
     {
@@ -3762,8 +3762,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "4860339",
-        "completion_tokens": "1620113"
+        "prompt_tokens": "4857636",
+        "completion_tokens": "1619212"
       }
     },
     {
@@ -3787,8 +3787,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "38882712",
-        "completion_tokens": "19441356"
+        "prompt_tokens": "38861092",
+        "completion_tokens": "19430546"
       }
     },
     {
@@ -3812,8 +3812,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "77765425",
-        "completion_tokens": "25921808"
+        "prompt_tokens": "77722185",
+        "completion_tokens": "25907395"
       }
     },
     {
@@ -3837,8 +3837,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "12960904",
-        "completion_tokens": "2592180"
+        "prompt_tokens": "12953697",
+        "completion_tokens": "2590739"
       }
     }
   ]
