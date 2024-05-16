@@ -31,12 +31,14 @@ export async function delSession(id: string) {
 
 export async function fetchAllSessions() {
   const sessions: Session[] = [];
-  (await localStore.keys()).forEach(async (key) => {
+  const keys = await localStore.keys();
+  for (let i = 0; i < keys.length; i++) {
+    const key = keys[i]
     const id = key.replace(LocalStorageKey.PREFIX_SESSION, "");
     if (id !== key) {
       const session = await getSession(id);
       if (session) sessions.push(session);
     }
-  });
+  }
   return sessions;
 }
