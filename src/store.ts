@@ -104,17 +104,17 @@ function Store() {
   const validContext = createMemo(() =>
     store.sessionSettings.continuousDialogue
       ? store.messageList.filter(
-        (k, i, _) =>
-          (["assistant", "system"].includes(k.role) &&
-            k.type !== "temporary" &&
-            _[i - 1]?.role === "user") ||
-          (k.role === "user" &&
-            _[i + 1]?.role !== "error" &&
-            _[i + 1]?.type !== "temporary"),
-      )
+          (k, i, _) =>
+            (["assistant", "system"].includes(k.role) &&
+              k.type !== "temporary" &&
+              _[i - 1]?.role === "user") ||
+            (k.role === "user" &&
+              _[i + 1]?.role !== "error" &&
+              _[i + 1]?.type !== "temporary")
+        )
       : store.messageList.filter(
-        (k) => k.role === "system" || k.type === "locked",
-      ),
+          (k) => k.role === "system" || k.type === "locked"
+        )
   );
 
   const throttleCountInputContent = throttle((content: string) => {
@@ -145,7 +145,9 @@ function Store() {
 
   const remainingToken = createMemo(
     () =>
-      (maxInputTokens[store.sessionSettings.model] || 32000) - store.contextToken - store.inputContentToken,
+      (maxInputTokens[store.sessionSettings.model] || 32000) -
+      store.contextToken -
+      store.inputContentToken
   );
 
   const currentModel = createMemo(() => {
@@ -157,13 +159,13 @@ function Store() {
   });
 
   const inputContentToken$ = createMemo(() =>
-    countTokensDollar(store.inputContentToken, store.currentModel, "input"),
+    countTokensDollar(store.inputContentToken, store.currentModel, "input")
   );
   const contextToken$ = createMemo(() =>
-    countTokensDollar(store.contextToken, store.currentModel, "input"),
+    countTokensDollar(store.contextToken, store.currentModel, "input")
   );
   const currentMessageToken$ = createMemo(() =>
-    countTokensDollar(store.currentMessageToken, store.currentModel, "output"),
+    countTokensDollar(store.currentMessageToken, store.currentModel, "output")
   );
 
   return { store, setStore };
@@ -181,13 +183,13 @@ export const FZFData = {
 export function loadSession(id: string) {
   const { store, setStore } = RootStore;
   // 只触发一次更新
-  batch(() => {
+  batch(async () => {
     setStore("sessionId", id);
     try {
       const GLOBAL_SETTINGS = localStorage.getItem(
-        LocalStorageKey.GLOBAL_SETTINGS,
+        LocalStorageKey.GLOBAL_SETTINGS
       );
-      const session = getSession(id);
+      const session = await getSession(id);
       if (GLOBAL_SETTINGS) {
         const parsed = JSON.parse(GLOBAL_SETTINGS);
         setStore("globalSettings", (t) => ({
@@ -209,7 +211,7 @@ export function loadSession(id: string) {
           } else {
             setStore(
               "messageList",
-              messages.filter((m) => m.type === "locked"),
+              messages.filter((m) => m.type === "locked")
             );
           }
         }
@@ -218,8 +220,8 @@ export function loadSession(id: string) {
       console.log("Localstorage parse error");
     }
   });
-  setTimeout(() => {
-    const sessions = fetchAllSessions();
+  setTimeout(async () => {
+    const sessions = await fetchAllSessions();
     FZFData.sessionOptions = sessions
       .sort((m, n) => n.lastVisit - m.lastVisit)
       .filter((k) => k.id !== store.sessionId && k.id !== "index")
@@ -235,10 +237,10 @@ export function loadSession(id: string) {
         title: "回到主对话",
         desc:
           "其实点击顶部 Logo 也可以直接回到主对话。" +
-          sessions
-            .find((k) => k.id === "index")
-            ?.messages.map((k) => k.content)
-            .join("\n") || "",
+            sessions
+              .find((k) => k.id === "index")
+              ?.messages.map((k) => k.content)
+              .join("\n") || "",
         extra: {
           id: "index",
         },
@@ -253,7 +255,7 @@ export function loadSession(id: string) {
 function countTokensDollar(
   tokens: number,
   model: Model,
-  io: "input" | "output",
+  io: "input" | "output"
 ) {
   const tk = tokens / 1000;
   // @ts-ignore

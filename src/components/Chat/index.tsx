@@ -7,7 +7,7 @@ import { setSession, isMobile } from "~/utils";
 import MessageContainer from "./MessageContainer";
 import InputBox, { defaultInputBoxHeight } from "./InputBox";
 import { type FakeRoleUnion, setActionState } from "./SettingAction";
-import { fetchChat } from "~/providers/util"
+import { fetchChat } from "~/providers/util";
 
 const SearchParamKey = "q";
 
@@ -133,18 +133,18 @@ export default function () {
       try {
         const content = store.inputImage
           ? [
-            {
-              type: "text",
-              text: inputValue,
-            },
-            {
-              type: "image_url",
-              image_url: {
-                url: store.inputImage,
-                detail: "auto",
+              {
+                type: "text",
+                text: inputValue,
               },
-            },
-          ]
+              {
+                type: "image_url",
+                image_url: {
+                  url: store.inputImage,
+                  detail: "auto",
+                },
+              },
+            ]
           : inputValue;
         // @ts-ignore
         setStore("messageList", (k) => [
@@ -171,12 +171,12 @@ export default function () {
           store.sessionSettings.continuousDialogue
             ? store.validContext
             : [
-              ...store.validContext,
-              {
-                role: "user",
-                content,
-              },
-            ]
+                ...store.validContext,
+                {
+                  role: "user",
+                  content,
+                },
+              ]
         );
       } catch (error: any) {
         setStore("loading", false);
@@ -209,7 +209,7 @@ export default function () {
       password: store.globalSettings.password,
       provider: store.currentProvider,
       model: store.currentModel,
-    }
+    };
     if (store.globalSettings.requestWithBackend) {
       response = await fetch("/api/chat", {
         method: "POST",
@@ -219,12 +219,12 @@ export default function () {
     } else {
       response = await fetchChat({
         ...body,
-        signal: controller?.signal as AbortSignal
-      })
+        signal: controller?.signal as AbortSignal,
+      });
     }
     if (!response.ok) {
-      const res = await response.json() as any;
-      console.log(res)
+      const res = (await response.json()) as any;
+      console.log(res);
       throw new Error(res.error.message);
     }
     const data = response.body;

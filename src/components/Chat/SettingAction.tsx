@@ -97,9 +97,7 @@ export default function SettingAction() {
                 <input
                   type="password"
                   value={
-                    store.globalSettings.APIKeys[
-                      store.sessionSettings.provider
-                    ]
+                    store.globalSettings.APIKeys[store.sessionSettings.provider]
                   }
                   class="input-box"
                   onInput={(e) => {
@@ -261,12 +259,12 @@ export default function SettingAction() {
           <hr class="my-1 bg-slate-5 bg-op-15 border-none h-1px"></hr>
           <div class="flex justify-end">
             <ActionItem
-              onClick={() => {
+              onClick={async () => {
                 let sessionID: string;
                 do {
                   sessionID = generateId();
-                } while (getSession(sessionID));
-                setSession(sessionID, {
+                } while (await getSession(sessionID));
+                await setSession(sessionID, {
                   id: sessionID,
                   lastVisit: Date.now(),
                   settings: {
@@ -367,7 +365,7 @@ export default function SettingAction() {
                   if (e.target.files?.length === 0) return;
                   const file = e.target.files![0];
                   const url = await blobToBase64(file);
-                  setStore('inputImage', url)
+                  setStore("inputImage", url);
                 }}
               />
               <ActionItem
