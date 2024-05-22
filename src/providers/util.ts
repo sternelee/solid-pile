@@ -26,7 +26,9 @@ export interface IFetchChatBody {
 }
 
 export async function fetchChat(body: IFetchChatBody) {
-  const { messages, temperature, model, provider, signal } = body;
+  const { messages, temperature, model, signal } = body;
+  let provider = body.provider;
+
   let key = body.key || "";
 
   if (!messages?.length) {
@@ -74,6 +76,12 @@ export async function fetchChat(body: IFetchChatBody) {
   if (provider === "workers-ai") {
     headers["x-portkey-workers-ai-account-id"] = process.env.CF_ID || "";
   }
+  // if (model === 'gemini-1.5-flash-preview-0514') {
+  //   // @ts-ignore
+  //   provider = 'vertex-ai'
+  //   headers["x-portkey-vertex-project-id"] = "sternelee"
+  //   headers["x-portkey-vertex-region"] = "us-central1"
+  // }
 
   const abortController = new AbortController();
   try {

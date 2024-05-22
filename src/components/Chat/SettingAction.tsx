@@ -50,7 +50,7 @@ export default function SettingAction() {
   const [uploadPicture, setUploadPicture] = createSignal<HTMLInputElement>();
   function clearSession() {
     setStore("messageList", (messages) =>
-      messages.filter((k) => k.type === "locked")
+      messages.filter((k) => k.type === "locked"),
     );
   }
 
@@ -64,278 +64,254 @@ export default function SettingAction() {
         setActionState("showSetting", "none");
       }}
     >
-      <dialog
-        id="show-setting-global"
-        class="modal modal-bottom sm:modal-middle"
-      >
-        <div class="modal-box">
-          <div class="<sm:max-h-10em max-h-14em overflow-y-auto">
-            <SettingItem icon="i-carbon:machine-learning-model" label="AI 服务">
-              <Selector
-                class="max-w-150px"
-                value={store.sessionSettings.provider}
-                onChange={(e) => {
-                  setStore(
-                    "sessionSettings",
-                    "provider",
-                    (e.target as HTMLSelectElement).value as IProvider
-                  );
-                  setStore(
-                    "sessionSettings",
-                    "model",
-                    ProviderMap[store.sessionSettings.provider].defaultModel
-                  );
-                }}
-                options={PROVIDER_LIST.map((v) => ({
-                  value: v,
-                  label: v,
-                }))}
-              />
-            </SettingItem>
-            {!store.globalSettings.password && (
-              <SettingItem icon="i-carbon:api" label="API Key">
-                <input
-                  type="password"
-                  value={
-                    store.globalSettings.APIKeys[store.sessionSettings.provider]
-                  }
-                  class="input-box"
-                  onInput={(e) => {
-                    setStore(
-                      "globalSettings",
-                      "APIKeys",
-                      store.sessionSettings.provider,
-                      (e.target as HTMLInputElement).value
-                    );
-                  }}
-                />
-              </SettingItem>
-            )}
-            <SettingItem icon="i-carbon:machine-learning-model" label="模型">
-              <Selector
-                class="max-w-150px"
-                value={store.sessionSettings.model}
-                onChange={(e) => {
-                  setStore(
-                    "sessionSettings",
-                    "model",
-                    (e.target as HTMLSelectElement).value as string
-                  );
-                }}
-                options={ProviderMap[store.sessionSettings.provider].models}
-              />
-            </SettingItem>
-            <SettingItem icon="i-carbon:flow-modeler" label="请求后端转发">
-              <SwitchButton
-                checked={store.globalSettings.requestWithBackend}
-                onChange={(e: any) => {
-                  setStore(
-                    "globalSettings",
-                    "requestWithBackend",
-                    (e.target as HTMLInputElement).checked
-                  );
-                }}
-              />
-            </SettingItem>
-            <SettingItem icon="i-ri:lock-password-line" label="管理员密码">
+      <Show when={actionState.showSetting === "global"}>
+        <div class="<sm:max-h-10em max-h-14em overflow-y-auto">
+          <SettingItem icon="i-carbon:machine-learning-model" label="AI 服务">
+            <Selector
+              class="max-w-150px"
+              value={store.sessionSettings.provider}
+              onChange={(e) => {
+                setStore(
+                  "sessionSettings",
+                  "provider",
+                  (e.target as HTMLSelectElement).value as IProvider,
+                );
+                setStore(
+                  "sessionSettings",
+                  "model",
+                  ProviderMap[store.sessionSettings.provider].defaultModel,
+                );
+              }}
+              options={PROVIDER_LIST.map((v) => ({
+                value: v,
+                label: v,
+              }))}
+            />
+          </SettingItem>
+          {!store.globalSettings.password && (
+            <SettingItem icon="i-carbon:api" label="API Key">
               <input
                 type="password"
-                value={store.globalSettings.password}
+                value={
+                  store.globalSettings.APIKeys[store.sessionSettings.provider]
+                }
                 class="input-box"
                 onInput={(e) => {
                   setStore(
                     "globalSettings",
-                    "password",
-                    (e.target as HTMLInputElement).value
+                    "APIKeys",
+                    store.sessionSettings.provider,
+                    (e.target as HTMLInputElement).value,
                   );
                 }}
               />
             </SettingItem>
-            <SettingItem icon="i-carbon:keyboard" label="Enter 键发送消息">
-              <SwitchButton
-                checked={store.globalSettings.enterToSend}
-                onChange={(e) => {
-                  setStore(
-                    "globalSettings",
-                    "enterToSend",
-                    (e.target as HTMLInputElement).checked
-                  );
-                }}
-              />
-            </SettingItem>
-          </div>
-          <hr class="my-1 bg-slate-5 bg-op-15 border-none h-1px"></hr>
-          <div class="flex">
-            <ActionItem
-              label="导出"
-              onClick={exportData}
-              icon="i-carbon:export"
+          )}
+          <SettingItem icon="i-carbon:machine-learning-model" label="模型">
+            <Selector
+              class="max-w-150px"
+              value={store.sessionSettings.model}
+              onChange={(e) => {
+                setStore(
+                  "sessionSettings",
+                  "model",
+                  (e.target as HTMLSelectElement).value as string,
+                );
+              }}
+              options={ProviderMap[store.sessionSettings.provider].models}
             />
-            <ActionItem
-              label="导入"
-              onClick={importData}
-              icon="i-carbon:download"
+          </SettingItem>
+          <SettingItem icon="i-carbon:flow-modeler" label="请求后端转发">
+            <SwitchButton
+              checked={store.globalSettings.requestWithBackend}
+              onChange={(e: any) => {
+                setStore(
+                  "globalSettings",
+                  "requestWithBackend",
+                  (e.target as HTMLInputElement).checked,
+                );
+              }}
             />
-          </div>
+          </SettingItem>
+          <SettingItem icon="i-ri:lock-password-line" label="管理员密码">
+            <input
+              type="password"
+              value={store.globalSettings.password}
+              class="input-box"
+              onInput={(e) => {
+                setStore(
+                  "globalSettings",
+                  "password",
+                  (e.target as HTMLInputElement).value,
+                );
+              }}
+            />
+          </SettingItem>
+          <SettingItem icon="i-carbon:keyboard" label="Enter 键发送消息">
+            <SwitchButton
+              checked={store.globalSettings.enterToSend}
+              onChange={(e) => {
+                setStore(
+                  "globalSettings",
+                  "enterToSend",
+                  (e.target as HTMLInputElement).checked,
+                );
+              }}
+            />
+          </SettingItem>
         </div>
-        <form method="dialog" class="modal-backdrop">
-          <button>close</button>
-        </form>
-      </dialog>
-      <dialog
-        id="show-setting-session"
-        class="modal modal-bottom sm:modal-middle"
-      >
-        <div class="modal-box">
-          <div class="<sm:max-h-10em max-h-14em overflow-y-auto">
-            <Show when={store.sessionId !== "index"}>
-              <SettingItem
-                icon="i-carbon:text-annotation-toggle"
-                label="对话标题"
-              >
-                <input
-                  type="text"
-                  value={store.sessionSettings.title}
-                  class="input-box text-ellipsis"
-                  onInput={(e) => {
-                    setStore(
-                      "sessionSettings",
-                      "title",
-                      (e.target as HTMLInputElement).value
-                    );
-                  }}
-                />
-              </SettingItem>
-            </Show>
-            <SettingItem icon="i-carbon:data-enrichment" label="思维发散程度">
-              <div class="flex items-center justify-between w-150px">
-                <input
-                  type="range"
-                  min={0}
-                  max={100}
-                  value={String(store.sessionSettings.APITemperature * 50)}
-                  class="bg-slate max-w-100px w-full h-2 bg-op-15 rounded-lg appearance-none cursor-pointer accent-slate"
-                  onInput={(e) => {
-                    setStore(
-                      "sessionSettings",
-                      "APITemperature",
-                      Number((e.target as HTMLInputElement).value) / 50
-                    );
-                  }}
-                />
-                <span class="bg-slate bg-op-15 rounded-sm px-1 text-10px">
-                  {store.sessionSettings.APITemperature.toFixed(2)}
-                </span>
-              </div>
-            </SettingItem>
-            <SettingItem icon="i-carbon:save-image" label="记录对话内容">
-              <SwitchButton
-                checked={store.sessionSettings.saveSession}
-                onChange={(e) => {
-                  setStore(
-                    "sessionSettings",
-                    "saveSession",
-                    (e.target as HTMLInputElement).checked
-                  );
-                }}
-              />
-            </SettingItem>
+        <hr class="my-1 bg-slate-5 bg-op-15 border-none h-1px"></hr>
+        <div class="flex">
+          <ActionItem
+            label="导出"
+            onClick={exportData}
+            icon="i-carbon:export"
+          />
+          <ActionItem
+            label="导入"
+            onClick={importData}
+            icon="i-carbon:download"
+          />
+        </div>
+      </Show>
+      <Show when={actionState.showSetting === "session"}>
+        <div class="<sm:max-h-10em max-h-14em overflow-y-auto">
+          <Show when={store.sessionId !== "index"}>
             <SettingItem
-              icon="i-carbon:3d-curve-auto-colon"
-              label="开启连续对话"
+              icon="i-carbon:text-annotation-toggle"
+              label="对话标题"
             >
-              <SwitchButton
-                checked={store.sessionSettings.continuousDialogue}
-                onChange={(e) => {
+              <input
+                type="text"
+                value={store.sessionSettings.title}
+                class="input-box text-ellipsis"
+                onInput={(e) => {
                   setStore(
                     "sessionSettings",
-                    "continuousDialogue",
-                    (e.target as HTMLInputElement).checked
+                    "title",
+                    (e.target as HTMLInputElement).value,
                   );
                 }}
               />
             </SettingItem>
-          </div>
-          <hr class="my-1 bg-slate-5 bg-op-15 border-none h-1px"></hr>
-          <div class="flex justify-end">
+          </Show>
+          <SettingItem icon="i-carbon:data-enrichment" label="思维发散程度">
+            <div class="flex items-center justify-between w-150px">
+              <input
+                type="range"
+                min={0}
+                max={100}
+                value={String(store.sessionSettings.APITemperature * 50)}
+                class="bg-slate max-w-100px w-full h-2 bg-op-15 rounded-lg appearance-none cursor-pointer accent-slate"
+                onInput={(e) => {
+                  setStore(
+                    "sessionSettings",
+                    "APITemperature",
+                    Number((e.target as HTMLInputElement).value) / 50,
+                  );
+                }}
+              />
+              <span class="bg-slate bg-op-15 rounded-sm px-1 text-10px">
+                {store.sessionSettings.APITemperature.toFixed(2)}
+              </span>
+            </div>
+          </SettingItem>
+          <SettingItem icon="i-carbon:save-image" label="记录对话内容">
+            <SwitchButton
+              checked={store.sessionSettings.saveSession}
+              onChange={(e) => {
+                setStore(
+                  "sessionSettings",
+                  "saveSession",
+                  (e.target as HTMLInputElement).checked,
+                );
+              }}
+            />
+          </SettingItem>
+          <SettingItem icon="i-carbon:3d-curve-auto-colon" label="开启连续对话">
+            <SwitchButton
+              checked={store.sessionSettings.continuousDialogue}
+              onChange={(e) => {
+                setStore(
+                  "sessionSettings",
+                  "continuousDialogue",
+                  (e.target as HTMLInputElement).checked,
+                );
+              }}
+            />
+          </SettingItem>
+        </div>
+        <hr class="my-1 bg-slate-5 bg-op-15 border-none h-1px"></hr>
+        <div class="flex justify-end">
+          <ActionItem
+            onClick={async () => {
+              let sessionID: string;
+              do {
+                sessionID = generateId();
+              } while (await getSession(sessionID));
+              await setSession(sessionID, {
+                id: sessionID,
+                lastVisit: Date.now(),
+                settings: {
+                  ...defaultEnv.CLIENT_SESSION_SETTINGS,
+                  title: "新的对话",
+                },
+                messages: [],
+              });
+              navigator(`/session/${sessionID}`);
+              loadSession(sessionID);
+            }}
+            icon="i-carbon:add-alt"
+            label="新的对话"
+          />
+          <Show when={store.sessionId !== "index"}>
             <ActionItem
               onClick={async () => {
-                let sessionID: string;
-                do {
-                  sessionID = generateId();
-                } while (await getSession(sessionID));
-                await setSession(sessionID, {
-                  id: sessionID,
-                  lastVisit: Date.now(),
-                  settings: {
-                    ...defaultEnv.CLIENT_SESSION_SETTINGS,
-                    title: "新的对话",
-                  },
-                  messages: [],
-                });
-                navigator(`/session/${sessionID}`);
-                loadSession(sessionID);
+                await copyToClipboard(
+                  window.location.origin + window.location.pathname,
+                );
+                setActionState("success", "link");
+                setTimeout(() => setActionState("success", false), 1000);
               }}
-              icon="i-carbon:add-alt"
-              label="新的对话"
+              icon={
+                actionState.success === "link"
+                  ? "i-carbon:status-resolved dark:text-yellow text-yellow-6"
+                  : "i-carbon:link"
+              }
+              label="复制链接"
             />
-            <Show when={store.sessionId !== "index"}>
-              <ActionItem
-                onClick={async () => {
-                  await copyToClipboard(
-                    window.location.origin + window.location.pathname
+            <ActionItem
+              onClick={() => {
+                if (actionState.deleteSessionConfirm) {
+                  setActionState("deleteSessionConfirm", false);
+                  delSession(store.sessionId);
+                  navigator("/", { replace: true });
+                  loadSession("index");
+                } else {
+                  setActionState("deleteSessionConfirm", true);
+                  setTimeout(
+                    () => setActionState("deleteSessionConfirm", false),
+                    3000,
                   );
-                  setActionState("success", "link");
-                  setTimeout(() => setActionState("success", false), 1000);
-                }}
-                icon={
-                  actionState.success === "link"
-                    ? "i-carbon:status-resolved dark:text-yellow text-yellow-6"
-                    : "i-carbon:link"
                 }
-                label="复制链接"
-              />
-              <ActionItem
-                onClick={() => {
-                  if (actionState.deleteSessionConfirm) {
-                    setActionState("deleteSessionConfirm", false);
-                    delSession(store.sessionId);
-                    navigator("/", { replace: true });
-                    loadSession("index");
-                  } else {
-                    setActionState("deleteSessionConfirm", true);
-                    setTimeout(
-                      () => setActionState("deleteSessionConfirm", false),
-                      3000
-                    );
-                  }
-                }}
-                icon={
-                  actionState.deleteSessionConfirm
-                    ? "i-carbon:checkmark animate-bounce text-red-6 dark:text-red"
-                    : "i-carbon:trash-can"
-                }
-                label={actionState.deleteSessionConfirm ? "确定" : "删除对话"}
-              />
-            </Show>
-          </div>
+              }}
+              icon={
+                actionState.deleteSessionConfirm
+                  ? "i-carbon:checkmark animate-bounce text-red-6 dark:text-red"
+                  : "i-carbon:trash-can"
+              }
+              label={actionState.deleteSessionConfirm ? "确定" : "删除对话"}
+            />
+          </Show>
         </div>
-        <form method="dialog" class="modal-backdrop">
-          <button>close</button>
-        </form>
-      </dialog>
+      </Show>
       <div class="flex items-center justify-between">
         <div class="flex">
           <ActionItem
             onClick={() => {
               setActionState("showSetting", (k) =>
-                k !== "global" ? "global" : "none"
+                k !== "global" ? "global" : "none",
               );
-              (
-                document.getElementById(
-                  "show-setting-global"
-                ) as HTMLDialogElement
-              ).showModal();
             }}
             icon="i-carbon:settings"
             label="全局设置"
@@ -343,13 +319,8 @@ export default function SettingAction() {
           <ActionItem
             onClick={() => {
               setActionState("showSetting", (k) =>
-                k !== "session" ? "session" : "none"
+                k !== "session" ? "session" : "none",
               );
-              (
-                document.getElementById(
-                  "show-setting-session"
-                ) as HTMLDialogElement
-              ).showModal();
             }}
             icon="i-carbon:settings-services"
             label="对话设置"
@@ -432,7 +403,7 @@ export default function SettingAction() {
                 setActionState("clearSessionConfirm", true);
                 setTimeout(
                   () => setActionState("clearSessionConfirm", false),
-                  3000
+                  3000,
                 );
               }
             }}
@@ -481,7 +452,7 @@ function ActionItem(props: { onClick: any; icon: string; label?: string }) {
 async function exportJpg() {
   try {
     const messageContainer = document.querySelector(
-      "#message-container-img"
+      "#message-container-img",
     ) as HTMLElement;
     async function downloadIMG() {
       const url = await toJpeg(messageContainer, { skipFonts: true });
@@ -527,14 +498,14 @@ async function exportMD(messages: ChatMessage[]) {
       .map((k) => {
         return `> ${k[0].content}\n\n${k[1].content}`;
       })
-      .join("\n\n---\n\n")
+      .join("\n\n---\n\n"),
   );
 }
 
 async function exportData() {
   const a = document.createElement("a");
   a.href = URL.createObjectURL(
-    new Blob([JSON.stringify(localStorage)], { type: "application/json" })
+    new Blob([JSON.stringify(localStorage)], { type: "application/json" }),
   );
   a.download = `ChatGPT-${dateFormat(new Date(), "HH-MM-SS")}.json`;
   a.click();

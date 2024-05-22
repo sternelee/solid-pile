@@ -30,7 +30,7 @@ export const APIKeys = {
   "together-ai": "",
   "mistral-ai": "",
   // claude: "",
-  // "workers-ai": "",
+  "workers-ai": "",
   // coze: "",
 };
 

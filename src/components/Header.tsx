@@ -3,13 +3,13 @@ import { useNavigate } from "@solidjs/router";
 import { RootStore, loadSession } from "~/store";
 import ThemeToggle from "./ThemeToggle";
 import AuthLogin from "./AuthLogin";
-import  ProviderMap  from "~/providers";
+import ProviderMap from "~/providers";
 import { scrollToBottom } from "~/utils";
 
 function splitEmoji(text: string) {
   const [icon, title] = text
     .split(
-      /^([\u{1F300}-\u{1F64F}\u{1F680}-\u{1F6FF}\u{2600}-\u{26FF}\u{2700}-\u{27BF}\u{1F900}-\u{1F9FF}\u{1F1E0}-\u{1F1FF}])\s*(.+)$/u
+      /^([\u{1F300}-\u{1F64F}\u{1F680}-\u{1F6FF}\u{2600}-\u{26FF}\u{2700}-\u{27BF}\u{1F900}-\u{1F9FF}\u{1F1E0}-\u{1F1FF}])\s*(.+)$/u,
     )
     .filter(Boolean);
   if (title)
@@ -18,7 +18,7 @@ function splitEmoji(text: string) {
       title,
     };
   return {
-    icon: '',
+    icon: "",
     title: icon,
   };
 }
@@ -63,10 +63,17 @@ export default function Header() {
               <a
                 href={ProviderMap[store.sessionSettings.provider].href}
                 target="_blank"
-                class={`inline-block text-8 ${[
-                  ProviderMap[store.sessionSettings.provider].icon,
-                ]}`}
-              ></a>
+                class="inline-block"
+              >
+                {
+                  /**
+                <img
+                  class="w-30px h-30px"
+                  src={`/${store.sessionSettings.provider}.svg`}
+                />
+                   * */
+                }
+              </a>
               <span
                 onClick={() => scrollToBottom(0)}
                 class="flash-logo cursor-pointer text-5 font-bold ml-4"
