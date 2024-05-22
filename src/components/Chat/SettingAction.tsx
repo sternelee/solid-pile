@@ -161,7 +161,7 @@ export default function SettingAction() {
           </SettingItem>
         </div>
         <hr class="my-1 bg-slate-5 bg-op-15 border-none h-1px"></hr>
-        <div class="flex">
+        <div class="flex justify-end">
           <ActionItem
             label="导出"
             onClick={exportData}
