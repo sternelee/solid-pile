@@ -225,7 +225,7 @@ export default function () {
     if (!response.ok) {
       const res = (await response.json()) as any;
       console.log(res);
-      throw new Error(res.error.message);
+      throw new Error(res.message);
     }
     const data = response.body;
     if (!data) {

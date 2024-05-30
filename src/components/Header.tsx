@@ -63,16 +63,8 @@ export default function Header() {
               <a
                 href={ProviderMap[store.sessionSettings.provider].href}
                 target="_blank"
-                class="inline-block"
+                class={`inline-block text-8 ${ProviderMap[store.sessionSettings.provider].icon}`}
               >
-                {
-                  /**
-                <img
-                  class="w-30px h-30px"
-                  src={`/${store.sessionSettings.provider}.svg`}
-                />
-                   * */
-                }
               </a>
               <span
                 onClick={() => scrollToBottom(0)}

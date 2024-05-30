@@ -31,7 +31,7 @@ export const APIKeys = {
   "mistral-ai": "",
   // claude: "",
   "workers-ai": "",
-  // coze: "",
+  'coze.com': "",
 };
 
 export const PROVIDER_LIST = Object.keys(APIKeys);
@@ -51,6 +51,6 @@ export default {
   "workers-ai": workersAi,
   "atom-llama": atomLlama,
   deepseek,
-  coze,
+  "coze.com": coze,
   cohere,
 };
