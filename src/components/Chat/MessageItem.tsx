@@ -146,9 +146,8 @@ export default function MessageItem(props: Props) {
         when={avatar() && props.message.role === "user"}
         fallback={
           <div
-            class={`shadow-slate-5 shadow-sm dark:shadow-none shrink-0 w-7 h-7 rounded-full op-80 flex items-center justify-center cursor-pointer ${
-              roleClass[props.message.role]
-            }`}
+            class={`shadow-slate-5 shadow-sm dark:shadow-none shrink-0 w-7 h-7 rounded-full op-80 flex items-center justify-center cursor-pointer ${roleClass[props.message.role]
+              }`}
             classList={{
               "animate-spin": props.message.type === "temporary",
             }}
@@ -175,13 +174,14 @@ export default function MessageItem(props: Props) {
       </Show>
       <div
         class="message prose prose-slate break-all max-w-full dark:prose-invert dark:text-slate break-words overflow-hidden"
-        innerHTML={renderedMarkdown()}
-      />
-      <Show when={!props.hiddenModel}>
-        <div class="absolute bottom-[-22px] left-50px badge badge-neutral">
-          {props.message.provider}: {props.message.model}
-        </div>
-      </Show>
+      >
+        <Show when={!props.hiddenModel}>
+          <div class="badge badge-neutral">
+            {props.message.provider}: {props.message.model}
+          </div>
+        </Show>
+        <div innerHTML={renderedMarkdown()} />
+      </div>
       <Show when={!props.hiddenAction}>
         <MessageAction
           del={del}

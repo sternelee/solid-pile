@@ -19,13 +19,13 @@ export default {
       output: 0,
       context_length: 32000,
     },
-    // {
-    //   value: "gemini-1.5-flash-preview-0514",
-    //   label: 'Gemini-1.5-Flash',
-    //   input: 0,
-    //   output: 0,
-    //   context_length: 320000,
-    // }
+    {
+      value: "gemini-1.5-flash-latest",
+      label: 'Gemini-1.5-Flash',
+      input: 0,
+      output: 0,
+      context_length: 320000,
+    }
   ],
   placeholder: "API Key",
 };

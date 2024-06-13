@@ -37,8 +37,9 @@ export async function fetchChat(body: IFetchChatBody) {
 
   const encoder = new TextEncoder();
   const decoder = new TextDecoder();
-  if (provider === "zhipu") {
-    const [id, secret] = key.split(".");
+  if (['zhipu','sensenova'].includes(provider)) {
+    const [id, ...rest] = key.split(".");
+    const secret = rest.join('.')
     let token = "";
     const cacheToken = cache.get(id);
     if (cacheToken) {
@@ -51,12 +52,17 @@ export async function fetchChat(body: IFetchChatBody) {
     if (!token) {
       const timestamp = Date.now();
       const exp = timestamp + 3600 * 1000;
+      const signType = {
+        'zhipu': 'SIGN',
+        'sensenova': 'SIGN'
+      };
       token = await new SignJWT({
         api_key: id,
         exp,
         timestamp,
       })
-        .setProtectedHeader({ alg: "HS256", sign_type: "SIGN" })
+        // @ts-ignore
+        .setProtectedHeader({ alg: "HS256", sign_type: signType[provider] || "JWT" })
         .sign(encoder.encode(secret));
       cache.set(id, {
         token,

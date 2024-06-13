@@ -13,6 +13,7 @@ import deepseek from "./deepseek";
 import coze from "./coze";
 import atomLlama from "./atom-llama";
 import cohere from "./cohere";
+import sensenova from "./sensenova";
 
 export const APIKeys = {
   deepseek: "",
@@ -32,6 +33,7 @@ export const APIKeys = {
   // claude: "",
   "workers-ai": "",
   'coze.com': "",
+  sensenova: "",
 };
 
 export const PROVIDER_LIST = Object.keys(APIKeys);
@@ -53,4 +55,5 @@ export default {
   deepseek,
   "coze.com": coze,
   cohere,
+  sensenova,
 };
