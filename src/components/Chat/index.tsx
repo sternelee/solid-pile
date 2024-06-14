@@ -164,7 +164,6 @@ export default function () {
         }
         setStore("loading", true);
         setStore("inputImage", "");
-        controller = new AbortController();
         // 在关闭连续对话时，有效上下文只包含了锁定的对话。
         await fetchGPT(
           // @ts-ignore
@@ -200,6 +199,7 @@ export default function () {
 
   async function fetchGPT(messages: ChatMessage[]) {
     let response: Response;
+    controller = new AbortController();
     const body = {
       messages,
       key:
