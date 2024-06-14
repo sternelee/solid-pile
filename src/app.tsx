@@ -3,7 +3,6 @@ import { Suspense } from "solid-js";
 import { MetaProvider, Meta, Link } from "@solidjs/meta";
 import { Router } from "@solidjs/router";
 import { FileRoutes } from "@solidjs/start/router";
-import { SessionProvider } from "@solid-mediakit/auth/client";
 import PrefixTitle from "./components/PrefixTitle";
 // @ts-ignore
 import { pwaInfo } from "virtual:pwa-info";
@@ -24,7 +23,7 @@ export default function App() {
           )}
           <PrefixTitle>Lee</PrefixTitle>
           <Suspense>
-            <SessionProvider>{props.children}</SessionProvider>
+            {props.children}
           </Suspense>
         </MetaProvider>
       )}

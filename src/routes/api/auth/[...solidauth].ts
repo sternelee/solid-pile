@@ -1,10 +1,10 @@
-import { SolidAuth, type SolidAuthConfig } from '@solid-mediakit/auth'
+import { SolidAuth, type SolidAuthConfig } from "@auth/solid-start"
 import GitHub from '@auth/core/providers/github'
 import Google from '@auth/core/providers/google'
 
 // 线上设置环境变量: export AUTH_URL="https://pile.leeapps.dev/api/auth"
 
-const authOpts: SolidAuthConfig = {
+export const authOpts: SolidAuthConfig = {
   providers: [
     GitHub({
       clientId: process.env.GITHUB_ID,
