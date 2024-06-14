@@ -24,7 +24,7 @@ export default function App() {
           )}
           <PrefixTitle>Lee</PrefixTitle>
           <Suspense>
-            <SessionProvider>{props.children}</SessionProvider>
+            <SessionProvider refetchOnWindowFocus={false}>{props.children}</SessionProvider>
           </Suspense>
         </MetaProvider>
       )}
