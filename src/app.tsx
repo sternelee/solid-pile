@@ -2,6 +2,7 @@
 import { Suspense } from "solid-js";
 import { MetaProvider, Meta, Link } from "@solidjs/meta";
 import { Router } from "@solidjs/router";
+import { SessionProvider } from "@solid-mediakit/auth/client";
 import { FileRoutes } from "@solidjs/start/router";
 import PrefixTitle from "./components/PrefixTitle";
 // @ts-ignore
@@ -23,7 +24,9 @@ export default function App() {
           )}
           <PrefixTitle>Lee</PrefixTitle>
           <Suspense>
-            {props.children}
+            <SessionProvider refetchOnWindowFocus={false}>
+              {props.children}
+            </SessionProvider>
           </Suspense>
         </MetaProvider>
       )}
