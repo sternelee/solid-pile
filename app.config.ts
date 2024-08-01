@@ -1,13 +1,14 @@
-import 'dotenv/config'
+import "dotenv/config";
 import { defineConfig } from "@solidjs/start/config";
 import unocss from "unocss/vite";
 import {
-  presetUno,
   presetIcons,
   presetTypography,
+  presetUno,
   transformerDirectives,
   transformerVariantGroup,
 } from "unocss";
+import { presetExtra } from "unocss-preset-extra";
 import { presetDaisy } from "@unscatty/unocss-preset-daisy";
 import { VitePWA } from "vite-plugin-pwa";
 
@@ -52,6 +53,7 @@ export default defineConfig({
             },
           }),
           presetIcons(),
+          presetExtra(),
         ],
         shortcuts: {
           "input-box":

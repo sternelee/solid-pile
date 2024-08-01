@@ -4,7 +4,7 @@ import Google from '@auth/core/providers/google'
 
 // 线上设置环境变量: export AUTH_URL="https://pile.leeapps.dev/api/auth"
 
-export const authOpts: SolidAuthConfig = {
+const authOpts: SolidAuthConfig = {
   providers: [
     GitHub({
       clientId: process.env.GITHUB_ID,

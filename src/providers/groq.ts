@@ -5,6 +5,27 @@ export default {
   defaultModel: "llama3-8b-8192",
   models: [
     {
+      value: "llama-3.1-405b-reasoning",
+      label: "llama-3.1-405b",
+      input: 0,
+      output: 0,
+      context_length: 64000,
+    },
+    {
+      value: "llama-3.1-70b-versatile",
+      label: "llama-3.1-70b",
+      input: 0,
+      output: 0,
+      context_length: 32000,
+    },
+    {
+      value: "llama-3.1-8b-instant",
+      label: "llama-3.1-8b",
+      input: 0,
+      output: 0,
+      context_length: 8000,
+    },
+    {
       value: "llama3-8b-8192",
       label: "LLaMA3 8b",
       input: 0,
