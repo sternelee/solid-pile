@@ -4,6 +4,7 @@ import { RootStore, loadSession } from "~/store";
 import ThemeToggle from "./ThemeToggle";
 import ProviderMap from "~/providers";
 import { scrollToBottom } from "~/utils";
+import AuthLogin from "./AuthLogin";
 
 function splitEmoji(text: string) {
   const [icon, title] = text
@@ -74,6 +75,7 @@ export default function Header() {
             </>
           )}
         </div>
+        <AuthLogin />
         <ThemeToggle />
       </header>
     </>

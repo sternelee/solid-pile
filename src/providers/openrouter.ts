@@ -4,7 +4,7 @@ export default {
   icon: "i-simple-icons-alwaysdata",
   name: "OpenRouter",
   href: "https://openrouter.ai/keys",
-  defaultModel: "openai/gpt-3.5-turbo",
+  defaultModel: "openrouter/auto",
   models: Models.data.map((v) => ({
     value: v.id,
     label: v.name,
