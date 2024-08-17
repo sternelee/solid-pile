@@ -1,5 +1,5 @@
 export default {
-  icon: "i-simple-icons-icomoon",
+  icon: "i-simple-icons-openai",
   name: "硅基流动",
   href: "https://cloud.siliconflow.cn/account/ak",
   defaultModel: "internlm/internlm2_5-20b-chat",

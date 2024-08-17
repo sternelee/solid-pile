@@ -3,6 +3,19 @@ body {
   line-height: inherit;
 }
 
+/* @font-face { */
+/*   font-family: FontWithASyntaxHighlighter; */
+/*   src: url("/FontWithASyntaxHighlighter-Regular.woff2") */
+/*     format("woff2"); */
+/*   font-weight: 400; */
+/*   font-style: normal; */
+/* } */
+
+/* code, */
+/* kbd { */
+/*   font-family: FontWithASyntaxHighlighter !important; */
+/* } */
+/**/
 :root {
   view-transition-name: revert !important;
 }

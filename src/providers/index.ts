@@ -25,6 +25,7 @@ export const APIKeys = {
   groq: "",
   moonshot: "",
   zhipu: "",
+  siliconflow: "",
   "atom-llama": "",
   cohere: "",
   lingyi: "",
@@ -35,7 +36,6 @@ export const APIKeys = {
   "workers-ai": "",
   'coze.com': "",
   sensenova: "",
-  siliconflow: "",
 };
 
 export const PROVIDER_LIST = Object.keys(APIKeys);
@@ -47,6 +47,7 @@ export default {
   google,
   claude,
   groq,
+  siliconflow,
   "mistral-ai": mistralAi,
   "together-ai": togetherAi,
   moonshot,
@@ -58,5 +59,4 @@ export default {
   "coze.com": coze,
   cohere,
   sensenova,
-  siliconflow,
 };
