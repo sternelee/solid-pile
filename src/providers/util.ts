@@ -94,7 +94,7 @@ export async function fetchChat(body: IFetchChatBody) {
       method: "POST",
       signal: abortController.signal,
       body: JSON.stringify({
-        model: `${provider}#${model}`,
+        model: `${provider}:${model}`,
         messages: messages.map((k) => ({ role: k.role, content: k.content })),
         temperature,
         stream: true,
