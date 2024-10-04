@@ -38,6 +38,8 @@ export default function Header() {
         <div class="flex-1 flex items-center">
           {store.sessionSettings.title && (
             <>
+							{
+								/**
               <a
                 href={ProviderMap[store.sessionSettings.provider].href}
                 aria-label="API Key Link"
@@ -46,6 +48,8 @@ export default function Header() {
                   ProviderMap[store.sessionSettings.provider].icon,
                 ]}`}
               ></a>
+									*/
+							}
               <span
                 class="font-extrabold cursor-pointer"
                 onClick={() => {
@@ -59,12 +63,16 @@ export default function Header() {
           )}
           {!store.sessionSettings.title && (
             <>
+						{
+							/**
               <a
                 href={ProviderMap[store.sessionSettings.provider].href}
                 target="_blank"
                 class={`inline-block text-8 ${ProviderMap[store.sessionSettings.provider].icon}`}
               >
               </a>
+								*/
+						}
               <span
                 onClick={() => scrollToBottom(0)}
                 class="flash-logo cursor-pointer text-5 font-bold ml-4"

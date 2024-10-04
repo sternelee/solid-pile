@@ -1,7 +1,7 @@
-import openai from "./openai";
+// import openai from "./openai";
 import openrouter from "./openrouter";
 import google from "./google";
-import claude from "./claude";
+// import claude from "./claude";
 import groq from "./groq";
 import mistralAi from "./mistral-ai";
 import togetherAi from "./together-ai";
@@ -13,8 +13,9 @@ import deepseek from "./deepseek";
 import coze from "./coze";
 import atomLlama from "./atom-llama";
 import cohere from "./cohere";
-import sensenova from "./sensenova";
+// import sensenova from "./sensenova";
 import siliconflow from "./siliconflow";
+// import xiaohongshu from "./xiaohongshu";
 
 export const APIKeys = {
   deepseek: "",
@@ -33,19 +34,20 @@ export const APIKeys = {
   "together-ai": "",
   "mistral-ai": "",
   // claude: "",
-  "workers-ai": "",
-  'coze.com': "",
-  sensenova: "",
+  // "workers-ai": "",
+  // 'coze.com': "",
+  // sensenova: "",
+	// xiaohongshu: "",
 };
 
 export const PROVIDER_LIST = Object.keys(APIKeys);
 export type IProvider = keyof typeof APIKeys;
 
 export default {
-  openai,
+  // openai,
   openrouter,
   google,
-  claude,
+  // claude,
   groq,
   siliconflow,
   "mistral-ai": mistralAi,
@@ -53,10 +55,11 @@ export default {
   moonshot,
   lingyi,
   zhipu,
-  "workers-ai": workersAi,
+  // "workers-ai": workersAi,
   "atom-llama": atomLlama,
   deepseek,
-  "coze.com": coze,
+  // "coze.com": coze,
   cohere,
-  sensenova,
+  // sensenova,
+	// xiaohongshu,
 };

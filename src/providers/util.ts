@@ -1,6 +1,6 @@
 import type { ParsedEvent, ReconnectInterval } from "eventsource-parser";
 import { createParser } from "eventsource-parser";
-import { SignJWT } from "jose";
+// import { SignJWT } from "jose";
 import type { ChatMessage, Model } from "~/types";
 import { type IProvider } from "~/providers";
 
@@ -37,49 +37,48 @@ export async function fetchChat(body: IFetchChatBody) {
 
   const encoder = new TextEncoder();
   const decoder = new TextDecoder();
-  if (['zhipu','sensenova'].includes(provider)) {
-    const [id, ...rest] = key.split(".");
-    const secret = rest.join('.')
-    let token = "";
-    const cacheToken = cache.get(id);
-    if (cacheToken) {
-      if (cacheToken.exp <= Date.now()) {
-        cache.delete(id);
-      } else {
-        token = cacheToken.token;
-      }
-    }
-    if (!token) {
-      const timestamp = Date.now();
-      const exp = timestamp + 3600 * 1000;
-      const signType = {
-        'zhipu': 'SIGN',
-        'sensenova': 'SIGN'
-      };
-      token = await new SignJWT({
-        api_key: id,
-        exp,
-        timestamp,
-      })
-        // @ts-ignore
-        .setProtectedHeader({ alg: "HS256", sign_type: signType[provider] || "JWT" })
-        .sign(encoder.encode(secret));
-      cache.set(id, {
-        token,
-        exp,
-      });
-    }
-    key = token;
-  }
+  // if (['sensenova'].includes(provider)) {
+  //   const [id, ...rest] = key.split(".");
+  //   const secret = rest.join('.')
+  //   let token = "";
+  //   const cacheToken = cache.get(id);
+  //   if (cacheToken) {
+  //     if (cacheToken.exp <= Date.now()) {
+  //       cache.delete(id);
+  //     } else {
+  //       token = cacheToken.token;
+  //     }
+  //   }
+  //   if (!token) {
+  //     const timestamp = Date.now();
+  //     const exp = timestamp + 3600 * 1000;
+  //     const signType = {
+  //       'sensenova': 'SIGN'
+  //     };
+  //     token = await new SignJWT({
+  //       api_key: id,
+  //       exp,
+  //       timestamp,
+  //     })
+  //       // @ts-ignore
+  //       .setProtectedHeader({ alg: "HS256", sign_type: signType[provider] || "JWT" })
+  //       .sign(encoder.encode(secret));
+  //     cache.set(id, {
+  //       token,
+  //       exp,
+  //     });
+  //   }
+  //   key = token;
+  // }
 
   const headers: { [key: string]: string } = {
     "Content-Type": "application/json",
     Authorization: `Bearer ${key}`,
   };
 
-  if (provider === "workers-ai") {
-    headers["x-portkey-workers-ai-account-id"] = process.env.CF_ID || "";
-  }
+  // if (provider === "workers-ai") {
+  //   headers["x-portkey-workers-ai-account-id"] = process.env.CF_ID || "";
+  // }
   // if (model === 'gemini-1.5-flash-preview-0514') {
   //   // @ts-ignore
   //   provider = 'vertex-ai'
@@ -197,3 +196,13 @@ export async function fetchChat(body: IFetchChatBody) {
     );
   }
 }
+
+export const FakeHeaders  = {
+	"Accept":          "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+	"Accept-Charset":  "UTF-8,*;q=0.5",
+	"Accept-Encoding": "gzip,deflate,sdch",
+	"Accept-Language": "en-US,en;q=0.8",
+	"User-Agent":      "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.81 Safari/537.36",
+}
+
+export const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
